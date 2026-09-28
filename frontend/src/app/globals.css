@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+:root {
+  --bg-dark: #0a0d24;
+  --bg-navy: #12183F;
+  --bg-navy-light: #1a2254;
+  --primary-purple: #6150EA;
+  --primary-purple-hover: #7566f0;
+  --accent-cyan: #2EF2C2;
+  --accent-cyan-hover: #4af5cd;
+  --accent-gold: #f59e0b;
+  --text-primary: #F2F4FF;
+  --text-muted: #9FA9D8;
+  --border-glass: rgba(97, 80, 234, 0.25);
+  --border-highlight: rgba(46, 242, 194, 0.35);
+}
+
+body {
+  background-color: var(--bg-dark);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(97, 80, 234, 0.2) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(46, 242, 194, 0.12) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(18, 24, 63, 0.9) 0px, transparent 65%);
+  color: var(--text-primary);
+  font-family: var(--font-cairo), sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.font-quran {
+  font-family: var(--font-amiri), serif;
+}
+
+/* Glassmorphism styling */
+.glass-panel {
+  background: rgba(18, 24, 63, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glass);
+}
+
+.glass-panel-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-panel-hover:hover {
+  background: rgba(26, 34, 84, 0.85);
+  border-color: rgba(46, 242, 194, 0.45);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -10px rgba(46, 242, 194, 0.2);
+}
+
+.sacred-card {
+  background: linear-gradient(135deg, rgba(18, 24, 63, 0.95), rgba(15, 35, 60, 0.95));
+  border: 1.5px solid rgba(46, 242, 194, 0.55);
+  box-shadow: 0 0 25px rgba(46, 242, 194, 0.15), inset 0 0 15px rgba(46, 242, 194, 0.05);
+}
+
+.guardrail-blocked-card {
+  background: linear-gradient(135deg, rgba(45, 15, 25, 0.92), rgba(25, 10, 20, 0.95));
+  border: 1.5px solid rgba(244, 63, 94, 0.65);
+  box-shadow: 0 0 25px rgba(244, 63, 94, 0.2);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0d24;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e2756;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #6150EA;
+}

@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LuminousValuesDatasetSchema",
+  "description": "الهيكل القياسي المعتمد لبيانات القيم والمواقف والتأصيل الشرعي ومحفزات الأمان لمشروع قيم مضيئة AI",
+  "type": "object",
+  "required": [
+    "id",
+    "value_name",
+    "fitrah_key",
+    "scenarios",
+    "guardrails"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "المعرّف الفريد للقيمة (مثل: citizenship, volunteering, tolerance, dialogue, peace)"
+    },
+    "value_name": {
+      "type": "object",
+      "description": "اسم القيمة باللغات الأربع المعتمدة",
+      "required": ["ar", "en", "fr", "ur"],
+      "properties": {
+        "ar": { "type": "string" },
+        "en": { "type": "string" },
+        "fr": { "type": "string" },
+        "ur": { "type": "string" }
+      }
+    },
+    "fitrah_key": {
+      "type": "object",
+      "description": "عبارة الفطرة التمهيدية لمخاطبة الوجدان والضمير الإنساني قبل إيراد المصطلح الفقهي",
+      "required": ["ar", "en", "fr", "ur"],
+      "properties": {
+        "ar": { "type": "string" },
+        "en": { "type": "string" },
+        "fr": { "type": "string" },
+        "ur": { "type": "string" }
+      }
+    },
+    "scenarios": {
+      "type": "array",
+      "description": "قائمة المواقف السلوكية الواقعية الموزعة على البيئات الأربع",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "required": [
+          "environment",
+          "title",
+          "observable_situation",
+          "actionable_steps",
+          "islamic_ground_truth"
+        ],
+        "properties": {
+          "environment": {
+            "type": "string",
+            "enum": ["home", "school", "workplace", "digital"]
+          },
+          "title": { "type": "string" },
+          "observable_situation": { "type": "string" },
+          "actionable_steps": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "islamic_ground_truth": {
+            "type": "object",
+            "required": ["source_type", "evidence_text", "reference_source", "verification_url", "tafseer_insight"],
+            "properties": {
+              "source_type": { "type": "string", "enum": ["quran", "hadith"] },
+              "evidence_text": { "type": "string" },
+              "reference_source": { "type": "string" },
+              "authenticity_grade": { "type": "string" },
+              "verification_url": { "type": "string", "format": "uri" },
+              "tafseer_insight": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "guardrails": {
+      "type": "object",
+      "description": "محددات ومحفزات جدار الحماية الشرعي لمنع الفتوى والهلوسة والنزاعات",
+      "required": ["intent_classification", "trigger_queries"],
+      "properties": {
+        "intent_classification": { "type": "string" },
+        "trigger_queries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["query", "trigger_type", "level", "action", "approved_system_response", "justification"],
+            "properties": {
+              "query": { "type": "string" },
+              "trigger_type": { "type": "string" },
+              "level": { "type": "string", "enum": ["level_c", "level_d", "anti_hallucination"] },
+              "action": { "type": "string", "enum": ["refuse_and_refer", "clarify_and_correct", "de_escalate"] },
+              "approved_system_response": { "type": "string" },
+              "justification": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}
