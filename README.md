@@ -5,6 +5,7 @@
 [![تحدي الذكاء الاصطناعي في خدمة المحتوى الإسلامي](https://img.shields.io/badge/مؤسسة%20باذل%20الأهلية-تحدي%20الذكاء%20الاصطناعي-0a2540?style=for-the-badge&logo=shield)](https://IslamicAIch.org)
 [![المسار](https://img.shields.io/badge/المسار_03-التجارب_التفاعلية_والرحلة_المعرفية-7928ca?style=for-the-badge)](#-المسار-المستهدف-ومعيار-النجاح)
 [![الحزمة العلمية](https://img.shields.io/badge/الحزمة_العلمية-مطابقة_100%25-00c58e?style=for-the-badge)](#-مصفوفة-الموثوقية-والسلامة-العلمية-guardrails)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Netlify-00ad9f?style=for-the-badge&logo=netlify)](https://luminous-values-ai.netlify.app)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
 
 ---
@@ -121,6 +122,9 @@ flowchart TD
 
 ## 🖥 وصف صفحة التجربة الحية (Live Demo Flow)
 
+> 🌐 **رابط المنصة المباشر للتجربة والتحكيم (Live Demo):**  
+> 👉 **[https://luminous-values-ai.netlify.app](https://luminous-values-ai.netlify.app)**
+
 تم تصميم واجهة الاستخدام لتمنح المحكم والزائر تجربة سلسة وفاخرة تتسم بالهدوء النفسي والوضوح التام:
 
 1. **الترويسة التفاعلية (Header Bar):**
@@ -149,7 +153,7 @@ flowchart TD
 
 ### 1. استنساخ المستودع
 ```bash
-git clone https://github.com/your-org/luminous-values-ai.git
+git clone https://github.com/SamiKAlzah/luminous-values-ai.git
 cd luminous-values-ai
 ```
 
