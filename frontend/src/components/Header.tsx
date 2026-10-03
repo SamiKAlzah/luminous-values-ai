@@ -4,7 +4,6 @@ import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Globe2, Moon, Gem, Sun } from "lucide-react";
-import AudioToggle from "./AudioToggle";
 import { useLanguage } from "./LanguageProvider";
 import { Khatam } from "./Ornament";
 import { THEMES, useTheme, type ThemeId } from "./useTheme";
@@ -69,10 +68,8 @@ export default function Header() {
           })}
         </nav>
 
-        {/* الأدوات: الصوت واللغة والمظهر */}
+        {/* الأدوات: اللغة والمظهر */}
         <div className="flex flex-wrap items-center gap-2">
-          <AudioToggle />
-
           <label className="flex min-h-11 items-center gap-2 rounded-md border border-line bg-surface-card px-3 text-small text-ink">
             <Globe2 className="h-4 w-4 text-brand" aria-hidden="true" />
             <span className="sr-only">لغة العرض</span>

@@ -8,17 +8,10 @@ import EnvironmentSelector from "../components/EnvironmentSelector";
 import ExperienceCard from "../components/ExperienceCard";
 import GuardrailNotice from "../components/GuardrailNotice";
 import { VALUES_DATA, ENVIRONMENTS, BENCHMARK_TESTS, Scenario } from "../data/localDatasets";
-import { 
-  Sparkles, 
-  Send, 
-  ShieldCheck, 
-  Compass, 
-  RotateCcw, 
-  AlertTriangle,
-  HeartHandshake,
-  CheckCircle2,
-  Info
-} from "lucide-react";
+import { RotateCcw, Send } from "lucide-react";
+import Button, { buttonClasses } from "../components/Button";
+import AudioToggle from "../components/AudioToggle";
+import { HeroArch, OrnamentBand, OrnamentDivider } from "../components/Ornament";
 
 function HomeContent() {
   const { language } = useLanguage();
@@ -191,127 +184,142 @@ function HomeContent() {
   const currentEnvData = ENVIRONMENTS.find((e) => e.id === selectedEnvironment) || ENVIRONMENTS[0];
 
   return (
-    <div className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      <div className="space-y-8">
-            
-            {/* بطاقة الترحيب والفطرة (Hero Section) */}
-            <div className="relative overflow-hidden rounded-3xl p-6 sm:p-10 glass-panel border border-[#6150EA]/30 bg-gradient-to-br from-[#12183F]/90 via-[#12183F]/60 to-[#1a2254]/80 shadow-[0_10px_40px_rgba(97,80,234,0.15)]">
-              <div className="absolute top-0 left-0 w-80 h-80 bg-[#6150EA]/10 rounded-full blur-3xl pointer-events-none" />
-              <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#2EF2C2]/10 rounded-full blur-3xl pointer-events-none" />
+    <>
+      <OrnamentBand height={48} />
 
-              <div className="relative z-10 max-w-3xl space-y-3">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-[#6150EA]/25 text-[#2EF2C2] border border-[#2EF2C2]/30">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  <span>تحدي الذكاء الاصطناعي في خدمة المحتوى الإسلامي 2026م</span>
-                </div>
-
-                <h1 className="text-2xl sm:text-4xl font-black text-[#F2F4FF] tracking-tight leading-tight">
-                  قيم مضيئة: <span className="bg-gradient-to-r from-[#2EF2C2] via-[#F2F4FF] to-[#6150EA] bg-clip-text text-transparent">من الكلمة إلى الأثر، ومن الفطرة إلى السلوك</span>
-                </h1>
-
-                <p className="text-xs sm:text-sm text-[#9FA9D8] leading-relaxed font-light">
-                  تجربة تفاعلية ذكية تُعيد بناء العلاقة مع القيم الإسلامية؛ تبدأ بمخاطبة الوجدان الإنساني بـ <strong>قاموس الفطرة</strong>، وتترجم القيمة إلى <strong>سلوك واقعي مشاهد</strong>، وتؤصل الموقف بـ <strong>سند شرعي قطعي مع روابط تدقيق فورية</strong> في مجمع الملك فهد والدرر السنية.
-                </p>
-              </div>
-            </div>
-
-            {/* منطقة الاختيار التفاعلي: القيم والبيئات */}
-            <div className="space-y-6">
-              <ValuesSelector
-                selectedValue={selectedValue}
-                onSelectValue={(id) => {
-                  setSelectedValue(id);
-                  resetResults();
-                }}
-                language={language}
-              />
-
-              <EnvironmentSelector
-                selectedEnvironment={selectedEnvironment}
-                onSelectEnvironment={(id) => {
-                  setSelectedEnvironment(id);
-                  resetResults();
-                }}
-                language={language}
-              />
-            </div>
-
-            {/* شريط الاستفسار المخصص والمحاكاة */}
-            <div className="p-4 sm:p-5 rounded-2xl glass-panel border border-[#6150EA]/25 space-y-3">
-              <div className="flex items-center justify-between">
-                <label className="text-xs font-bold text-[#F2F4FF] flex items-center gap-2">
-                  <Compass className="w-4 h-4 text-[#2EF2C2]" />
-                  <span>هل لديك موقف معين تريد اختباره في هذا السياق؟ (اختياري)</span>
-                </label>
-                <span className="text-[11px] text-[#9FA9D8] font-light">
-                  يمكنك أيضاً تجربة أسئلة الاستدراج لاختبار جدار الأمان
-                </span>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-2.5">
-                <input
-                  type="text"
-                  value={customQuery}
-                  onChange={(e) => setCustomQuery(e.target.value)}
-                  placeholder="مثال: كيف أتعامل برقي مع زميل أساء إلي في العمل؟"
-                  className="flex-1 bg-[#0a0d24]/80 border border-[#6150EA]/30 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-[#F2F4FF] placeholder-[#9FA9D8]/50 focus:outline-none focus:border-[#2EF2C2] focus:ring-1 focus:ring-[#2EF2C2]/50 transition-all"
-                />
-
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={() => handleGenerate()}
-                    disabled={loading}
-                    className="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-gradient-to-r from-[#2EF2C2] to-[#4af5cd] text-[#12183F] shadow-[0_4px_20px_rgba(46,242,194,0.35)] hover:opacity-95 active:scale-[0.98] transition-all disabled:opacity-50"
-                  >
-                    {loading ? (
-                      <>
-                        <span className="w-4 h-4 border-2 border-[#12183F] border-t-transparent rounded-full animate-spin" />
-                        <span>جاري التحقق والتأصيل...</span>
-                      </>
-                    ) : (
-                      <>
-                        <Send className="w-4 h-4 rotate-180" />
-                        <span>توليد بطاقة الموقف</span>
-                      </>
-                    )}
-                  </button>
-
-                  {customQuery && (
-                    <button
-                      onClick={() => {
-                        setCustomQuery("");
-                        resetResults();
-                      }}
-                      className="p-2.5 rounded-xl bg-[#12183F] border border-[#6150EA]/30 text-[#9FA9D8] hover:text-[#F2F4FF] transition-colors"
-                      title="إعادة ضبط"
-                    >
-                      <RotateCcw className="w-4 h-4" />
-                    </button>
-                  )}
-                </div>
-              </div>
-            </div>
-
-            {/* شاشة عرض النتيجة أو الاعتراض الشرعي */}
-            <div className="pt-2">
-              {blockedResult ? (
-                <GuardrailNotice
-                  level={blockedResult.level}
-                  responseText={blockedResult.responseText}
-                  justification={blockedResult.justification}
-                />
-              ) : currentScenario ? (
-                <ExperienceCard
-                  scenario={currentScenario}
-                  fitrahKey={currentValData.fitrah_key[language] || currentValData.fitrah_key["ar"]}
-                  valueName={currentValData.value_name[language] || currentValData.value_name["ar"]}
-                  environmentName={language === "ar" ? currentEnvData.name_ar : currentEnvData.name_en}
-                />
-              ) : null}
-            </div>
-
+      <div className="mx-auto w-full max-w-7xl space-y-12 px-4 py-12 sm:px-6 lg:space-y-16 lg:px-8">
+        {/* 1. الترحيب: سطر واحد وزر واحد */}
+        <section className="grid items-center gap-8 rounded-xl border border-line bg-surface-200 p-8 sm:p-12 md:grid-cols-[1fr_auto]">
+          <div>
+            <h1 className="text-h1 text-ink lg:text-display">قيم مضيئة</h1>
+            <p className="mt-3 max-w-2xl text-body text-ink-muted">
+              من الكلمة إلى الأثر، ومن الفطرة إلى السلوك: تجربة تحوّل القيم الإسلامية إلى سلوك ملاحظ
+              مؤصَّل بسند شرعي يمكنك التحقق منه.
+            </p>
+            <a href="#values" className={buttonClasses("primary", "mt-6")}>
+              ابدأ الرحلة
+            </a>
           </div>
-    </div>
+          <HeroArch className="hidden h-56 w-auto md:block" groundClassName="fill-surface-200" />
+        </section>
+
+        {/* 2. اختر القيمة  3. اختر الموضع */}
+        <div className="space-y-12">
+          <div id="values" className="scroll-mt-24">
+            <ValuesSelector
+              selectedValue={selectedValue}
+              onSelectValue={(id) => {
+                setSelectedValue(id);
+                resetResults();
+              }}
+              language={language}
+            />
+          </div>
+
+          <EnvironmentSelector
+            selectedEnvironment={selectedEnvironment}
+            onSelectEnvironment={(id) => {
+              setSelectedEnvironment(id);
+              resetResults();
+            }}
+            language={language}
+          />
+        </div>
+
+        {/* موقف مخصص واختبار جدار الأمان (اختياري) */}
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleGenerate();
+          }}
+          className="space-y-3 rounded-lg border border-line bg-surface-card p-6 shadow-sm"
+        >
+          <label htmlFor="custom-query" className="block text-body font-semibold text-ink">
+            هل لديك موقف معين تريد اختباره في هذا السياق؟ (اختياري)
+          </label>
+          <p className="text-small text-ink-muted">
+            يمكنك أيضاً تجربة أسئلة الاستدراج لاختبار جدار الأمان.
+          </p>
+          <div className="flex flex-col gap-3 sm:flex-row">
+            <input
+              id="custom-query"
+              type="text"
+              value={customQuery}
+              onChange={(e) => setCustomQuery(e.target.value)}
+              placeholder="مثال: كيف أتعامل برقي مع زميل أساء إلي في العمل؟"
+              className="min-h-11 flex-1 rounded-md border border-line bg-surface-100 px-4 text-body text-ink placeholder:text-ink-muted"
+            />
+            <div className="flex items-center gap-2">
+              <Button type="submit" disabled={loading} className="flex-1 sm:flex-initial">
+                {loading ? (
+                  <>
+                    <span
+                      className="h-4 w-4 animate-spin rounded-pill border-2 border-on-brand border-t-transparent"
+                      aria-hidden="true"
+                    />
+                    <span>جاري التحقق والتأصيل...</span>
+                  </>
+                ) : (
+                  <>
+                    <Send className="h-4 w-4 rtl:-scale-x-100" strokeWidth={1.5} aria-hidden="true" />
+                    <span>توليد بطاقة الموقف</span>
+                  </>
+                )}
+              </Button>
+              {customQuery && (
+                <Button
+                  variant="quiet"
+                  aria-label="إعادة ضبط"
+                  title="إعادة ضبط"
+                  onClick={() => {
+                    setCustomQuery("");
+                    resetResults();
+                  }}
+                >
+                  <RotateCcw className="h-4 w-4" strokeWidth={1.5} aria-hidden="true" />
+                </Button>
+              )}
+            </div>
+          </div>
+        </form>
+
+        <OrnamentDivider />
+
+        {/* 4. التجربة: الخطوة السلوكية ثم السند الشرعي ثم المصادر، أو إحالة جدار الأمان */}
+        <section aria-label="التجربة" aria-live="polite">
+          {blockedResult ? (
+            <GuardrailNotice
+              level={blockedResult.level}
+              responseText={blockedResult.responseText}
+              justification={blockedResult.justification}
+            />
+          ) : (
+            <ExperienceCard
+              scenario={currentScenario}
+              fitrahKey={currentValData.fitrah_key[language] || currentValData.fitrah_key["ar"]}
+              valueName={currentValData.value_name[language] || currentValData.value_name["ar"]}
+              environmentName={language === "ar" ? currentEnvData.name_ar : currentEnvData.name_en}
+            />
+          )}
+        </section>
+
+        {/* 5. التأمل: سؤال ختامي قصير والسكينة الصوتية الاختيارية */}
+        <section
+          aria-labelledby="reflection-heading"
+          className="flex flex-col items-start justify-between gap-6 rounded-xl bg-surface-deep p-8 text-ink-on-deep sm:flex-row sm:items-center sm:p-12"
+        >
+          <div>
+            <h2 id="reflection-heading" className="text-h2">
+              لحظة تأمل
+            </h2>
+            <p className="mt-2 max-w-xl text-body">
+              ما الخطوة الواحدة الصغيرة التي ستبدأ بها اليوم؟ يمكنك أن ترافقك السكينة الصوتية أثناء التفكير.
+            </p>
+          </div>
+          <AudioToggle />
+        </section>
+      </div>
+    </>
   );
 }
 
