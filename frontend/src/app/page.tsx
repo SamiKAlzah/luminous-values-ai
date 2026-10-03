@@ -188,12 +188,7 @@ export default function Home() {
   return (
     <div className="flex-1 flex flex-col justify-between">
       {/* الترويسة الرئيسية */}
-      <Header
-        currentTab={currentTab}
-        onTabChange={setCurrentTab}
-        language={language}
-        onLanguageChange={setLanguage}
-      />
+      <Header language={language} onLanguageChange={setLanguage} />
 
       {/* المحتوى الرئيسي */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">

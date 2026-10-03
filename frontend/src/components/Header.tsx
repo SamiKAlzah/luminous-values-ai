@@ -1,149 +1,124 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Globe2, Moon, Gem, Sun } from "lucide-react";
 import AudioPlayer from "./AudioPlayer";
-import { ShieldCheck, Compass, Scale, Globe2 } from "lucide-react";
+import { Khatam } from "./Ornament";
+import { THEMES, useTheme, type ThemeId } from "./useTheme";
 
 interface HeaderProps {
-  currentTab: "experience" | "judges" | "about";
-  onTabChange: (tab: "experience" | "judges" | "about") => void;
   language: string;
   onLanguageChange: (lang: string) => void;
 }
 
-export default function Header({
-  currentTab,
-  onTabChange,
-  language,
-  onLanguageChange,
-}: HeaderProps) {
-  const languages = [
-    { code: "ar", label: "العربية" },
-    { code: "en", label: "English" },
-    { code: "fr", label: "Français" },
-    { code: "ur", label: "اردو" },
-  ];
+const LANGUAGES = [
+  { code: "ar", label: "العربية" },
+  { code: "en", label: "English" },
+  { code: "fr", label: "Français" },
+  { code: "ur", label: "اردو" },
+];
+
+const NAV = [
+  { href: "/", label: "الرحلة" },
+  { href: "/about", label: "حول المنصة والتحقق" },
+];
+
+const THEME_ICONS: Record<ThemeId, React.ComponentType<{ className?: string }>> = {
+  light: Sun,
+  dark: Moon,
+  emerald: Gem,
+};
+
+export default function Header({ language, onLanguageChange }: HeaderProps) {
+  const pathname = usePathname();
+  const { theme, setTheme } = useTheme();
 
   return (
-    <header className="sticky top-0 z-50 w-full glass-panel border-b border-[#6150EA]/25 bg-[#0a0d24]/80 backdrop-blur-xl">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 gap-4">
-          
-          {/* هوية المشروع والشعار */}
-          <div className="flex items-center gap-3.5">
-            <div className="relative flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#6150EA] via-[#12183F] to-[#2EF2C2] p-[1.5px] shadow-[0_0_20px_rgba(97,80,234,0.35)]">
-              <div className="w-full h-full bg-[#12183F] rounded-[14px] flex items-center justify-center">
-                <span className="text-2xl font-bold bg-gradient-to-r from-[#2EF2C2] to-[#F2F4FF] bg-clip-text text-transparent">
-                  ق
-                </span>
-              </div>
-            </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <h1 className="text-lg sm:text-xl font-extrabold tracking-tight text-[#F2F4FF]">
-                  قيم مضيئة <span className="text-[#2EF2C2] text-sm font-semibold tracking-wider">AI</span>
-                </h1>
-                <span className="hidden sm:inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-[#6150EA]/25 text-[#2EF2C2] border border-[#2EF2C2]/30">
-                  المسار 03
-                </span>
-              </div>
-              <p className="text-xs text-[#9FA9D8] tracking-normal font-light hidden sm:block">
-                «تهدي الروح إلى هدوئها، وترتقي بالسلوك إلى غايته»
-              </p>
-            </div>
-          </div>
+    <header className="sticky top-0 z-50 w-full border-b border-line bg-surface-100">
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-4 gap-y-2 px-4 py-3 sm:px-6 lg:px-8">
+        {/* الهوية */}
+        <Link href="/" className="flex items-center gap-3 rounded-md">
+          <Khatam size={36} />
+          <span className="flex flex-col">
+            <span className="text-h3 font-bold text-ink">
+              قيم مضيئة <span className="text-small font-semibold text-brand">AI</span>
+            </span>
+            <span className="hidden text-caption text-ink-muted sm:block">
+              تهدي الروح إلى هدوئها، وترتقي بالسلوك إلى غايته
+            </span>
+          </span>
+        </Link>
 
-          {/* أزرار التبويب الرئيسية */}
-          <nav className="hidden md:flex items-center gap-1.5 p-1 rounded-2xl bg-[#12183F]/70 border border-[#6150EA]/20">
-            <button
-              onClick={() => onTabChange("experience")}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-200 ${
-                currentTab === "experience"
-                  ? "bg-[#6150EA] text-[#F2F4FF] shadow-[0_4px_15px_rgba(97,80,234,0.4)]"
-                  : "text-[#9FA9D8] hover:text-[#F2F4FF] hover:bg-[#1a2254]/50"
-              }`}
-            >
-              <Compass className="w-4 h-4 text-[#2EF2C2]" />
-              التجربة التفاعلية
-            </button>
-            <button
-              onClick={() => onTabChange("judges")}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-200 ${
-                currentTab === "judges"
-                  ? "bg-[#6150EA] text-[#F2F4FF] shadow-[0_4px_15px_rgba(97,80,234,0.4)]"
-                  : "text-[#9FA9D8] hover:text-[#F2F4FF] hover:bg-[#1a2254]/50"
-              }`}
-            >
-              <ShieldCheck className="w-4 h-4 text-[#2EF2C2]" />
-              منصة فحص التحكيم (Guardrails)
-            </button>
-            <button
-              onClick={() => onTabChange("about")}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-200 ${
-                currentTab === "about"
-                  ? "bg-[#6150EA] text-[#F2F4FF] shadow-[0_4px_15px_rgba(97,80,234,0.4)]"
-                  : "text-[#9FA9D8] hover:text-[#F2F4FF] hover:bg-[#1a2254]/50"
-              }`}
-            >
-              <Scale className="w-4 h-4 text-[#2EF2C2]" />
-              الحزمة العلمية والمعايير
-            </button>
-          </nav>
-
-          {/* الطرف الأيسر: مشغل الصوت ومحول اللغات */}
-          <div className="flex items-center gap-2.5">
-            {/* مشغل السكينة الصوتية */}
-            <AudioPlayer />
-
-            {/* محول اللغات */}
-            <div className="relative flex items-center gap-1 bg-[#12183F]/80 border border-[#6150EA]/30 px-2.5 py-1.5 rounded-full text-xs text-[#F2F4FF]">
-              <Globe2 className="w-3.5 h-3.5 text-[#2EF2C2]" />
-              <select
-                value={language}
-                onChange={(e) => onLanguageChange(e.target.value)}
-                className="bg-transparent text-xs font-medium text-[#F2F4FF] focus:outline-none cursor-pointer pr-1"
-                aria-label="اختيار لغة العرض"
+        {/* التنقل */}
+        <nav aria-label="التنقل الرئيسي" className="order-last flex w-full gap-1 md:order-none md:w-auto">
+          {NAV.map((item) => {
+            const active = pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={active ? "page" : undefined}
+                className={`inline-flex min-h-11 items-center rounded-md px-4 text-small font-semibold ${
+                  active
+                    ? "bg-brand-tint text-ink"
+                    : "text-ink-muted hover:bg-surface-200 hover:text-ink"
+                }`}
               >
-                {languages.map((l) => (
-                  <option key={l.code} value={l.code} className="bg-[#12183F] text-[#F2F4FF]">
-                    {l.label}
-                  </option>
-                ))}
-              </select>
-            </div>
+                {item.label}
+              </Link>
+            );
+          })}
+        </nav>
+
+        {/* الأدوات: الصوت واللغة والمظهر */}
+        <div className="flex flex-wrap items-center gap-2">
+          <AudioPlayer />
+
+          <label className="flex min-h-11 items-center gap-2 rounded-md border border-line bg-surface-card px-3 text-small text-ink">
+            <Globe2 className="h-4 w-4 text-brand" aria-hidden="true" />
+            <span className="sr-only">لغة العرض</span>
+            <select
+              value={language}
+              onChange={(e) => onLanguageChange(e.target.value)}
+              className="cursor-pointer bg-transparent text-small font-medium text-ink"
+            >
+              {LANGUAGES.map((l) => (
+                <option key={l.code} value={l.code}>
+                  {l.label}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <div
+            role="group"
+            aria-label="المظهر"
+            className="flex rounded-md border border-line bg-surface-card p-0.5"
+          >
+            {THEMES.map((t) => {
+              const Icon = THEME_ICONS[t.id];
+              const selected = theme === t.id;
+              return (
+                <button
+                  key={t.id}
+                  type="button"
+                  aria-pressed={selected}
+                  onClick={() => setTheme(t.id)}
+                  className={`inline-flex min-h-10 items-center gap-1.5 rounded-sm px-3 text-small font-semibold ${
+                    selected
+                      ? "bg-brand text-on-brand"
+                      : "text-ink-muted hover:bg-surface-200 hover:text-ink"
+                  }`}
+                >
+                  <Icon className="h-4 w-4" aria-hidden="true" />
+                  <span>{t.name}</span>
+                </button>
+              );
+            })}
           </div>
         </div>
-      </div>
-
-      {/* شريط تبويبات الجوال */}
-      <div className="flex md:hidden border-t border-[#6150EA]/20 px-3 py-2 bg-[#0a0d24]/90 justify-around">
-        <button
-          onClick={() => onTabChange("experience")}
-          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium ${
-            currentTab === "experience" ? "bg-[#6150EA] text-white" : "text-[#9FA9D8]"
-          }`}
-        >
-          <Compass className="w-3.5 h-3.5" />
-          التجربة
-        </button>
-        <button
-          onClick={() => onTabChange("judges")}
-          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium ${
-            currentTab === "judges" ? "bg-[#6150EA] text-white" : "text-[#9FA9D8]"
-          }`}
-        >
-          <ShieldCheck className="w-3.5 h-3.5" />
-          فحص التحكيم
-        </button>
-        <button
-          onClick={() => onTabChange("about")}
-          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium ${
-            currentTab === "about" ? "bg-[#6150EA] text-white" : "text-[#9FA9D8]"
-          }`}
-        >
-          <Scale className="w-3.5 h-3.5" />
-          المعايير
-        </button>
       </div>
     </header>
   );
