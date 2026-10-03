@@ -1,14 +1,13 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import Header from "../components/Header";
+import React, { Suspense, useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
+import { useLanguage } from "../components/LanguageProvider";
 import ValuesSelector from "../components/ValuesSelector";
 import EnvironmentSelector from "../components/EnvironmentSelector";
 import ExperienceCard from "../components/ExperienceCard";
 import GuardrailNotice from "../components/GuardrailNotice";
-import JudgesConsole from "../components/JudgesConsole";
-import AboutCredentials from "../components/AboutCredentials";
-import { VALUES_DATA, ENVIRONMENTS, Scenario } from "../data/localDatasets";
+import { VALUES_DATA, ENVIRONMENTS, BENCHMARK_TESTS, Scenario } from "../data/localDatasets";
 import { 
   Sparkles, 
   Send, 
@@ -21,16 +20,15 @@ import {
   Info
 } from "lucide-react";
 
-export default function Home() {
-  const [currentTab, setCurrentTab] = useState<"experience" | "judges" | "about">("experience");
-  const [language, setLanguage] = useState("ar");
+function HomeContent() {
+  const { language } = useLanguage();
   const [selectedValue, setSelectedValue] = useState("citizenship");
   const [selectedEnvironment, setSelectedEnvironment] = useState("home");
   const [customQuery, setCustomQuery] = useState("");
   const [loading, setLoading] = useState(false);
   
-  // نتائج العرض
-  const [currentScenario, setCurrentScenario] = useState<Scenario | null>(null);
+  // نتائج العرض: السيناريو المولَّد من الخادم، وإلا فالسيناريو المعتمد للقيمة والبيئة
+  const [generatedScenario, setGeneratedScenario] = useState<Scenario | null>(null);
   const [blockedResult, setBlockedResult] = useState<{
     level: string;
     action: string;
@@ -38,25 +36,17 @@ export default function Home() {
     justification?: string;
   } | null>(null);
 
-  // اللغة والاتجاه: العربية والأردية من اليمين إلى اليسار، والبقية من اليسار إلى اليمين
-  useEffect(() => {
-    document.documentElement.lang = language;
-    document.documentElement.dir = language === "ar" || language === "ur" ? "rtl" : "ltr";
-  }, [language]);
-
-  // تحديث السيناريو الافتراضي عند تغيير القيمة أو البيئة
-  useEffect(() => {
-    updateScenarioLocally(selectedValue, selectedEnvironment);
-  }, [selectedValue, selectedEnvironment]);
-
-  const updateScenarioLocally = (valId: string, envId: string) => {
+  // العودة إلى الموقف المعتمد للقيمة والبيئة المختارتين
+  const resetResults = () => {
     setBlockedResult(null);
-    const val = VALUES_DATA[valId];
-    if (val) {
-      const scen = val.scenarios.find((s) => s.environment === envId) || val.scenarios[0];
-      setCurrentScenario(scen);
-    }
+    setGeneratedScenario(null);
   };
+
+  const valueForScenario = VALUES_DATA[selectedValue] || VALUES_DATA.citizenship;
+  const defaultScenario =
+    valueForScenario.scenarios.find((s) => s.environment === selectedEnvironment) ||
+    valueForScenario.scenarios[0];
+  const currentScenario = generatedScenario ?? defaultScenario;
 
   // إرسال الطلب والتوليد (يدعم خادم FastAPI مع تبديل فوري للاحتياطي المحلي)
   const handleGenerate = async (overrideQuery?: string) => {
@@ -95,7 +85,7 @@ export default function Home() {
           return;
         } else if (data.status === "success" && data.card) {
           const card = data.card;
-          setCurrentScenario({
+          setGeneratedScenario({
             environment: card.environment,
             title: card.behavior_title,
             observable_situation: card.observable_situation,
@@ -178,24 +168,31 @@ export default function Home() {
     }
 
     // استرجاع الموقف المعتمد للقيمة والبيئة
-    updateScenarioLocally(selectedValue, selectedEnvironment);
+    setGeneratedScenario(null);
     setLoading(false);
   };
+
+  // الفحص الحي القادم من صفحة «حول المنصة والتحقق»
+  const testParam = useSearchParams().get("test");
+  useEffect(() => {
+    if (testParam === null) return;
+    const test = BENCHMARK_TESTS[Number(testParam)];
+    if (!test) return;
+    const timer = setTimeout(() => {
+      setCustomQuery(test.query);
+      handleGenerate(test.query);
+    }, 0);
+    return () => clearTimeout(timer);
+    // يُشغَّل مرة لكل قيمة في الرابط
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [testParam]);
 
   const currentValData = VALUES_DATA[selectedValue] || VALUES_DATA.citizenship;
   const currentEnvData = ENVIRONMENTS.find((e) => e.id === selectedEnvironment) || ENVIRONMENTS[0];
 
   return (
-    <div className="flex-1 flex flex-col justify-between">
-      {/* الترويسة الرئيسية */}
-      <Header language={language} onLanguageChange={setLanguage} />
-
-      {/* المحتوى الرئيسي */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
-        
-        {/* تبويب التجربة التفاعلية */}
-        {currentTab === "experience" && (
-          <div className="space-y-8">
+    <div className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <div className="space-y-8">
             
             {/* بطاقة الترحيب والفطرة (Hero Section) */}
             <div className="relative overflow-hidden rounded-3xl p-6 sm:p-10 glass-panel border border-[#6150EA]/30 bg-gradient-to-br from-[#12183F]/90 via-[#12183F]/60 to-[#1a2254]/80 shadow-[0_10px_40px_rgba(97,80,234,0.15)]">
@@ -222,13 +219,19 @@ export default function Home() {
             <div className="space-y-6">
               <ValuesSelector
                 selectedValue={selectedValue}
-                onSelectValue={(id) => setSelectedValue(id)}
+                onSelectValue={(id) => {
+                  setSelectedValue(id);
+                  resetResults();
+                }}
                 language={language}
               />
 
               <EnvironmentSelector
                 selectedEnvironment={selectedEnvironment}
-                onSelectEnvironment={(id) => setSelectedEnvironment(id)}
+                onSelectEnvironment={(id) => {
+                  setSelectedEnvironment(id);
+                  resetResults();
+                }}
                 language={language}
               />
             </div>
@@ -277,7 +280,7 @@ export default function Home() {
                     <button
                       onClick={() => {
                         setCustomQuery("");
-                        updateScenarioLocally(selectedValue, selectedEnvironment);
+                        resetResults();
                       }}
                       className="p-2.5 rounded-xl bg-[#12183F] border border-[#6150EA]/30 text-[#9FA9D8] hover:text-[#F2F4FF] transition-colors"
                       title="إعادة ضبط"
@@ -308,45 +311,15 @@ export default function Home() {
             </div>
 
           </div>
-        )}
-
-        {/* تبويب منصة فحص التحكيم */}
-        {currentTab === "judges" && (
-          <JudgesConsole
-            onRunTest={(testQuery) => {
-              setCustomQuery(testQuery);
-              setCurrentTab("experience");
-              handleGenerate(testQuery);
-            }}
-          />
-        )}
-
-        {/* تبويب الحزمة العلمية والاعتمادات */}
-        {currentTab === "about" && <AboutCredentials />}
-
-      </main>
-
-      {/* التذييل المؤسسي */}
-      <footer className="w-full glass-panel border-t border-[#6150EA]/20 bg-[#0a0d24]/90 py-6 mt-12 text-xs text-[#9FA9D8]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <span className="font-bold text-[#F2F4FF]">قيم مضيئة AI</span>
-            <span>• تحدي الذكاء الاصطناعي في خدمة المحتوى الإسلامي 2026م</span>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-4 text-[11px]">
-            <span>مؤسسة باذل الأهلية</span>
-            <span>•</span>
-            <span>الهيئة السعودية للبيانات والذكاء الاصطناعي (SDAIA)</span>
-            <span>•</span>
-            <span>وزارة الاتصالات وتقنية المعلومات</span>
-          </div>
-
-          <div className="text-[11px] text-[#2EF2C2] font-medium">
-            مرخص تحت رخصة MIT مفتوحة المصدر
-          </div>
-        </div>
-      </footer>
     </div>
+  );
+}
+
+// يشغّل الفحص الحي القادم من صفحة «حول المنصة والتحقق» عبر /?test=<رقم>
+export default function Home() {
+  return (
+    <Suspense fallback={null}>
+      <HomeContent />
+    </Suspense>
   );
 }

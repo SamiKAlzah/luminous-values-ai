@@ -5,13 +5,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Globe2, Moon, Gem, Sun } from "lucide-react";
 import AudioToggle from "./AudioToggle";
+import { useLanguage } from "./LanguageProvider";
 import { Khatam } from "./Ornament";
 import { THEMES, useTheme, type ThemeId } from "./useTheme";
-
-interface HeaderProps {
-  language: string;
-  onLanguageChange: (lang: string) => void;
-}
 
 const LANGUAGES = [
   { code: "ar", label: "العربية" },
@@ -31,7 +27,8 @@ const THEME_ICONS: Record<ThemeId, React.ComponentType<{ className?: string }>> 
   emerald: Gem,
 };
 
-export default function Header({ language, onLanguageChange }: HeaderProps) {
+export default function Header() {
+  const { language, setLanguage } = useLanguage();
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
 
@@ -81,7 +78,7 @@ export default function Header({ language, onLanguageChange }: HeaderProps) {
             <span className="sr-only">لغة العرض</span>
             <select
               value={language}
-              onChange={(e) => onLanguageChange(e.target.value)}
+              onChange={(e) => setLanguage(e.target.value)}
               className="cursor-pointer bg-transparent text-small font-medium text-ink"
             >
               {LANGUAGES.map((l) => (
