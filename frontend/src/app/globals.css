@@ -255,11 +255,6 @@ body {
   min-height: 100vh;
 }
 
-/* Quran and Hadith: Amiri, room for diacritics. Prefer `font-serif`; kept as an alias for now. */
-.font-quran {
-  font-family: var(--font-amiri), "Traditional Arabic", serif;
-}
-
 ::selection {
   background-color: var(--brand);
   color: var(--on-brand);
