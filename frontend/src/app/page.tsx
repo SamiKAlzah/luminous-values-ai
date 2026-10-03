@@ -38,6 +38,12 @@ export default function Home() {
     justification?: string;
   } | null>(null);
 
+  // اللغة والاتجاه: العربية والأردية من اليمين إلى اليسار، والبقية من اليسار إلى اليمين
+  useEffect(() => {
+    document.documentElement.lang = language;
+    document.documentElement.dir = language === "ar" || language === "ur" ? "rtl" : "ltr";
+  }, [language]);
+
   // تحديث السيناريو الافتراضي عند تغيير القيمة أو البيئة
   useEffect(() => {
     updateScenarioLocally(selectedValue, selectedEnvironment);

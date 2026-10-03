@@ -1,77 +1,298 @@
 @import "tailwindcss";
 
+/*
+ * Luminous Values design tokens (قيم مضيئة AI)
+ * Source: the "Luminous Values" design system, tokens.json.
+ *
+ * Three themes share one set of semantic tokens:
+ *   light   (default, "Najd")    warm sand ground
+ *   dark    ("Night")            deep green-black ground
+ *   emerald ("Emerald")          flag-green ground, gold primary action
+ *
+ * The theme is chosen by [data-theme] on <html>; no attribute means light.
+ * Layouts are written RTL-first with logical properties (ms-*, pe-*, text-start).
+ */
+
+/* ---------- Theme-independent palette ---------- */
 :root {
-  --bg-dark: #0a0d24;
-  --bg-navy: #12183F;
-  --bg-navy-light: #1a2254;
-  --primary-purple: #6150EA;
-  --primary-purple-hover: #7566f0;
-  --accent-cyan: #2EF2C2;
-  --accent-cyan-hover: #4af5cd;
-  --accent-gold: #f59e0b;
-  --text-primary: #F2F4FF;
-  --text-muted: #9FA9D8;
-  --border-glass: rgba(97, 80, 234, 0.25);
-  --border-highlight: rgba(46, 242, 194, 0.35);
+  --flag-green-50: #eef7f1;
+  --flag-green-100: #d6ecdd;
+  --flag-green-200: #aedcc0;
+  --flag-green-300: #7cc79c;
+  --flag-green-400: #43ab76;
+  --flag-green-500: #12894f;
+  --flag-green-600: #006c35; /* the flag green */
+  --flag-green-700: #00582c;
+  --flag-green-800: #004424;
+  --flag-green-900: #00301a;
+  --flag-green-950: #001d10;
+
+  --gold-300: #efd083;
+  --gold-400: #e2bd62;
+  --gold-500: #c9a24a;
+  --gold-600: #a07f2e;
+
+  --sand-50: #f8f5ec;
+  --sand-100: #efe9d8;
+
+  --motion-fast: 150ms;
+  --motion-base: 200ms;
+  --motion-ease: cubic-bezier(0, 0, 0.2, 1);
 }
 
+/* ---------- Light: Najd (default) ---------- */
+:root,
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --surface-100: #f8f5ec;
+  --surface-200: #efe9d8;
+  --surface-card: #fffdf8;
+  --surface-deep: #00301a;
+
+  --ink: #0b2a1c;
+  --ink-muted: #46604f;
+  --ink-on-deep: #eef5ef;
+
+  --brand: #006c35;
+  --brand-hover: #00582c;
+  --on-brand: #ffffff;
+  --brand-tint: #d6ecdd;
+
+  --ornament-deep: #00582c;
+  --ornament-light: #7cc79c;
+  --ornament-gold: #c9a24a;
+  --accent-ink: #7a5410;
+
+  --scripture-surface: #f1f6f2;
+  --line: #d9d2c1;
+
+  --success: #1f7a4d;
+  --danger: #a8323e;
+  --focus: #1c6fb8;
+
+  --shadow-sm: 0 1px 2px rgba(20, 48, 43, 0.08);
+  --shadow-md: 0 8px 24px rgba(20, 48, 43, 0.1);
+}
+
+/* ---------- Dark: Night ---------- */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --surface-100: #0a1a14;
+  --surface-200: #102a20;
+  --surface-card: #153326;
+  --surface-deep: #0f3a28;
+
+  --ink: #eef5ef;
+  --ink-muted: #a8c2b2;
+  --ink-on-deep: #eef5ef;
+
+  --brand: #5cc58b;
+  --brand-hover: #7fd8a6;
+  --on-brand: #052013;
+  --brand-tint: #14402c;
+
+  --ornament-deep: #2f8f5f;
+  --ornament-light: #1f6a47;
+  --ornament-gold: #d8b45c;
+  --accent-ink: #e8c780;
+
+  --scripture-surface: #102925;
+  --line: #2a4a3a;
+
+  --success: #6fd0a0;
+  --danger: #f08a93;
+  --focus: #7ab8f0;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+/* ---------- Emerald (immersive; primary action turns gold) ---------- */
+:root[data-theme="emerald"] {
+  color-scheme: dark;
+
+  --surface-100: #004424;
+  --surface-200: #003a20;
+  --surface-card: #00582c;
+  --surface-deep: #00301a;
+
+  --ink: #f6f1e0;
+  --ink-muted: #c4dccb;
+  --ink-on-deep: #f6f1e0;
+
+  --brand: #e2bd62;
+  --brand-hover: #efd083;
+  --on-brand: #052a18;
+  --brand-tint: #0a5a33;
+
+  --ornament-deep: #0a7040;
+  --ornament-light: #43ab76;
+  --ornament-gold: #e2bd62;
+  --accent-ink: #efd083;
+
+  --scripture-surface: #003a20;
+  --line: #1f7048;
+
+  --success: #8fe0b0;
+  --danger: #ffb3ba;
+  --focus: #ffe08a;
+
+  /* tokens.json defines no emerald shadows; reuse the dark ones */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+/* ---------- Tailwind theme: expose tokens as utilities ---------- */
+/* Static palette (does not change with the theme) */
+@theme {
+  --color-flag-green-50: #eef7f1;
+  --color-flag-green-100: #d6ecdd;
+  --color-flag-green-200: #aedcc0;
+  --color-flag-green-300: #7cc79c;
+  --color-flag-green-400: #43ab76;
+  --color-flag-green-500: #12894f;
+  --color-flag-green-600: #006c35;
+  --color-flag-green-700: #00582c;
+  --color-flag-green-800: #004424;
+  --color-flag-green-900: #00301a;
+  --color-flag-green-950: #001d10;
+
+  --color-gold-300: #efd083;
+  --color-gold-400: #e2bd62;
+  --color-gold-500: #c9a24a;
+  --color-gold-600: #a07f2e;
+
+  --color-sand-50: #f8f5ec;
+  --color-sand-100: #efe9d8;
+
+  /* Radius: sm chips, md controls, lg cards, xl hero/scripture, pill toggles */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  /* Type scale (tokens.json type.groups) */
+  --text-display: 56px;
+  --text-display--line-height: 64px;
+  --text-display--font-weight: 700;
+  --text-h1: 40px;
+  --text-h1--line-height: 52px;
+  --text-h1--font-weight: 700;
+  --text-h2: 28px;
+  --text-h2--line-height: 40px;
+  --text-h2--font-weight: 600;
+  --text-h3: 20px;
+  --text-h3--line-height: 32px;
+  --text-h3--font-weight: 600;
+  --text-body: 17px;
+  --text-body--line-height: 30px;
+  --text-body--font-weight: 400;
+  --text-small: 14px;
+  --text-small--line-height: 24px;
+  --text-small--font-weight: 400;
+  --text-caption: 12px;
+  --text-caption--line-height: 20px;
+  --text-caption--font-weight: 500;
+  --text-quran: 30px;
+  --text-quran--line-height: 56px;
+  --text-quran--font-weight: 400;
+  --text-hadith: 22px;
+  --text-hadith--line-height: 42px;
+  --text-hadith--font-weight: 400;
+
+  /*
+   * Spacing: the design tokens (space-1 4px … space-24 96px) land on Tailwind's
+   * default 4px scale (p-1, p-2, p-3, p-4, p-6, p-8, p-12, p-16, p-24),
+   * so no override is needed.
+   */
+}
+
+/* Theme-aware tokens: `inline` keeps the var() so utilities follow [data-theme] */
+@theme inline {
+  --color-surface-100: var(--surface-100);
+  --color-surface-200: var(--surface-200);
+  --color-surface-card: var(--surface-card);
+  --color-surface-deep: var(--surface-deep);
+
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-on-deep: var(--ink-on-deep);
+
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-on-brand: var(--on-brand);
+  --color-brand-tint: var(--brand-tint);
+
+  --color-ornament-deep: var(--ornament-deep);
+  --color-ornament-light: var(--ornament-light);
+  --color-ornament-gold: var(--ornament-gold);
+  --color-accent-ink: var(--accent-ink);
+
+  --color-scripture-surface: var(--scripture-surface);
+  --color-line: var(--line);
+
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+  --color-focus: var(--focus);
+
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+
+  --font-sans: var(--font-cairo), system-ui, sans-serif;
+  --font-serif: var(--font-amiri), "Traditional Arabic", serif;
+}
+
+/* ---------- Base ---------- */
 body {
-  background-color: var(--bg-dark);
-  background-image: 
-    radial-gradient(at 0% 0%, rgba(97, 80, 234, 0.2) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, rgba(46, 242, 194, 0.12) 0px, transparent 50%),
-    radial-gradient(at 50% 100%, rgba(18, 24, 63, 0.9) 0px, transparent 65%);
-  color: var(--text-primary);
-  font-family: var(--font-cairo), sans-serif;
+  background-color: var(--surface-100);
+  color: var(--ink);
+  font-family: var(--font-cairo), system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 30px;
   min-height: 100vh;
-  overflow-x: hidden;
 }
 
+/* Quran and Hadith: Amiri, room for diacritics. Prefer `font-serif`; kept as an alias for now. */
 .font-quran {
-  font-family: var(--font-amiri), serif;
+  font-family: var(--font-amiri), "Traditional Arabic", serif;
 }
 
-/* Glassmorphism styling */
-.glass-panel {
-  background: rgba(18, 24, 63, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border-glass);
+::selection {
+  background-color: var(--brand);
+  color: var(--on-brand);
 }
 
-.glass-panel-hover {
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.glass-panel-hover:hover {
-  background: rgba(26, 34, 84, 0.85);
-  border-color: rgba(46, 242, 194, 0.45);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px -10px rgba(46, 242, 194, 0.2);
+/* Keyboard focus: 2px ring, 2px offset, in every theme */
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
 }
 
-.sacred-card {
-  background: linear-gradient(135deg, rgba(18, 24, 63, 0.95), rgba(15, 35, 60, 0.95));
-  border: 1.5px solid rgba(46, 242, 194, 0.55);
-  box-shadow: 0 0 25px rgba(46, 242, 194, 0.15), inset 0 0 15px rgba(46, 242, 194, 0.05);
+/* Colour and elevation changes: 150-200ms ease-out */
+button,
+a,
+input,
+select,
+textarea {
+  transition-property: color, background-color, border-color, box-shadow;
+  transition-duration: var(--motion-fast);
+  transition-timing-function: var(--motion-ease);
 }
 
-.guardrail-blocked-card {
-  background: linear-gradient(135deg, rgba(45, 15, 25, 0.92), rgba(25, 10, 20, 0.95));
-  border: 1.5px solid rgba(244, 63, 94, 0.65);
-  box-shadow: 0 0 25px rgba(244, 63, 94, 0.2);
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #0a0d24;
-}
-::-webkit-scrollbar-thumb {
-  background: #1e2756;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #6150EA;
+html {
+  scrollbar-color: var(--line) var(--surface-100);
 }

@@ -4,7 +4,7 @@ import "./globals.css";
 
 const cairo = Cairo({
   subsets: ["arabic", "latin"],
-  weight: ["300", "400", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-cairo",
   display: "swap",
 });
@@ -24,14 +24,27 @@ export const metadata: Metadata = {
   },
 };
 
+// Applies the saved theme before first paint so there is no flash.
+// Default is light (Najd); the system colour scheme is deliberately ignored.
+const themeScript = `try{var t=localStorage.getItem("lv-theme");if(t==="dark"||t==="emerald"||t==="light"){document.documentElement.dataset.theme=t}}catch(e){}`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" dir="rtl" className={`${cairo.variable} ${amiri.variable}`}>
-      <body className="antialiased min-h-screen flex flex-col font-sans selection:bg-[#2EF2C2] selection:text-[#12183F]">
+    <html
+      lang="ar"
+      dir="rtl"
+      data-theme="light"
+      suppressHydrationWarning
+      className={`${cairo.variable} ${amiri.variable}`}
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      <body className="antialiased min-h-screen flex flex-col font-sans">
         {children}
       </body>
     </html>
