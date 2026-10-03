@@ -5,7 +5,7 @@ import Header from "../components/Header";
 import ValuesSelector from "../components/ValuesSelector";
 import EnvironmentSelector from "../components/EnvironmentSelector";
 import ExperienceCard from "../components/ExperienceCard";
-import GuardrailAlert from "../components/GuardrailAlert";
+import GuardrailNotice from "../components/GuardrailNotice";
 import JudgesConsole from "../components/JudgesConsole";
 import AboutCredentials from "../components/AboutCredentials";
 import { VALUES_DATA, ENVIRONMENTS, Scenario } from "../data/localDatasets";
@@ -292,9 +292,8 @@ export default function Home() {
             {/* شاشة عرض النتيجة أو الاعتراض الشرعي */}
             <div className="pt-2">
               {blockedResult ? (
-                <GuardrailAlert
+                <GuardrailNotice
                   level={blockedResult.level}
-                  action={blockedResult.action}
                   responseText={blockedResult.responseText}
                   justification={blockedResult.justification}
                 />
