@@ -1,6 +1,6 @@
 # «قيم تجمعنا» Semantic Journey Router: submission design
 
-Status: **DRAFT v3 for owner review** (design sections 1-3 approved in conversation; section 4, §8 and §10, presented with this draft and awaiting approval; written spec not yet approved) · 2026-10-04 · Freeze: 2026-10-05 20:00 (Riyadh) · Official deadline: 2026-10-06 23:59
+Status: **v3 APPROVED by owner 2026-10-04** (design sections 1-4 and the written spec approved in conversation) · 2026-10-04 · Freeze: 2026-10-05 20:00 (Riyadh) · Official deadline: 2026-10-06 23:59
 Track 03 (interactive experiences and learning journey), cross-cutting with Track 02 (localization).
 Checked on 2026-10-04 against the Participant Guide (`Rules/da2Orb…pdf`) and the Reference Package (`Rules/BI5Zrl…pdf`).
 
@@ -138,7 +138,7 @@ Cut order if time runs out: video polish, then English tone polish, then the stu
 
 1. Who recruits the 8 test participants, and by when?
 2. Who holds the Anthropic key and sets its spend limit?
-3. Reviewer's name for the approval record, and verified Saudi safety resources for `refer_safety`; the reviewer also owns the safety-floor phrase list.
+3. ~~Reviewer's name and safety resources~~ Supplied by the owner on 2026-10-04: reviewer **Ahmed Shubayr** (the owner's reply read "[Ahmed Shubayr/المراجع هنا]"; confirm the exact name for the approval record). Resources for `refer_safety`: emergency/police **911** (unified operations) or **999**; family safety and domestic violence **1919** (Ministry of Human Resources and Social Development); mental-health and crisis consultation **937** (Ministry of Health). The reviewer verifies these numbers and their descriptions before the `refer_safety` message is marked approved. The reviewer also owns the safety-floor phrase list.
 4. LICENSE holder name (README states MIT).
 5. Which track was chosen at registration? The Guide requires keeping to it (we assume Track 03).
 6. Check Anthropic's current data-retention terms before the privacy notice is final.
