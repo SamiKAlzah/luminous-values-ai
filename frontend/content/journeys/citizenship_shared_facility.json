@@ -1,0 +1,47 @@
+{
+  "id": "citizenship_shared_facility",
+  "approval": {
+    "status": "draft",
+    "reviewedBy": "",
+    "reviewedAt": "",
+    "version": 0,
+    "contentHash": ""
+  },
+  "body": {
+    "ar": {
+      "title": "",
+      "situation": "",
+      "firstChoices": [],
+      "solutionSteps": [],
+      "newSituation": "",
+      "newChoices": [],
+      "todayStep": "",
+      "activityLabel": ""
+    },
+    "en": {
+      "title": "",
+      "situation": "",
+      "firstChoices": [],
+      "solutionSteps": [],
+      "newSituation": "",
+      "newChoices": [],
+      "todayStep": "",
+      "activityLabel": ""
+    },
+    "source": {
+      "type": "quran",
+      "arabicText": "",
+      "reference": "",
+      "grade": "",
+      "url": "",
+      "translation": {
+        "name": "",
+        "text": ""
+      },
+      "explanation": {
+        "ar": "",
+        "en": ""
+      }
+    }
+  }
+}

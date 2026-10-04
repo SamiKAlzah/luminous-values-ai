@@ -1,0 +1,36 @@
+{
+  "id": "messages",
+  "approval": {
+    "status": "draft",
+    "reviewedBy": "",
+    "reviewedAt": "",
+    "version": 0,
+    "contentHash": ""
+  },
+  "body": {
+    "low_confidence": {
+      "ar": "",
+      "en": ""
+    },
+    "out_of_scope": {
+      "ar": "",
+      "en": ""
+    },
+    "unavailable": {
+      "ar": "",
+      "en": ""
+    },
+    "too_long": {
+      "ar": "",
+      "en": ""
+    },
+    "refer_specialist": {
+      "ar": "",
+      "en": ""
+    },
+    "refer_safety": {
+      "ar": "",
+      "en": ""
+    }
+  }
+}

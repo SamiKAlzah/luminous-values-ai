@@ -1,0 +1,16 @@
+{
+  "id": "safety-floor",
+  "approval": {
+    "status": "draft",
+    "reviewedBy": "",
+    "reviewedAt": "",
+    "version": 0,
+    "contentHash": ""
+  },
+  "body": {
+    "phrases": {
+      "ar": [],
+      "en": []
+    }
+  }
+}
