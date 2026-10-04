@@ -1,13 +1,16 @@
 # «قيم تجمعنا» Semantic Journey Router: submission design
 
-Status: **DRAFT for owner approval** · 2026-10-04 · Freeze: 2026-10-05 20:00 (Riyadh) · Official deadline: 2026-10-06 23:59
+Status: **DRAFT v2 for owner approval** · 2026-10-04 · Freeze: 2026-10-05 20:00 (Riyadh) · Official deadline: 2026-10-06 23:59
 Track 03 (interactive experiences and learning journey), cross-cutting with Track 02 (localization).
+Checked on 2026-10-04 against the Participant Guide (`Rules/da2Orb…pdf`) and the Reference Package (`Rules/BI5Zrl…pdf`), both read in full.
 
 ## 1. Intent
 
 A Saudi media platform that turns Islamic values into practised behaviour. The submission is the **learning platform** the media point to. A visitor types a real situation in their own words (Arabic or English); an AI router maps it to one of **3 reviewed journeys**, or to a safe referral. The journey walks them through situation, choice, effect, solution, verified Islamic source and a new situation that tests understanding.
 
-Success is judged on: a working AI function with an honest measured comparison (25%), source reliability (15%), understanding and completion results from a real test (20%), plus UX, operations and verifiability.
+Draft success statement (registration format): *"Our project addresses the difficulty of moving from a general message about a value to the right behaviour in a daily situation, and its success is measured by the share of participants who reach a fitting journey, and who answer a new situation appropriately after completing it."* This matches the Track 03 criterion (improved understanding, suitability and sequencing of content, journey continuity, with no inference of religious or sensitive traits).
+
+Judging (final stage, from the Guide): technical quality and AI use 25%, reliability and scientific safety 15%, innovation 15%, UX 10%, benefit per track 20%, operational realism 10%, presentation and verifiability 5%.
 
 Assumptions (correct me): audience is adults (citizens and residents), Muslim or not, and the app never asks or infers religion. Team is one developer and one content reviewer. Media production (videos, posts, audio) is the next phase and is **not** part of this submission.
 
@@ -28,26 +31,34 @@ situation → first choice (3 options) → effect of the choice → solution (3 
 
 ```
 route: citizenship_shared_facility | tolerance_accent | peace_before_escalation
-       | out_of_scope | refer_fatwa | refer_safety
+       | out_of_scope | refer_specialist | refer_safety
 confidence: high | low
 ```
 
 Nothing else comes back from the model. The function validates `route` against the closed list; anything else is treated as a failure.
 
-**Behaviour.** A journey ID with `high` confidence opens the journey. `low` confidence or `out_of_scope` shows the 3-card picker with a short static message. `refer_fatwa` shows a static, reviewer-approved referral to official fatwa bodies. `refer_safety` (harassment, threats, abuse, self-harm) shows a static supportive message with verified Saudi resources and **no journey**; the user may start over.
+**Behaviour.** A journey ID with `high` confidence opens the journey. `low` confidence or `out_of_scope` shows the 3-card picker with a short static message that says plainly that the platform guides values and does not answer open questions (this includes requests to produce or verify a hadith or verse: no citation is invented; the message points to dorar.net). `refer_specialist` covers the Reference Package's levels ج and د (personal rulings on a specific case, family/legal/medical matters with a sharia effect, disputed or highly sensitive questions): a static, reviewer-approved message that gives no ruling and refers to a qualified body. `refer_safety` (harassment, threats, abuse, self-harm) shows a static supportive message with verified Saudi resources and **no journey**; the user may start over.
 
 **Safety properties (stated precisely, not "100% safe").**
 - The model never receives or produces religious text or user-visible prose. Verses, hadiths, steps and all messages come from the reviewed library by ID.
 - The model can only return an ID from a closed list; the server rejects anything else. Prompt injection can at worst cause a wrong route, which the evaluation measures.
-- The raw text is not stored or logged. No accounts, no religion field.
+- Under low confidence the system holds back (picker or referral) rather than guessing, as the Package requires.
+
+**Transparency and privacy (Package p.5).** A visible line next to the box: this is an AI-supported tool, not a human specialist. A privacy notice under the box: the text is sent to an AI service only to pick a journey, is not stored by us, and should not contain names or personal details. No accounts, no religion field, no analytics, raw text never logged.
 
 **Failure.** Timeout (5 s), API error, invalid output or missing key: show the 3-card picker with a visible note that smart routing is unavailable. The same note appears in the evaluation page's status line.
 
-**Model.** `claude-haiku-4-5-20251001` via the Anthropic API, `ANTHROPIC_API_KEY` as a Netlify env var, small `max_tokens`, temperature 0. The key holder sets a **monthly spend limit** on the key (abuse and cost control).
+**Model.** `claude-haiku-4-5-20251001` via the Anthropic API, `ANTHROPIC_API_KEY` as a Netlify env var, small `max_tokens`, temperature 0. The key holder sets a **monthly spend limit** with enough headroom to last through final judging (§9).
 
 ## 5. Content library
 
-One source of truth: `content/journeys/<id>.json`, imported by the frontend (replaces `frontend/src/data/localDatasets.ts`). Per journey, `ar` and `en`: situation, 3 choices with feedback, 3 solution steps, new situation with 3 choices and feedback, today's step. Per source: `type` (quran|hadith), Arabic text exactly as in the reference, reference, grade (as stated by the cited encyclopedia, no absolute wording), `url`, `urlCheckedAt`, English *translation of the meaning* with translation name, and a short explanation kept visually separate from the text.
+One source of truth: `content/journeys/<id>.json`, imported by the frontend (replaces `frontend/src/data/localDatasets.ts`). Per journey, `ar` and `en`: situation, 3 choices with feedback, 3 solution steps, new situation with 3 choices and feedback, today's step. Per source: `type` (quran|hadith), Arabic text exactly as in the reference, reference, grade, `url`, `urlCheckedAt`, English *translation of the meaning* with translation name, and the explanation, kept visually separate from the text.
+
+**Source rules from the Reference Package (pp.3-5):**
+- Quran: King Fahd Complex text; English meaning from the King Fahd Complex translation or one published on quranpedia.net.
+- Hadith: from the Sahihayn, or another Sunnah book only after its grade is checked on dorar.net/hadith or Shamela; the grade is shown; no hadith without a source and an approved grade.
+- Explanation of a verse: from dorar.net/tafseer or an early-century source, with the mufassir's words distinguished from the Quran text. Our own steps and situations are labelled "suggested educational activity", never as sharia ruling. Disputed matters are never stated categorically, and no blanket "definitive" wording on grades.
+- English Islamic terms (e.g. Hadith, Sunnah, Fatwa) take the Al-Jamhara dictionary equivalent, not machine translation.
 
 Each journey carries `status: draft|approved`, `reviewedBy`, `reviewedAt`, `version`. **Build fails** if a published journey is not `approved` or a source has no passing link check. Link check (`scripts/verify-sources`): fetch the URL, normalize Arabic, confirm the quoted text appears on the page.
 
@@ -55,15 +66,15 @@ I (assistant) draft the 3 journeys and propose one candidate source each, with l
 
 ## 6. Router evaluation
 
-The **reviewer writes the 60-case test set before any prompt exists**, saved as `eval/cases.json` (`id, text, lang, expected | acceptable[], category`). Distribution: 30 in-scope (10 per journey: direct, paraphrased without obvious keywords, Saudi dialect, English), 10 ambiguous (with acceptable sets, e.g. a neighbour leaving trash by the door), 8 out-of-scope, 6 fatwa, 6 safety. Split 20 dev / 40 test, stratified; **the prompt is tuned on dev only**, results are reported on test.
+The **reviewer writes the 60-case test set before any prompt exists**, saved as `eval/cases.json` (`id, text, lang, expected | acceptable[], category`). Distribution: 30 in-scope (10 per journey: direct, paraphrased without obvious keywords, Saudi dialect, English), 10 ambiguous (with acceptable sets, e.g. a neighbour leaving trash by the door), 8 out-of-scope (including 3 requests to produce or verify a hadith or a misquoted verse), 6 referral to a specialist (levels ج/د), 6 safety. Split 20 dev / 40 test, stratified; **the prompt is tuned on dev only**, results are reported on test.
 
 Baseline: a bilingual keyword/overlap matcher built from the journey texts and a reviewer-agreed keyword list (built before looking at test results), the best simple alternative, not a strawman.
 
-Metrics, both routers, same cases: top-1 accuracy on in-scope; acceptable-set hit rate on ambiguous; **referral recall** (fatwa and safety cases that reach a referral; a safety case routed to a journey is the worst error); false-referral rate on in-scope; latency p50/p95; fallback rate. `scripts/eval` writes a dated result file (model ID, prompt hash, git commit) that the About page renders as-is, including failures. Gate: any *dev* safety case routed to a journey blocks the prompt version.
+Metrics, both routers, same cases, **each case run 3 times**: top-1 accuracy on in-scope; acceptable-set hit rate on ambiguous; **referral recall** (specialist and safety cases that reach a referral; a safety case routed to a journey is the worst error); false-referral rate on in-scope; run-to-run consistency; latency p50/p95; fallback rate. `scripts/eval` writes a dated result file (model ID, prompt hash, git commit) that the About page renders as-is, with a **known failures** list. Gate: any *dev* safety case routed to a journey blocks the prompt version.
 
 ## 7. User study (Google Forms, not instrumented in-app)
 
-8 adults (4 Arabic, 4 English), mixed Muslim/non-Muslim without recording religion. Form: pre-question on a situation, task (use the app, time to reach a fitting journey), post-question on a new situation, ease rating, free comments. Target (not a promise): 7/8 reach a fitting journey within 3 minutes; understanding measured pre vs post. Publish actual numbers and sample size with the limits (no claim of behaviour change).
+8 adults (4 Arabic, 4 English), mixed Muslim/non-Muslim without recording religion. A one-line consent statement opens the form (anonymous, no names, no religion, used for evaluation only; responses stay out of the repo, only aggregates are published). Each participant gets two situations, one reached through the router and one through the manual picker (order alternated), giving a reference comparison on time to a fitting journey. Pre-question and post-question on a new situation measure understanding; ease rating and free comments. Target (not a promise): 7/8 reach a fitting journey within 3 minutes. Publish actual numbers, sample size and limits (no claim of behaviour change).
 
 ## 8. Architecture and repo changes
 
@@ -71,7 +82,9 @@ Next.js static export stays. New: `netlify/functions/route.ts` (the Netlify `fun
 
 ## 9. Deliverables
 
-Working link; public repo with an honest README (no "100%", no "zero hallucination"), run instructions, LICENSE file; sources/tools/licences register (Next, React, lucide, Cairo and Amiri fonts, Anthropic API, translation source); evaluation and study results; deck updates (slide 4 media becomes next phase, slide 6 describes the router, slide 9 shows results); ≤ 2-minute video; 5-minute talk plus 3 minutes of questions.
+Working link; public repo with an honest README (no "100%", no "zero hallucination"), run instructions, LICENSE file, **starting-version note** (baseline commit `379db8c` and the rights/licences of reused components; only work done Oct 4-6 is evaluated); sources/tools/licences register (Next, React, lucide, Cairo and Amiri fonts, Anthropic API, translation source); no secrets or participant data in the repo; evaluation and study results; **cost estimate** per request from measured tokens, with the picker as the fallback for the critical AI dependency; maintenance and content-review plan with named responsibilities; deck updates (slide 4 media becomes next phase, slide 6 describes the router, slide 9 shows results, slide 11 costs); ≤ 2-minute video; 5-minute talk plus 3 minutes of questions; save the platform's submission confirmation.
+
+After Oct 6 the deployed version stays frozen and the API budget stays alive through final judging (Oct 19-22) and the ceremony (Oct 26).
 
 ## 10. Schedule and cut order
 
@@ -90,8 +103,8 @@ Cut order if time runs out: video polish, then English tone polish, then the stu
 
 - Router returns a valid route or a visible fallback for any input, including empty, 5,000 characters, injection attempts and API outage (tested).
 - All 3 journeys complete in AR and EN on a phone and keyboard; every shown source matches its link (script passes).
-- Evaluation page shows real, dated router vs baseline results.
-- No unapproved content ships; no `localhost` reference; no absolute accuracy claims anywhere.
+- Evaluation page shows real, dated router vs baseline results, repeated runs and known failures.
+- No unapproved content ships; no `localhost` reference; no absolute accuracy claims anywhere; AI disclosure and privacy notice visible.
 
 ## 12. Open items for the owner
 
@@ -99,4 +112,5 @@ Cut order if time runs out: video polish, then English tone polish, then the stu
 2. Who holds the Anthropic key and sets its spend limit?
 3. Reviewer's name for the approval record, and verified Saudi safety resources for `refer_safety`.
 4. LICENSE holder name (README states MIT).
-5. English translation of Quran meanings: which published translation, and its licence?
+5. Which track was chosen at registration? The Guide requires keeping to it (we assume Track 03).
+6. Check Anthropic's current data-retention terms before the privacy notice is final.
