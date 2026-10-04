@@ -3,6 +3,19 @@
   publish = "out"
   command = "npm run build"
 
+[build.environment]
+  NODE_VERSION = "22"
+
+# Functions directory finding (Task 1 spike): CONFIRMED locally with
+# `netlify-cli dev --offline` (v26.1.0) run from the repo root. With build.base = "frontend",
+# a relative `directory` resolves against the base, so "netlify/functions" means
+# frontend/netlify/functions, and POST /.netlify/functions/route returned the stub JSON.
+# A real Netlify deploy has not been tested yet; confirm via a branch deploy if desired.
+# Per-function `config.rateLimit`: not verified here (the CLI does not enforce it locally);
+# informational only, since the router relies on its own in-memory guard.
+[functions]
+  directory = "netlify/functions"
+
 [[headers]]
   for = "/*"
   [headers.values]
