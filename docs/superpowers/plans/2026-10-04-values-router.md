@@ -24,7 +24,7 @@
 - Before writing the Anthropic request (Task 4), load the `claude-api` skill and confirm request shape and current pricing; do not rely on memory.
 - Web browsing (source checks, UI checks) uses the gstack `/browse` skill, never `mcp__claude-in-chrome__*`.
 - Every commit message ends with the line `Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>`. Steps below show only the subject line.
-- Reviewer: Ahmed Shubayr (confirm exact name before first approval). Safety contacts for `refer_safety`: emergency/police 911 or 999; family safety and domestic violence 1919; mental-health and crisis consultation 937. The reviewer verifies these before approving the message.
+- Reviewer: Ahmed Shubayr (أحمد شبير), name confirmed 2026-10-04. Safety contacts for `refer_safety`: emergency/police 911 or 999; family safety and domestic violence 1919; mental-health and crisis consultation 937. The reviewer verifies these before approving the message.
 
 ## Review Focus
 
@@ -270,7 +270,7 @@ Tests sit next to the module as `*.test.ts`.
 - [ ] **Step 1:** Remove the files above. Run `npm run lint && npm test && npm run build`. Expected: all pass with no unused-import errors.
 - [ ] **Step 2:** Run `grep -rniE "localhost|100%|zero hallucination|صفر هلوسة|8000" src content ../README.md`. Expected: no matches. In the README, refer to the dev address as "the local URL printed by `netlify dev`" rather than writing it out.
 - [ ] **Step 3:** Rewrite `../README.md` honestly (AR/EN summary): what it is, the router pipeline and its limits, how to run (`npm install`, `npm run dev`, `npx netlify-cli dev` for the function), env var `ANTHROPIC_API_KEY`, how to run `npm run eval`, content and approval workflow (`verify-sources`, `approve`), deferred items from spec §2. No accuracy claims.
-- [ ] **Step 4:** `../LICENSE` (MIT; holder = spec §12 item 4; stop and ask the owner if still unanswered). `../STARTING_VERSION.md`: baseline commit (spec §12 item 7; ask the owner to confirm) and the rights/licences of reused components. `../docs/REGISTER.md`: sources, tools and licences (Next, React, lucide-react, Cairo and Amiri fonts, Tailwind, vitest, tsx, Anthropic API, each translation source).
+- [ ] **Step 4:** `../LICENSE`: an interim notice stating all rights are reserved and a licence will be issued by the project owner by the end of the program (spec §12 item 4); the README makes no MIT claim. `../STARTING_VERSION.md`: baseline commit `379db8c` (2026-10-04 09:38), noting that the Sep 29 release and the Oct 3 UI refactor (`43355d3` through `60250fa`) precede it, only work after it is new, plus the rights/licences of reused components. `../docs/REGISTER.md`: sources, tools and licences (Next, React, lucide-react, Cairo and Amiri fonts, Tailwind, vitest, tsx, Anthropic API, each translation source).
 - [ ] **Step 5:** Commit `chore: remove prototype backend and old cards; add README, licence and register`.
 
 ### Task 11: End-to-end verification and handoff
@@ -279,7 +279,7 @@ Tests sit next to the module as `*.test.ts`.
 - Create: `docs/cost-estimate.md`
 
 - [ ] **Step 1:** Run `npm test`, `npm run lint`, `npm run build`, then `CONTENT_GATE=strict npm run build`. Expected: the first three pass; the strict build passes only after the reviewer has approved all content (before that, it must fail and name each unapproved file; confirm that failure once, then confirm success after approval).
-- [ ] **Step 2:** With the real API key set locally, run `npx tsx scripts/eval.ts --split dev`, tune `ROUTER_SYSTEM_PROMPT` on dev only until no safety case reaches a journey, then freeze the prompt and run `npx tsx scripts/eval.ts --split test` exactly once. Commit the result files as `eval: dev and test results for prompt <hash8>`.
+- [ ] **Step 2:** With the owner's API key set in the git-ignored `frontend/.env.local` (never printed, pasted or committed), run `npx tsx scripts/eval.ts --split dev`, tune `ROUTER_SYSTEM_PROMPT` on dev only until no safety case reaches a journey, then freeze the prompt and run `npx tsx scripts/eval.ts --split test` exactly once. Commit the result files as `eval: dev and test results for prompt <hash8>`.
 - [ ] **Step 3:** Acceptance walk (spec §11) with `npx netlify-cli dev` and `/browse` at 390 px and desktop: empty input, 5,000-char input, a prompt-injection sentence, and an unplugged network each show a picker or referral, never an error page; the reviewer's explicit safety phrases show the safety message with no model call; all 3 journeys complete in AR and EN; every shown source link matches (`npx tsx scripts/verify-sources.ts` passes).
 - [ ] **Step 4:** Compute `docs/cost-estimate.md` from the measured mean input/output tokens in the test result and the current Haiku 4.5 prices (read from the `claude-api` skill, not memory); state the per-request cost, the daily cap, and that the picker is the fallback when the API is unavailable.
 - [ ] **Step 5:** Visual pass (time-boxed, after everything above is green): run the `taste-skill:redesign-skill` audit on the journey screens only, with no framework or token changes; re-run `npm test && npm run build`. Commit `style: journey screens polish`.
@@ -287,4 +287,4 @@ Tests sit next to the module as `*.test.ts`.
 
 ## Owner-run deliverables (not tasks here)
 
-User study with 8 participants (Google Forms), deck updates (slides 4, 6, 9, 11), the video of at most 2 minutes, the 5-minute talk plus 3 minutes of questions, saving the platform's submission confirmation, and reviewing Anthropic's data-retention terms before the privacy notice is final.
+User study with 8 peers recruited by the technical lead and team (4 Arabic, 4 English speakers), Monday 2026-10-05 12:00-15:00 Riyadh, on Google Forms (report it as a peer convenience sample), setting the Anthropic key's monthly spend limit, deck updates (slides 4, 6, 9, 11), the video of at most 2 minutes, the 5-minute talk plus 3 minutes of questions, saving the platform's submission confirmation, and reviewing Anthropic's data-retention terms before the privacy notice is final.
