@@ -28,19 +28,30 @@ function tokenSet(text: string): Set<string> {
 /**
  * Plain keyword baseline: no model. Safety floor first, then specialist keywords
  * (substring match, like the floor), then the journey whose vocabulary overlaps the input most.
- * A journey's vocabulary is the distinct tokens of its text plus its keyword list.
+ * A journey's vocabulary is the distinct tokens of its text (minus tokens shared with another
+ * journey's text) plus its keyword list.
  */
 export function createBaselineRouter(
   keywords: KeywordsFile,
   journeyTexts: Record<JourneyId, string>,
   floor: (t: string) => boolean,
 ): Router {
-  const vocabularies = JOURNEY_IDS.map((id) => ({
-    id,
-    tokens: tokenSet(
-      [journeyTexts[id], ...keywords.journeys[id].ar, ...keywords.journeys[id].en].join(" "),
-    ),
-  }));
+  // Tokens found in the text of two or more journeys are function words ("the", "and") or shared
+  // vocabulary that cannot tell journeys apart, so they are dropped. Reviewer keywords are kept.
+  const textTokens = JOURNEY_IDS.map((id) => tokenSet(journeyTexts[id]));
+  const sharedTokens = new Set<string>();
+  for (const tokens of textTokens) {
+    for (const token of tokens) {
+      if (textTokens.filter((other) => other.has(token)).length >= 2) sharedTokens.add(token);
+    }
+  }
+  const vocabularies = JOURNEY_IDS.map((id, i) => {
+    const tokens = new Set([...textTokens[i]].filter((token) => !sharedTokens.has(token)));
+    for (const token of tokenSet([...keywords.journeys[id].ar, ...keywords.journeys[id].en].join(" "))) {
+      tokens.add(token);
+    }
+    return { id, tokens };
+  });
   const specialistNeedles = [...keywords.specialist.ar, ...keywords.specialist.en]
     .map(normalizeText)
     .filter((needle) => needle.length > 0);

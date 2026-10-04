@@ -8,8 +8,11 @@
 // The model routers need ANTHROPIC_API_KEY (npm run eval loads frontend/.env.local); the
 // baseline needs no key. The key is never printed or written.
 //
-// Gates: dev exits 1 when a safety case reaches a journey on the model router; test refuses to
-// run when a result for the same split and prompt hash already exists (run-once rule).
+// Gates: dev exits 1 when a safety case reaches a journey on the model router. Test must use all
+// three routers, --runs 3 and eval/cases.json; it refuses to run when a result for the same
+// prompt hash exists (run-once rule), and writes nothing when over 10% of model responses fell
+// back to the picker (the run did not count). Dev results are named
+// <date>-dev-<hash8>-<HHMMSS>.json and are never overwritten.
 import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
@@ -25,6 +28,7 @@ import {
   type EvalResultFile,
   type MetricCount,
 } from "../src/lib/eval/metrics";
+import { checkTestRunAllowed, isRunUsable, resultFileName } from "../src/lib/eval/run";
 import { percentile } from "../src/lib/eval/stats";
 import { createBaselineRouter, type KeywordsFile, type Router } from "../src/lib/router/baseline";
 import { createFloor } from "../src/lib/router/floor";
@@ -49,6 +53,7 @@ interface Args {
   routers: RouterName[];
   runs: number;
   casesPath: string;
+  customCases: boolean;
 }
 
 function parseArgs(argv: string[]): Args {
@@ -82,7 +87,13 @@ function parseArgs(argv: string[]): Args {
   const runs = Number(flags.get("runs") ?? 3);
   if (!Number.isInteger(runs) || runs < 1) throw new UsageError("--runs must be a positive integer");
 
-  return { split, routers, runs, casesPath: flags.get("cases") ?? DEFAULT_CASES };
+  return {
+    split,
+    routers,
+    runs,
+    casesPath: flags.get("cases") ?? DEFAULT_CASES,
+    customCases: flags.has("cases"),
+  };
 }
 
 function loadCases(path: string): EvalCase[] {
@@ -140,10 +151,6 @@ function gitCommit(): string {
   }
 }
 
-function resultFileName(split: string, promptHash8: string): string {
-  return `${new Date().toISOString().slice(0, 10)}-${split}-${promptHash8}.json`;
-}
-
 function testRunAlreadyExists(split: string, promptHash8: string): string | undefined {
   if (!existsSync(RESULTS_DIR)) return undefined;
   return readdirSync(RESULTS_DIR).find(
@@ -157,6 +164,8 @@ function fmt(m: MetricCount): string {
 
 async function main(): Promise<number> {
   const args = parseArgs(process.argv.slice(2));
+  const notAllowed = checkTestRunAllowed(args);
+  if (notAllowed) throw new UsageError(`Refusing to run: ${notAllowed}`);
   const allCases = loadCases(args.casesPath);
   const cases = allCases.filter((c) => c.split === args.split);
 
@@ -242,6 +251,15 @@ async function main(): Promise<number> {
     knownFailures.push(...collectKnownFailures(name, cases, runs[name]));
   }
 
+  // A test run where the model mostly fell back to the picker measured nothing and must not
+  // consume the run-once slot. Abort before anything is written.
+  if (args.split === "test" && metrics.model && !isRunUsable(metrics.model.fallbackRate)) {
+    throw new UsageError(
+      "The test run did not count and nothing was written: too many model responses fell back to " +
+        "the picker. Check the API key and network, then run again.",
+    );
+  }
+
   const mean = (pick: (u: { inputTokens: number; outputTokens: number }) => number): number =>
     usages.length === 0 ? 0 : usages.reduce((sum, u) => sum + pick(u), 0) / usages.length;
 
@@ -260,8 +278,18 @@ async function main(): Promise<number> {
   };
 
   mkdirSync(RESULTS_DIR, { recursive: true });
-  const fileName = resultFileName(args.split, promptHash8);
-  writeFileSync(join(RESULTS_DIR, fileName), `${JSON.stringify(result, null, 2)}\n`);
+  const fileName = resultFileName(args.split, promptHash8, new Date());
+  try {
+    // "wx": never overwrite an existing result.
+    writeFileSync(join(RESULTS_DIR, fileName), `${JSON.stringify(result, null, 2)}\n`, {
+      flag: "wx",
+    });
+  } catch (err) {
+    if ((err as NodeJS.ErrnoException).code === "EEXIST") {
+      throw new UsageError(`Refusing to overwrite eval/results/${fileName}.`);
+    }
+    throw err;
+  }
 
   for (const [name, m] of Object.entries(metrics)) {
     console.log(`\n${name}`);

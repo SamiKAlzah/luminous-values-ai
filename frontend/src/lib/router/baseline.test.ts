@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { createBaselineRouter, outcomeLabel } from "./baseline";
+import { createBaselineRouter, outcomeLabel, type KeywordsFile } from "./baseline";
 import type { JourneyId, RouteResponse } from "../types";
 
 const keywords = {
@@ -95,6 +95,56 @@ describe("createBaselineRouter", () => {
     expect(await router("accent accent accent")).toEqual({
       outcome: "picker",
       reason: "low_confidence",
+    });
+  });
+});
+
+describe("journey vocabulary", () => {
+  const texts: Record<JourneyId, string> = {
+    citizenship_shared_facility: "the shared kitchen needs cleaning",
+    tolerance_accent: "the accent teasing hurts",
+    peace_before_escalation: "calm anger quickly",
+  };
+  const noKeywords: KeywordsFile = {
+    journeys: {
+      citizenship_shared_facility: { ar: [], en: [] },
+      tolerance_accent: { ar: [], en: [] },
+      peace_before_escalation: { ar: [], en: [] },
+    },
+    specialist: { ar: [], en: [] },
+  };
+  const build = (k = noKeywords) => createBaselineRouter(k, texts, () => false);
+
+  it("does not score a word shared by two journey texts", async () => {
+    // "the" is in two texts; "teasing" alone is only a single hit for one journey.
+    expect(await build()("the teasing")).toEqual({
+      outcome: "picker",
+      reason: "low_confidence",
+    });
+  });
+
+  it("scores words unique to one journey", async () => {
+    expect(await build()("accent teasing")).toEqual({
+      outcome: "journey",
+      journeyId: "tolerance_accent",
+    });
+  });
+
+  it("sends an input made only of shared words to the out_of_scope picker", async () => {
+    expect(await build()("the the the")).toEqual({ outcome: "picker", reason: "out_of_scope" });
+  });
+
+  it("still scores a keyword that also appears in two journey texts", async () => {
+    const withKeywords = {
+      ...noKeywords,
+      journeys: {
+        ...noKeywords.journeys,
+        tolerance_accent: { ar: [], en: ["the", "hurts"] },
+      },
+    };
+    expect(await build(withKeywords)("the hurts")).toEqual({
+      outcome: "journey",
+      journeyId: "tolerance_accent",
     });
   });
 });
