@@ -9,39 +9,105 @@
   },
   "body": {
     "ar": {
-      "title": "",
-      "situation": "",
-      "firstChoices": [],
-      "solutionSteps": [],
-      "newSituation": "",
-      "newChoices": [],
-      "todayStep": "",
-      "activityLabel": ""
+      "title": "لهجته مختلفة… ومكانه بيننا",
+      "situation": "في اجتماع الفريق الأسبوعي عرض زميلك الجديد فكرة لتحسين جدول التسليم، وكان يتحدث بلهجة بلده. قلّد أحد الزملاء طريقة نطقه وضحك بعض الحاضرين، فتوقف زميلك الجديد عن الكلام وبقي صامتًا حتى نهاية الاجتماع.",
+      "firstChoices": [
+        {
+          "text": "أضحك مع الجميع حتى لا أبدو متحفظًا.",
+          "feedback": "الضحكة تبدو صغيرة، لكنها تقول له إن الفريق يهتم بلهجته أكثر من فكرته. ومع التكرار يتوقف كثيرون عن المشاركة، فيخسر الفريق أفكارًا كان يحتاجها."
+        },
+        {
+          "text": "أصمت وأقول لنفسي إن الأمر لا يعنيني.",
+          "feedback": "الصمت لا يجرح أحدًا مباشرة، لكنه يترك الموقف يمر كأنه مقبول. والزميل الذي قُلّد لا يعرف أن أحدًا لاحظ ما حدث أو انزعج منه."
+        },
+        {
+          "text": "أعيد الحديث إلى فكرته: «لنسمع اقتراحه حتى النهاية، يبدو مفيدًا».",
+          "feedback": "أعدت الاجتماع إلى المضمون دون أن تحرج أحدًا، وعرف زميلك أن فكرته مسموعة. كثيرًا ما تكفي جملة هادئة واحدة لتغيير جو الاجتماع."
+        }
+      ],
+      "solutionSteps": [
+        "في اللحظة نفسها، أعد الحديث إلى الفكرة لا إلى طريقة النطق، واطلب منه أن يكمل.",
+        "بعد الاجتماع، تحدث بهدوء وعلى انفراد مع الزميل الذي قلّده: وضّح له أن التقليد قد يجرح ولو كان مزاحًا، دون اتهام أو تشهير.",
+        "أشرك زميلك الجديد في العمل فعلًا: اقترح أن يعرض فكرته في الاجتماع القادم، أو اعمل معه على جزء منها."
+      ],
+      "newSituation": "في مجموعة الفريق على تطبيق المحادثة أرسلت زميلة جديدة رسالة صوتية تشرح فيها مشكلة في النظام. بعد دقائق كتب أحدهم: «ممكن أحد يترجم لنا؟» مع وجه ضاحك، وتفاعل آخرون بالضحك.",
+      "newChoices": [
+        {
+          "text": "أتفاعل بوجه ضاحك أيضًا، فهي مجرد مزحة.",
+          "feedback": "قد يقصد صاحبها المزاح، لكن الزميلة الجديدة ترى المجموعة كلها تضحك على طريقة كلامها بدل أن تهتم بمشكلتها، فتتردد قبل أن تشارك مرة أخرى."
+        },
+        {
+          "text": "أرد على مضمون رسالتها: «فهمت أن المشكلة في صفحة الدخول، سأتحقق منها معك».",
+          "feedback": "هذا يعيد المجموعة إلى العمل ويُظهر أن رسالتها مفهومة ومحترمة، وهو ما تدربت عليه في هذه الرحلة: التركيز على الفكرة وإشراك صاحبها."
+        },
+        {
+          "text": "أكتب في المجموعة أن هذا التعليق عنصري وغير مقبول.",
+          "feedback": "قد يكون اعتراضك في محله، لكن الحكم العلني القاسي قد يحول المجموعة إلى جدال ويضع الزميلة الجديدة وسط خلاف لم تطلبه. الحديث على انفراد مع صاحب التعليق غالبًا أهدأ وأنفع."
+        }
+      ],
+      "todayStep": "اختر زميلًا أو جارًا قلّما يشارك لأنه جديد أو لأن لغته أو لهجته مختلفة، واسأله اليوم عن رأيه في أمر يخص العمل أو الحي، واستمع إليه حتى ينهي كلامه.",
+      "activityLabel": "نشاط تعليمي مقترح"
     },
     "en": {
-      "title": "",
-      "situation": "",
-      "firstChoices": [],
-      "solutionSteps": [],
-      "newSituation": "",
-      "newChoices": [],
-      "todayStep": "",
-      "activityLabel": ""
+      "title": "A different accent, and a place among us",
+      "situation": "In the weekly team meeting, your new colleague presented an idea for improving the delivery schedule, speaking with the accent of his home country. Another colleague imitated his pronunciation and some people laughed. Your new colleague stopped talking and stayed silent for the rest of the meeting.",
+      "firstChoices": [
+        {
+          "text": "I laugh along so I don't seem uptight.",
+          "feedback": "A laugh seems small, but it tells him the team cares more about his accent than his idea. When it keeps happening, many people stop speaking up, and the team loses ideas it needed."
+        },
+        {
+          "text": "I stay quiet and tell myself it is none of my business.",
+          "feedback": "Silence does not hurt anyone directly, but it lets the moment pass as if it were acceptable. And the colleague who was imitated has no way of knowing that anyone noticed or minded."
+        },
+        {
+          "text": "I bring the discussion back to his idea: \"Let's hear the rest of his suggestion, it sounds useful.\"",
+          "feedback": "You brought the meeting back to the content without embarrassing anyone, and your colleague learned that his idea was being heard. One calm sentence is often enough to change the mood of a meeting."
+        }
+      ],
+      "solutionSteps": [
+        "In the moment, bring the conversation back to the idea, not the pronunciation, and ask him to continue.",
+        "After the meeting, speak calmly and privately to the colleague who imitated him: explain that imitation can hurt even when it is meant as a joke, without accusing or shaming him.",
+        "Include your new colleague in the real work: suggest that he presents his idea at the next meeting, or work with him on part of it."
+      ],
+      "newSituation": "In the team's chat group, a new colleague sends a voice message explaining a problem with the system. A few minutes later someone writes \"Can someone translate for us?\" with a laughing emoji, and others react with laughter.",
+      "newChoices": [
+        {
+          "text": "I add a laughing emoji too. It's just a joke.",
+          "feedback": "It may be meant as a joke, but the new colleague sees the whole group laughing at the way she speaks instead of dealing with her problem, and she will hesitate before sharing again."
+        },
+        {
+          "text": "I reply to what she said: \"I understand the issue is on the login page, I'll look at it with you.\"",
+          "feedback": "This brings the group back to the work and shows that her message was understood and respected. It is what this journey practised: focus on the idea and include the person."
+        },
+        {
+          "text": "I post in the group that the comment is racist and unacceptable.",
+          "feedback": "Your objection may be fair, but a harsh public judgement can turn the group into an argument and put the new colleague in the middle of a dispute she did not ask for. A private word with the person who wrote it is usually calmer and more effective."
+        }
+      ],
+      "todayStep": "Choose a colleague or neighbour who rarely joins in because they are new or speak a different language or accent, ask their view today on something about work or the neighbourhood, and listen until they have finished.",
+      "activityLabel": "Suggested educational activity"
     },
     "source": {
       "type": "quran",
-      "arabicText": "",
-      "reference": "",
-      "grade": "",
-      "url": "",
+      "arabicText": "يَا أَيُّهَا الَّذِينَ آمَنُوا لَا يَسْخَرْ قَوْمٌ مِنْ قَوْمٍ عَسَىٰ أَنْ يَكُونُوا خَيْرًا مِنْهُمْ وَلَا نِسَاءٌ مِنْ نِسَاءٍ عَسَىٰ أَنْ يَكُنَّ خَيْرًا مِنْهُنَّ ۖ وَلَا تَلْمِزُوا أَنْفُسَكُمْ وَلَا تَنَابَزُوا بِالْأَلْقَابِ ۖ بِئْسَ الِاسْمُ الْفُسُوقُ بَعْدَ الْإِيمَانِ ۚ وَمَنْ لَمْ يَتُبْ فَأُولَٰئِكَ هُمُ الظَّالِمُونَ",
+      "reference": "سورة الحجرات، الآية 11 · Qur'an, Surah Al-Hujurat (49), verse 11",
+      "grade": "آية قرآنية، بنص مصحف حفص كما تعرضه Quranpedia · Qur'anic verse, Hafs text as displayed on Quranpedia",
+      "url": "https://quranpedia.net/tafsir/al-hujurat/11",
       "translation": {
-        "name": "",
-        "text": ""
+        "name": "Saheeh International, English translation of the meanings (as published on quranpedia.net)",
+        "text": "O you who have believed, let not a people ridicule [another] people; perhaps they may be better than them; nor let women ridicule [other] women; perhaps they may be better than them. And do not insult one another and do not call each other by [offensive] nicknames. Wretched is the name [i.e., mention] of disobedience after [one's] faith. And whoever does not repent - then it is those who are the wrongdoers."
       },
       "explanation": {
-        "ar": "",
-        "en": ""
+        "ar": "قال ابن كثير في «تفسير القرآن العظيم»: «ينهى تعالى عن السخرية بالناس، وهو احتقارهم والاستهزاء بهم… فإنه قد يكون المحتقر أعظم قدرا عند الله وأحب إليه من الساخر منه المحتقر له». وقال في قوله تعالى ﴿وَلا تَنَابَزُوا بِالألْقَابِ﴾: «أي : لا تتداعوا بالألقاب، وهي التي يسوء الشخص سماعها».",
+        "en": "Ibn Kathir, Tafsir al-Qur'an al-'Azim (English rendering of the meaning by the drafting team, not a published translation): \"Allah the Exalted forbids mocking people, which means looking down on them and ridiculing them… for the one who is looked down on may be greater in standing with Allah, and more beloved to Him, than the one who mocks and belittles him.\" On \"do not call each other by [offensive] nicknames\" he says: \"that is, do not call one another by nicknames that a person is hurt to hear.\""
       }
     }
+  },
+  "sourceCheck": {
+    "checkedAt": "2026-10-04T09:37:38.689Z",
+    "url": "https://quranpedia.net/tafsir/al-hujurat/11",
+    "arabicTextHash": "f66f8e38d42f4580099a932c9e31bcc3dae9e115182f334fe52c852f3d3bb5f5",
+    "pass": true
   }
 }

@@ -1,20 +1,100 @@
 {
+  "status": "draft",
   "journeys": {
     "citizenship_shared_facility": {
-      "ar": [],
-      "en": []
+      "ar": [
+        "حديقة",
+        "نفايات",
+        "قمامة",
+        "زبالة",
+        "مخلفات",
+        "حاوية",
+        "مرفق عام",
+        "نظافة",
+        "الممشى"
+      ],
+      "en": [
+        "litter",
+        "rubbish",
+        "trash",
+        "garbage",
+        "park",
+        "public space",
+        "bin",
+        "clean up",
+        "playground"
+      ]
     },
     "tolerance_accent": {
-      "ar": [],
-      "en": []
+      "ar": [
+        "لهجة",
+        "لهجته",
+        "لكنة",
+        "سخرية",
+        "يسخرون",
+        "يقلد",
+        "تقليد",
+        "يضحكون عليه",
+        "زميل جديد"
+      ],
+      "en": [
+        "accent",
+        "mocked",
+        "mocking",
+        "imitated",
+        "made fun of",
+        "laughed at",
+        "pronunciation",
+        "new colleague",
+        "left out"
+      ]
     },
     "peace_before_escalation": {
-      "ar": [],
-      "en": []
+      "ar": [
+        "خلاف",
+        "سوء فهم",
+        "مجموعة السكان",
+        "الجيران",
+        "جاري",
+        "موقف السيارة",
+        "نبرة حادة",
+        "شجار",
+        "قروب"
+      ],
+      "en": [
+        "misunderstanding",
+        "argument",
+        "group chat",
+        "neighbour",
+        "neighbor",
+        "parking spot",
+        "heated",
+        "dispute",
+        "residents"
+      ]
     }
   },
   "specialist": {
-    "ar": [],
-    "en": []
+    "ar": [
+      "طلاق",
+      "ميراث",
+      "الورث",
+      "حكم شرعي",
+      "فتوى",
+      "حلال أو حرام",
+      "هل يجوز",
+      "الحضانة",
+      "قضية في المحكمة"
+    ],
+    "en": [
+      "divorce",
+      "inheritance",
+      "fatwa",
+      "is it haram",
+      "is it halal",
+      "islamic ruling",
+      "custody",
+      "court case"
+    ]
   }
 }

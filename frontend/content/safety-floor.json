@@ -9,8 +9,34 @@
   },
   "body": {
     "phrases": {
-      "ar": [],
-      "en": []
+      "ar": [
+        "أفكر في الانتحار",
+        "أريد أن أنتحر",
+        "ودي أنتحر",
+        "أبي أنتحر",
+        "سأقتل نفسي",
+        "بقتل نفسي",
+        "أريد أن أموت",
+        "أؤذي نفسي",
+        "أجرح نفسي",
+        "سأقتله",
+        "يهددني بالقتل",
+        "زوجي يضربني"
+      ],
+      "en": [
+        "kill myself",
+        "killing myself",
+        "want to die",
+        "end my life",
+        "suicide",
+        "suicidal",
+        "hurt myself",
+        "cut myself",
+        "going to kill him",
+        "going to kill her",
+        "threatened to kill me",
+        "my husband hits me"
+      ]
     }
   }
 }
