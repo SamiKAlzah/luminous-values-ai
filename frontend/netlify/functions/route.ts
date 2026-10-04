@@ -1,11 +1,7 @@
-// Stub for the values-router function. Replaced by the real router in a later task.
-// Declared locally (instead of importing from @netlify/functions) to avoid an extra dependency.
-export type Context = { ip: string };
+// Thin Netlify adapter. All logic lives in src/lib/router. Relative imports only: the
+// function bundler is not relied on to resolve the "@/" alias.
+import { handleRequest } from "../../src/lib/router/handler";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export default function handler(_req: Request, _context: Context): Response {
-  return new Response(JSON.stringify({ outcome: "picker", reason: "unavailable" }), {
-    status: 200,
-    headers: { "content-type": "application/json" },
-  });
+export default function handler(req: Request, ctx: { ip: string }): Promise<Response> {
+  return handleRequest(req, { apiKey: process.env.ANTHROPIC_API_KEY, ip: ctx.ip });
 }
