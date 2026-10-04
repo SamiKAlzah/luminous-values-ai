@@ -40,7 +40,7 @@ confidence: high | low
 
 Nothing else comes back from the model. The function re-validates `route` against the closed list server-side; anything else is treated as a failure.
 
-**Pipeline order.** (1) input checks (empty, length) → (2) cost-abuse guard → (3) safety floor → (4) model call → (5) validation → response.
+**Pipeline order.** (1) empty check → (2) safety floor (runs on the first 5,000 characters, before any length rejection) → (3) cost-abuse guard → (4) length check (> 500 characters gets the picker with a "too long" note) → (5) model call → (6) validation → response. The floor runs before the guard because it is free and safety-critical: a rate-limited user must still get the safety referral.
 
 **Behaviour.**
 - A journey ID with `high` confidence opens the journey.
@@ -102,6 +102,8 @@ The **reviewer writes the 60-case test set before any prompt exists**, saved as 
 ## 8. Architecture and repo changes
 
 Next.js static export stays. Pages: `/` (router + cards), `/journey/[id]` (3 static params), `/about` (trust, AI role and limits, evaluation results, privacy). Language and theme state reuse the existing `LanguageProvider` and theme hook; the existing design tokens and three themes stay. After the logic works, a **time-boxed visual pass on the journey screens only** (typography, states, mobile layout), with no framework change.
+
+Path note: `content/`, `eval/`, `scripts/` and `netlify/` live under `frontend/`, because Next imports them and Netlify builds with `base = "frontend"`.
 
 New: `netlify/functions/route.ts` (the Netlify `functions` path must be checked against `base = "frontend"` and the static export in `netlify.toml`: a 30-minute spike done first), `content/`, `eval/`, `scripts/`. `frontend/AGENTS.md` warns that this Next.js version has breaking changes: read the bundled docs in `node_modules/next/dist/docs/` before writing route code.
 
