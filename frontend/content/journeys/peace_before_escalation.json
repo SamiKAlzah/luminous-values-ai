@@ -13,16 +13,16 @@
       "situation": "في مجموعة سكان العمارة على تطبيق المحادثة كتب أحد الجيران: «من يوقف سيارته في موقفي كل ليلة؟ هذا تصرف غير محترم». أنت أوقفت سيارتك هناك مرة واحدة أمس لأنك ظننت الموقف مخصصًا للزوار، وبدأ جيران آخرون يردون بنبرة حادة.",
       "firstChoices": [
         {
-          "text": "أرد بسرعة: «لست الوحيد الذي يوقف هناك، والمواقف أصلًا غير مرقمة».",
+          "text": "أرد بأنني لست الوحيد الذي يوقف هناك، وأن المواقف غير مرقمة أصلًا.",
           "feedback": "قد يكون كلامك صحيحًا، لكن الرد الدفاعي أمام المجموعة يُشعر الجار بأنه متهم، فترتفع النبرة ويدخل آخرون في النقاش. يكبر الخلاف وتبقى المشكلة نفسها بلا حل."
         },
         {
-          "text": "أتجاهل المجموعة وأكتم انزعاجي.",
-          "feedback": "تجنبت الجدال الآن، لكن سوء الفهم باقٍ. قد يظل الجار يظن أن أحدًا يتعمد مضايقته، وقد يعود الموقف بنبرة أشد."
+          "text": "لا أرد في المجموعة، وأتجنب ذلك الموقف من الآن فصاعدًا.",
+          "feedback": "تجنبت الجدال، وتوقفت المشكلة من جهتك. لكن الجار لا يعرف ذلك، وقد يظل يظن أن أحدًا تعمد مضايقته، ويبقى التوتر قائمًا في المجموعة."
         },
         {
-          "text": "أكتب رسالة هادئة أوضح فيها ما حدث، وأعتذر عن الإزعاج، وأسأل عن مواقف الزوار.",
-          "feedback": "التوضيح الهادئ خفف كثيرًا من التوتر، لأن الجار عرف أن الأمر لم يكن مقصودًا، وصار النقاش عن حل عملي بدل البحث عن مخطئ."
+          "text": "أوضح أنني أوقفت هناك مرة ظنًّا أنه للزوار، وأعتذر.",
+          "feedback": "قد يبقى الجار منزعجًا قليلًا، لكن التوضيح خفف كثيرًا من التوتر لأنه عرف أن الأمر لم يكن مقصودًا، وصار النقاش عن حل عملي بدل البحث عن مخطئ."
         }
       ],
       "solutionSteps": [
@@ -33,15 +33,15 @@
       "newSituation": "في المجموعة نفسها اشتكت جارة من صوت أعمال صيانة في شقة جارها بعد العاشرة ليلًا، فرد صاحب الشقة: «أنا في بيتي وأفعل ما أشاء». وبدأ آخرون ينحازون إلى هذا الطرف أو ذاك.",
       "newChoices": [
         {
-          "text": "أكتب أن الطرفين مخطئان وأن المجموعة صارت مزعجة.",
-          "feedback": "قد يعبر هذا عن ضيقك، لكنه يضيف صوتًا غاضبًا ثالثًا ولا يقترح شيئًا، فيزيد النقاش حدة في الغالب بدل أن يهدئه."
+          "text": "أكتب أن الطرفين مخطئان، وأن عليهما نقل الخلاف خارج المجموعة.",
+          "feedback": "اقتراح نقل الخلاف خارج المجموعة في محله، لكن الحكم على الطرفين بالخطأ يجعل كلًّا منهما يدافع عن نفسه، فتعلو النبرة بدل أن تهدأ."
         },
         {
-          "text": "أقترح بهدوء أن يتفقا على أوقات للأعمال المزعجة، وأن يكملا الحديث على انفراد.",
-          "feedback": "هذا ينقل الخلاف من سؤال «من المخطئ؟» إلى «ما الذي يناسب الجميع؟»، ويخرجه من أمام المجموعة. وهو ما تدربت عليه في هذه الرحلة: التهدئة ثم الاتفاق على خطوة عملية."
+          "text": "أقترح أن يتفقا على أوقات للأعمال المزعجة ويتحدثا بينهما.",
+          "feedback": "قد لا يقبل أحدهما الاقتراح فورًا، لكنه ينقل النقاش من سؤال «من المخطئ؟» إلى «ما الذي يناسب الجميع؟». وهذا يوافق خطوات الحل: التهدئة ثم الاتفاق على خطوة عملية."
         },
         {
-          "text": "أغادر المجموعة حتى لا أتورط.",
+          "text": "أغادر المجموعة مؤقتًا، وأعود إليها حين يهدأ النقاش.",
           "feedback": "حميت نفسك من التوتر، وهذا قرار مفهوم أحيانًا. لكن المجموعة خسرت صوتًا كان يمكن أن يساعد على التهدئة، وقد تفوتك أخبار تخص المبنى."
         }
       ],
@@ -53,35 +53,35 @@
       "situation": "In the building residents' chat group, a neighbour writes: \"Who keeps parking in my spot every night? This is disrespectful.\" You parked there once yesterday because you thought it was a visitor space, and other neighbours have started replying in a sharp tone.",
       "firstChoices": [
         {
-          "text": "I reply quickly: \"I'm not the only one who parks there, and the spaces aren't even numbered.\"",
+          "text": "I reply that I'm not the only one who parks there, and the spaces aren't numbered anyway.",
           "feedback": "You may be right, but a defensive reply in front of the group makes the neighbour feel accused, so the tone rises and others join in. The disagreement grows while the actual problem stays unsolved."
         },
         {
-          "text": "I ignore the group and keep my irritation to myself.",
-          "feedback": "You avoided an argument for now, but the misunderstanding remains. The neighbour may go on thinking someone is annoying him on purpose, and it may come back more sharply."
+          "text": "I don't reply in the group, and I just avoid that space from now on.",
+          "feedback": "You avoided an argument, and the problem stops on your side. But the neighbour does not know that, and may go on thinking someone annoyed him on purpose, so the tension stays in the group."
         },
         {
-          "text": "I write a calm message explaining what happened, apologise for the trouble and ask which spaces are for visitors.",
-          "feedback": "The calm explanation took much of the tension out, because the neighbour learned it was not deliberate, and the conversation moved to a practical fix instead of looking for someone to blame."
+          "text": "I explain I parked there once, thinking it was for visitors, and apologise.",
+          "feedback": "The neighbour may still be a little annoyed, but the explanation takes much of the tension out because he learns it was not deliberate, and the conversation moves to a practical fix instead of looking for someone to blame."
         }
       ],
       "solutionSteps": [
-        "Clarify and calm down: say what happened on your side in one short sentence and a calm tone, and do not reply while you are upset.",
+        "Clarify and calm things down: say what happened on your side in one short sentence and a calm tone, and do not reply while you are upset.",
         "Agree on a practical step: for example, suggest clearly marking the visitor spaces, or contact the neighbour directly to sort it out.",
         "Ask for help if you need it: if the tension continues or the tone gets worse, bring in the building manager, the owner or a neighbour both sides trust."
       ],
       "newSituation": "In the same group, a neighbour complains about the noise of repair work in the flat next door after ten at night. The flat's owner replies: \"It's my home and I'll do what I like.\" Others start taking sides.",
       "newChoices": [
         {
-          "text": "I write that both of them are wrong and the group has become a nuisance.",
-          "feedback": "That may express your frustration, but it adds a third angry voice and offers nothing, so it usually makes the discussion sharper rather than calmer."
+          "text": "I write that both of them are in the wrong and should take it out of the group.",
+          "feedback": "Suggesting they take it out of the group makes sense, but saying both are in the wrong makes each of them defend himself, so the tone rises instead of settling."
         },
         {
-          "text": "I calmly suggest they agree on hours for noisy work and continue the conversation privately.",
-          "feedback": "This moves the disagreement from \"who is wrong?\" to \"what works for everyone?\" and takes it out of the group's view. It is what this journey practised: calm things down, then agree a practical step."
+          "text": "I suggest they agree on hours for noisy work and talk it over privately.",
+          "feedback": "Neither may accept straight away, but it moves the discussion from \"who is wrong?\" to \"what works for everyone?\". This fits the solution steps: calm things down, then agree a practical step."
         },
         {
-          "text": "I leave the group so I don't get involved.",
+          "text": "I leave the group for a while and come back once things calm down.",
           "feedback": "You protected yourself from the tension, which is sometimes a reasonable choice. But the group lost a voice that could have helped calm things, and you may miss news about the building."
         }
       ],
@@ -90,10 +90,10 @@
     },
     "source": {
       "type": "quran",
-      "arabicText": "وَلَا تَسْتَوِي الْحَسَنَةُ وَلَا السَّيِّئَةُ ۚ ادْفَعْ بِالَّتِي هِيَ أَحْسَنُ فَإِذَا الَّذِي بَيْنَكَ وَبَيْنَهُ عَدَاوَةٌ كَأَنَّهُ وَلِيٌّ حَمِيمٌ",
+      "arabicText": "وَلَا تَسۡتَوِي ٱلۡحَسَنَةُ وَلَا ٱلسَّيِّئَةُۚ ٱدۡفَعۡ بِٱلَّتِي هِيَ أَحۡسَنُ فَإِذَا ٱلَّذِي بَيۡنَكَ وَبَيۡنَهُۥ عَدَٰوَةٞ كَأَنَّهُۥ وَلِيٌّ حَمِيمٞ",
       "reference": "سورة فصلت، الآية 34 · Qur'an, Surah Fussilat (41), verse 34",
-      "grade": "آية قرآنية، بنص مصحف حفص كما تعرضه Quranpedia · Qur'anic verse, Hafs text as displayed on Quranpedia",
-      "url": "https://quranpedia.net/tafsir/fussilat/34",
+      "grade": "آية قرآنية، بالرسم العثماني (رواية حفص) كما تعرضه Quranpedia · Qur'anic verse, Uthmani script (Hafs) as displayed on Quranpedia",
+      "url": "https://quranpedia.net/tafsir/fussilat/34/en",
       "translation": {
         "name": "Saheeh International, English translation of the meanings (as published on quranpedia.net)",
         "text": "And not equal are the good deed and the bad. Repel [evil] by that [deed] which is better; and thereupon, the one whom between you and him is enmity [will become] as though he was a devoted friend."
@@ -105,9 +105,9 @@
     }
   },
   "sourceCheck": {
-    "checkedAt": "2026-10-04T09:37:38.873Z",
-    "url": "https://quranpedia.net/tafsir/fussilat/34",
-    "arabicTextHash": "ad402b8ae4d0aad5d3c709bda6687a55d50d860c590dd28abc708e5c1caa3232",
+    "checkedAt": "2026-10-04T09:56:04.814Z",
+    "url": "https://quranpedia.net/tafsir/fussilat/34/en",
+    "arabicTextHash": "96359922e5707946b7d7a4acd7a6e8782e0476a7fa7fdad66eaaf516e97faf66",
     "pass": true
   }
 }

@@ -13,8 +13,8 @@
       "en": "We could not tell which journey fits what you wrote. Please choose one of the three journeys below."
     },
     "out_of_scope": {
-      "ar": "تساعد هذه المنصة على تطبيق القيم في مواقف الحياة اليومية، ولا تجيب عن الأسئلة المفتوحة. كما أنها لا تنشئ الأحاديث أو الآيات ولا تتحقق من صحتها؛ وللتحقق من حديث يمكنك الرجوع إلى الموسوعة الحديثية في موقع الدرر السنية (dorar.net). يمكنك اختيار إحدى الرحلات أدناه.",
-      "en": "This platform helps with putting values into practice in everyday situations. It does not answer open questions, and it does not produce or verify hadiths or Qur'anic verses; to check a hadith, you can use the Hadith Encyclopedia on the Dorar website (dorar.net). You can choose one of the journeys below."
+      "ar": "تساعد هذه المنصة على تطبيق القيم في مواقف الحياة اليومية، ولا تجيب عن الأسئلة المفتوحة. كما أنها لا تورد أحاديث أو آيات من خارج محتواها المراجَع، ولا تحكم على صحة الأحاديث؛ وللتحقق من حديث يمكن الرجوع إلى الموسوعة الحديثية في موقع الدرر السنية (dorar.net). ويمكنك اختيار إحدى الرحلات أدناه.",
+      "en": "This platform helps with putting values into practice in everyday situations, and it does not answer open questions. It does not quote hadiths or Qur'anic verses from outside its reviewed content, and it does not judge whether a hadith is authentic; to check a hadith, you can use the Hadith Encyclopedia on the Dorar website (dorar.net). You can choose one of the journeys below."
     },
     "unavailable": {
       "ar": "التوجيه الذكي غير متاح الآن. يمكنك اختيار إحدى الرحلات أدناه مباشرة.",
@@ -29,8 +29,8 @@
       "en": "What you describe needs a qualified person. This platform does not give a ruling on personal cases, such as family, legal or medical matters, or questions on which scholars differ. Please consult a qualified scholar or the official fatwa authority, or the right specialist for your situation."
     },
     "refer_safety": {
-      "ar": "يبدو أنك تمر بموقف صعب، وسلامتك تهمنا. هذه المنصة ليست المكان المناسب لهذا الموقف، لكن يمكنك الآن التواصل مع من يستطيع المساعدة:\nالطوارئ والشرطة: 911 (العمليات الموحدة) أو 999.\nسلامة الأسرة والحماية من العنف الأسري: 1919 (وزارة الموارد البشرية والتنمية الاجتماعية).\nالاستشارات النفسية ودعم الأزمات: 937 (وزارة الصحة).\nإذا كنت في خطر الآن، فاتصل بالرقم 911. ويمكنك البدء من جديد متى شئت.",
-      "en": "It sounds like you are going through something difficult, and your safety matters. This platform is not the right place for this, but you can contact people who can help right now:\nEmergency and police: 911 (Unified Operations) or 999.\nFamily safety and domestic violence: 1919 (Ministry of Human Resources and Social Development).\nMental-health and crisis consultation: 937 (Ministry of Health).\nIf you are in danger right now, call 911. You can start over whenever you are ready."
+      "ar": "يبدو أن ما تمر به صعب، وسلامتك تهمنا. لا تستطيع هذه المنصة أن تقدم هنا المساعدة التي يستحقها موقف كهذا، لكن هذه الجهات تستطيع، ويمكن التواصل معها الآن:\nالطوارئ والشرطة: 911 (العمليات الموحدة) أو 999.\nسلامة الأسرة والحماية من العنف الأسري: 1919 (وزارة الموارد البشرية والتنمية الاجتماعية).\nالاستشارات النفسية ودعم الأزمات: 937 (وزارة الصحة).\nعند وجود خطر الآن، فالاتصال بالرقم 911 هو الخطوة الأولى. ويمكن البدء من جديد في أي وقت.",
+      "en": "It sounds like you are going through something hard, and your safety matters. This platform can't give you the help you deserve here, but these services can, and you can contact them right now:\nEmergency and police: 911 (Unified Operations) or 999.\nFamily safety and domestic violence: 1919 (Ministry of Human Resources and Social Development).\nMental-health and crisis consultation: 937 (Ministry of Health).\nIf you are in danger right now, call 911. You can start over whenever you are ready."
     }
   }
 }

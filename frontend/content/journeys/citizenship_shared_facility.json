@@ -13,16 +13,16 @@
       "situation": "مساء الجمعة في حديقة الحي. عند المقاعد القريبة من الألعاب تركت عائلة غادرت قبل قليل أكياسًا وعلبًا فارغة، والريح تدفع بعضها نحو الممشى. الحاوية على بعد خطوات، وأنت جالس مع أصدقائك.",
       "firstChoices": [
         {
-          "text": "أتركها، فهذه ليست مخلفاتي.",
-          "feedback": "هذا مفهوم، فلست أنت من تركها. لكن الأكياس ستتفرق في الحديقة خلال دقائق، وسيجدها الأطفال وعمال النظافة وزوار الغد. حين يقول كل واحد منا «ليست مسؤوليتي» يبقى المكان المشترك بلا من يعتني به."
+          "text": "أتركها؛ فمن تركها هو المسؤول عنها، وعمال الحديقة سيمرون لاحقًا.",
+          "feedback": "صحيح أنك لم تتركها، وأن عمال الحديقة سيمرون. لكن الريح ستفرق الأكياس في الحديقة قبل ذلك، وسيجدها الأطفال وزوار الغد. حين يقول كل واحد منا «ليست مسؤوليتي» يبقى المكان المشترك بلا من يعتني به."
         },
         {
-          "text": "أصوّر المكان وأنشر الصورة في مجموعة الحي مع تعليق ينتقد من تركها.",
-          "feedback": "قد يلفت ذلك الانتباه، لكنه كثيرًا ما يثير جدالًا وقد يحرج أشخاصًا لا يعرفهم أحد، بينما تبقى المخلفات في مكانها. النقد وحده لا ينظف الحديقة."
+          "text": "أجمع ما أستطيع وأضعه في الحاوية، وأطلب من أصدقائي أن يساعدوني.",
+          "feedback": "خلال دقائق عاد المكان نظيفًا، ورأى من حولك أن الأمر بسيط. قد يستغرب أحدهم في البداية، لكن كثيرًا ما يكفي أن يبدأ شخص واحد حتى يشاركه الآخرون."
         },
         {
-          "text": "أجمع ما أستطيع وأضعه في الحاوية، وأدعو من معي إلى المساعدة.",
-          "feedback": "خلال دقائق عاد المكان نظيفًا، ورأى من حولك أن الأمر بسيط. كثيرًا ما يكفي أن يبدأ شخص واحد حتى يشاركه الآخرون."
+          "text": "أصوّر المكان وأنشره في مجموعة الحي لعل من تركها ينتبه في المرة القادمة.",
+          "feedback": "قد يلفت ذلك الانتباه إلى المشكلة، لكنه كثيرًا ما يتحول إلى جدال وتخمين حول من فعلها، وقد يُلام أشخاص لا علاقة لهم بالأمر، بينما تبقى المخلفات في مكانها الليلة."
         }
       ],
       "solutionSteps": [
@@ -33,16 +33,16 @@
       "newSituation": "في نزهة على الشاطئ مع زملاء العمل انتهى الغداء وبدأ الجميع يستعدون للمغادرة. الحاوية بعيدة قليلًا، ويقترح أحدهم ترك الأكياس بجانب المقعد لأن «عمال النظافة سيأتون في الصباح».",
       "newChoices": [
         {
-          "text": "أوافق، فالتنظيف عمل عمال النظافة.",
-          "feedback": "عمال النظافة يبذلون جهدًا كبيرًا، لكن الأكياس المتروكة طوال الليل تتعرض للريح والحيوانات، فتتبعثر على الرمل وفي البحر قبل وصولهم. المرفق المشترك يبقى نظيفًا حين يتحمل كل من يستعمله نصيبه."
+          "text": "أوافق؛ فعمال النظافة سيمرون في الصباح، والحاوية بعيدة.",
+          "feedback": "عمال النظافة يمرون فعلًا، لكن الأكياس المتروكة طوال الليل تتعرض للريح والحيوانات، فتتبعثر على الرمل وفي البحر قبل وصولهم، ويصبح تنظيفها أصعب بكثير."
         },
         {
-          "text": "أقترح أن نحمل الأكياس معًا إلى الحاوية، وأتطوع بحمل أحدها.",
-          "feedback": "هذا ما تدربت عليه في هذه الرحلة: بدأت بنفسك ودعوت الآخرين دون لوم. وحين يتوزع الحمل يصبح الأمر سهلًا على الجميع."
+          "text": "أحمل كيسي أنا، وأترك لكل واحد أن يقرر بنفسه.",
+          "feedback": "أديت ما عليك، وهذا جيد، ولم تفرض رأيك على أحد. لكن الأكياس الأخرى ستبقى في مكانها، وربما كان اقتراح بسيط منك كافيًا لإنهاء المسألة كلها."
         },
         {
-          "text": "أحمل كيسي وحده وأترك الباقي لأصحابه.",
-          "feedback": "أديت ما عليك، وهذا جيد. لكن الأكياس الأخرى ستبقى في مكانها، وربما كان اقتراح بسيط منك كافيًا لإنهاء المسألة كلها."
+          "text": "أقترح أن نحملها معًا إلى الحاوية، وأحمل أحدها بنفسي.",
+          "feedback": "قد يتذمر أحدهم من المشي، لكن الحمل حين يتوزع يصبح خفيفًا، ويغادر الجميع والمكان نظيف. وهذا يوافق خطوات الحل: البدء بنفسك ودعوة غيرك دون لوم."
         }
       ],
       "todayStep": "حين تستعمل اليوم مكانًا عامًا، كحديقة أو ممشى أو صالة انتظار، اترك المكان الذي جلست فيه أنظف قليلًا مما وجدته: التقط شيئًا واحدًا على الأقل وضعه في الحاوية.",
@@ -53,16 +53,16 @@
       "situation": "It is Friday evening in the neighbourhood park. By the benches near the play area, a family who have just gone home left bags and empty cans behind, and the wind is pushing some of them onto the walking path. A bin is a few steps away, and you are sitting with friends.",
       "firstChoices": [
         {
-          "text": "I leave it. It isn't my rubbish.",
-          "feedback": "That is understandable, since you did not leave it. But within minutes the bags will spread across the park, where children, the cleaning staff and tomorrow's visitors will find them. When each of us says \"not my job\", a shared place ends up with no one looking after it."
+          "text": "I leave it. Whoever dropped it is responsible, and the park staff will come by later.",
+          "feedback": "It is true that you did not leave it, and that the park staff will come by. But the wind will scatter the bags across the park before then, where children and tomorrow's visitors will find them. When each of us says \"not my job\", a shared place ends up with no one looking after it."
         },
         {
-          "text": "I take a photo and post it in the neighbourhood group with a comment criticising whoever left it.",
-          "feedback": "It may get attention, but it often starts an argument and can shame people nobody knows, while the rubbish stays where it is. Criticism on its own does not clean the park."
+          "text": "I pick up what I can, put it in the bin and ask my friends to help me.",
+          "feedback": "In a few minutes the area is clean again, and the people around you see that it is a simple thing to do. Someone may find it odd at first, but often one person starting is enough for others to join in."
         },
         {
-          "text": "I pick up what I can, put it in the bin and ask my friends to help.",
-          "feedback": "In a few minutes the area is clean again, and the people around you see that it is a simple thing to do. Often one person starting is enough for others to join in."
+          "text": "I take a photo and post it in the neighbourhood group so whoever left it takes notice next time.",
+          "feedback": "It may draw attention to the problem, but it often turns into an argument and guesses about who did it, people who had nothing to do with it can end up blamed, and the rubbish stays where it is tonight."
         }
       ],
       "solutionSteps": [
@@ -73,16 +73,16 @@
       "newSituation": "On a beach outing with colleagues, lunch is over and everyone is getting ready to leave. The bin is a little way off, and someone suggests leaving the bags next to the bench because \"the cleaners will come in the morning\".",
       "newChoices": [
         {
-          "text": "I agree. Cleaning is the cleaners' job.",
-          "feedback": "The cleaners work hard, but bags left out overnight are exposed to wind and animals and can be scattered across the sand and into the sea before they arrive. A shared place stays clean when everyone who uses it carries their share."
+          "text": "I agree. The cleaners come in the morning, and the bin is a long way off.",
+          "feedback": "The cleaners do come, but bags left out overnight are exposed to wind and animals and can be scattered across the sand and into the sea before they arrive, which makes them much harder to clear."
         },
         {
-          "text": "I suggest we carry the bags to the bin together, and offer to take one myself.",
-          "feedback": "This is what this journey practised: you start yourself and invite others without blame. Shared out, the task is easy for everyone."
+          "text": "I carry my own bag and leave everyone else to decide for themselves.",
+          "feedback": "You have done your part, which is good, and you did not push your view on anyone. But the other bags will stay where they are, and a simple suggestion from you might have settled the whole thing."
         },
         {
-          "text": "I take my own bag and leave the rest to the others.",
-          "feedback": "You have done your part, which is good. But the other bags will stay where they are, and a simple suggestion from you might have settled the whole thing."
+          "text": "I suggest we carry them to the bin together, and I take one myself.",
+          "feedback": "Someone may grumble about the walk, but shared out the load is light, and everyone leaves the place clean. This fits the solution steps: start yourself and invite others without blame."
         }
       ],
       "todayStep": "When you use a public space today, such as a park, a walkway or a waiting area, leave the spot where you sat a little cleaner than you found it: pick up at least one item and put it in the bin.",
@@ -99,13 +99,13 @@
         "text": "While a man was walking on a path, he found a thorn branch on the road, so he put it aside. Allah, thus, thanked him and forgave him."
       },
       "explanation": {
-        "ar": "من شرح الحديث في موسوعة الأحاديث النبوية (HadeethEnc.com): أخبر النبي صلى الله عليه وسلم أنه بينما رجل يمشي مَرَّ بغصن شجرة فيه شوك على الطريق يؤذي المسلمين، فأخَّره وعزله عن الطريق، فشكر الله له فغفر له. ومن فوائد الحديث فيها: عدم احتقار أعمال الخير وإن كانت يسيرة. الإسلام دين النظافة وحماية البيئة والسلامة العامة.",
-        "en": "From the explanation of this hadith in the Encyclopedia of Translated Prophetic Hadiths (HadeethEnc.com): The Prophet (may Allah's peace and blessings be upon him) informed that while a man was walking, he came across a thorny tree branch on the road that was harming the Muslims. He put it aside and moved it away from the path. So Allah thanked him for that and forgave him. Among the benefits it lists: Refraining from belittling acts of goodness even if they are simple acts. Islam is the religion of cleanness, protecting the environment, and public safety."
+        "ar": "جاء في شرح الحديث في موسوعة الأحاديث النبوية (HadeethEnc.com): «أخبر النبي صلى الله عليه وسلم أنه بينما رجل يمشي مَرَّ بغصن شجرة فيه شوك على الطريق يؤذي المسلمين، فأخَّره وعزله عن الطريق، فشكر الله له فغفر له.» ومما ذكرته الموسوعة من فوائد الحديث: «فضيلة إزالة الأذى عن الطريق، وأنه سبب لمغفرة الله.» و«عدم احتقار أعمال الخير وإن كانت يسيرة.» و«الإسلام دين النظافة وحماية البيئة والسلامة العامة.»",
+        "en": "The Encyclopedia of Translated Prophetic Hadiths (HadeethEnc.com) explains: \"The Prophet (may Allah's peace and blessings be upon him) informed that while a man was walking, he came across a thorny tree branch on the road that was harming the Muslims. He put it aside and moved it away from the path. So Allah thanked him for that and forgave him.\" Among the benefits it lists: \"The merit of removing harm from the way and that it is a means for Allah's forgiveness.\" \"Refraining from belittling acts of goodness even if they are simple acts.\" \"Islam is the religion of cleanness, protecting the environment, and public safety.\""
       }
     }
   },
   "sourceCheck": {
-    "checkedAt": "2026-10-04T09:37:38.195Z",
+    "checkedAt": "2026-10-04T09:56:04.273Z",
     "url": "https://hadeethenc.com/en/browse/hadith/6469",
     "arabicTextHash": "fabfaafa274e49e5d5bb583b1b215010f42358b7621518837632b40755fe28da",
     "pass": true

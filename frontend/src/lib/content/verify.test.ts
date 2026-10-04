@@ -76,6 +76,26 @@ describe("verifySource", () => {
     expect(check.pass).toBe(false);
   });
 
+  it("fails without hanging when fetch never settles (timeout)", async () => {
+    const never = (() => new Promise<Response>(() => {})) as unknown as typeof fetch;
+    const started = Date.now();
+    const check = await verifySource(source, never, { timeoutMs: 20 });
+    expect(check.pass).toBe(false);
+    expect(check.url).toBe(source.url);
+    expect(Date.now() - started).toBeLessThan(2_000);
+  });
+
+  it("identifies itself with an honest tool user agent, not a browser", async () => {
+    let userAgent = "";
+    const capture = (async (_input: unknown, init?: RequestInit) => {
+      userAgent = new Headers(init?.headers).get("user-agent") ?? "";
+      return new Response(`<p>${source.arabicText}</p>`, { status: 200 });
+    }) as unknown as typeof fetch;
+    await verifySource(source, capture);
+    expect(userAgent).toMatch(/source-verifier/i);
+    expect(userAgent).not.toMatch(/Mozilla|Chrome|Safari/);
+  });
+
   it("fails when the source has an empty Arabic text or URL", async () => {
     const page = htmlResponse(`<p>${source.arabicText}</p>`);
     expect((await verifySource({ ...source, arabicText: "" }, page)).pass).toBe(false);

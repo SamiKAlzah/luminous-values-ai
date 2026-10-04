@@ -4,6 +4,7 @@ import tolerance from "../../../content/journeys/tolerance_accent.json";
 import peace from "../../../content/journeys/peace_before_escalation.json";
 import messages from "../../../content/messages.json";
 import safetyFloor from "../../../content/safety-floor.json";
+import { createFloor } from "../router/floor";
 import { JOURNEY_IDS, type Lang } from "../types";
 import type {
   ContentFile,
@@ -105,5 +106,14 @@ describe("safety-floor.json", () => {
     expect(Array.isArray(phrases)).toBe(true);
     expect(phrases.length).toBeGreaterThan(0);
     for (const p of phrases) expect(nonEmpty(p)).toBe(true);
+  });
+
+  it("does not fire on any journey's own text", () => {
+    const floor = createFloor(FLOOR.body.phrases);
+    for (const journey of JOURNEYS) {
+      for (const lang of LANGS) {
+        for (const s of visibleStrings(journey.body[lang])) expect(floor(s)).toBe(false);
+      }
+    }
   });
 });

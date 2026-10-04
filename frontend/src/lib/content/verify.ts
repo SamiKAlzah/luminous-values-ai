@@ -2,12 +2,13 @@ import { normalizeText } from "../text/normalize";
 import { sha256Hex } from "./hash";
 import type { Source, SourceCheck } from "./schema";
 
-const TIMEOUT_MS = 10_000;
+const DEFAULT_TIMEOUT_MS = 10_000;
 
-// Some source sites (dorar.net) refuse requests without a browser-like user agent.
+// An honest user agent that names the tool. Sites that only serve browsers (for example
+// dorar.net and sunnah.com, which answer 403 to scripted requests) cannot be used as a
+// verifying `source.url`; pick a page that serves this request instead.
 const REQUEST_HEADERS = {
-  "User-Agent":
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36",
+  "User-Agent": "luminous-values-source-verifier/1.0 (manual content source check)",
   Accept: "text/html,application/xhtml+xml",
   "Accept-Language": "ar,en;q=0.8",
 };
@@ -34,7 +35,11 @@ function decodeEntities(s: string): string {
   });
 }
 
-/** Text a reader can see: script, style and comments removed, tags stripped, entities decoded. */
+/**
+ * "Visible text" here means the server-rendered HTML as fetched (no JavaScript is run) with
+ * <script> and <style> blocks and HTML comments removed, tags replaced by spaces and basic
+ * entities decoded. Text that a page only inserts with JavaScript is therefore not visible.
+ */
 export function visibleText(html: string): string {
   const withoutHidden = html
     .replace(/<!--[\s\S]*?-->/g, " ")
@@ -43,13 +48,20 @@ export function visibleText(html: string): string {
   return decodeEntities(withoutHidden.replace(/<[^>]*>/g, " "));
 }
 
+export interface VerifyOptions {
+  timeoutMs?: number;
+}
+
+const TIMED_OUT = Symbol("timed out");
+
 /**
  * Fetches `source.url` and checks that the normalised Arabic text appears in the page's visible
- * text. Never throws: any network, HTTP or parsing problem is reported as `pass: false`.
+ * text. Never throws: any network, HTTP, timeout or parsing problem is reported as `pass: false`.
  */
 export async function verifySource(
   source: Source,
   fetchImpl: typeof fetch = fetch,
+  options: VerifyOptions = {},
 ): Promise<SourceCheck> {
   const url = source.url ?? "";
   const arabicText = source.arabicText ?? "";
@@ -64,16 +76,29 @@ export async function verifySource(
   if (needle.length === 0 || url.length === 0) return result(false);
 
   const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
-  try {
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  // The race guarantees the timeout even if an injected fetch ignores the abort signal.
+  const timeout = new Promise<typeof TIMED_OUT>((resolve) => {
+    timer = setTimeout(() => {
+      controller.abort();
+      resolve(TIMED_OUT);
+    }, options.timeoutMs ?? DEFAULT_TIMEOUT_MS);
+  });
+
+  const check = async (): Promise<boolean> => {
     const response = await fetchImpl(url, {
       headers: REQUEST_HEADERS,
       redirect: "follow",
       signal: controller.signal,
     });
-    if (!response.ok) return result(false);
+    if (!response.ok) return false;
     const html = await response.text();
-    return result(normalizeText(visibleText(html)).includes(needle));
+    return normalizeText(visibleText(html)).includes(needle);
+  };
+
+  try {
+    const outcome = await Promise.race([check(), timeout]);
+    return result(outcome === true);
   } catch {
     return result(false);
   } finally {

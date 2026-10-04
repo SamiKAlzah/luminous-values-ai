@@ -13,16 +13,16 @@
       "situation": "في اجتماع الفريق الأسبوعي عرض زميلك الجديد فكرة لتحسين جدول التسليم، وكان يتحدث بلهجة بلده. قلّد أحد الزملاء طريقة نطقه وضحك بعض الحاضرين، فتوقف زميلك الجديد عن الكلام وبقي صامتًا حتى نهاية الاجتماع.",
       "firstChoices": [
         {
-          "text": "أضحك مع الجميع حتى لا أبدو متحفظًا.",
-          "feedback": "الضحكة تبدو صغيرة، لكنها تقول له إن الفريق يهتم بلهجته أكثر من فكرته. ومع التكرار يتوقف كثيرون عن المشاركة، فيخسر الفريق أفكارًا كان يحتاجها."
+          "text": "أعيد الحديث إلى فكرته: «لنسمع اقتراحه كاملًا».",
+          "feedback": "قد يشعر الزميل الذي قلّده بشيء من الإحراج، لكنك أعدت الاجتماع إلى المضمون، وعرف زميلك الجديد أن فكرته مسموعة. كثيرًا ما تكفي جملة هادئة واحدة لتغيير جو الاجتماع."
         },
         {
-          "text": "أصمت وأقول لنفسي إن الأمر لا يعنيني.",
-          "feedback": "الصمت لا يجرح أحدًا مباشرة، لكنه يترك الموقف يمر كأنه مقبول. والزميل الذي قُلّد لا يعرف أن أحدًا لاحظ ما حدث أو انزعج منه."
+          "text": "أضحك مع الآخرين حتى لا أبدو متزمتًا، فالجو مرح.",
+          "feedback": "الضحكة تبدو صغيرة وتحفظ الجو المرح، لكنها تقول له إن الفريق يهتم بلهجته أكثر من فكرته. ومع التكرار يتوقف كثيرون عن المشاركة، فيخسر الفريق أفكارًا كان يحتاجها."
         },
         {
-          "text": "أعيد الحديث إلى فكرته: «لنسمع اقتراحه حتى النهاية، يبدو مفيدًا».",
-          "feedback": "أعدت الاجتماع إلى المضمون دون أن تحرج أحدًا، وعرف زميلك أن فكرته مسموعة. كثيرًا ما تكفي جملة هادئة واحدة لتغيير جو الاجتماع."
+          "text": "أصمت الآن، ثم أواسيه على انفراد بعد الاجتماع.",
+          "feedback": "مواساته لاحقًا لطف حقيقي وقد تخفف عنه. لكن الاجتماع انتهى دون أن تُسمع فكرته، وفهم الحاضرون أن التقليد يمر بلا تعليق."
         }
       ],
       "solutionSteps": [
@@ -33,16 +33,16 @@
       "newSituation": "في مجموعة الفريق على تطبيق المحادثة أرسلت زميلة جديدة رسالة صوتية تشرح فيها مشكلة في النظام. بعد دقائق كتب أحدهم: «ممكن أحد يترجم لنا؟» مع وجه ضاحك، وتفاعل آخرون بالضحك.",
       "newChoices": [
         {
-          "text": "أتفاعل بوجه ضاحك أيضًا، فهي مجرد مزحة.",
-          "feedback": "قد يقصد صاحبها المزاح، لكن الزميلة الجديدة ترى المجموعة كلها تضحك على طريقة كلامها بدل أن تهتم بمشكلتها، فتتردد قبل أن تشارك مرة أخرى."
+          "text": "أرد على مشكلتها: «في صفحة الدخول؟ سأتحقق منها معك».",
+          "feedback": "قد لا يلتفت أحد إلى المزاح بعد ردك، وهذا مقصود: تعود المجموعة إلى العمل، وترى الزميلة أن رسالتها مفهومة ومحترمة. وهذا يوافق خطوات الحل: التركيز على الفكرة وإشراك صاحبها."
         },
         {
-          "text": "أرد على مضمون رسالتها: «فهمت أن المشكلة في صفحة الدخول، سأتحقق منها معك».",
-          "feedback": "هذا يعيد المجموعة إلى العمل ويُظهر أن رسالتها مفهومة ومحترمة، وهو ما تدربت عليه في هذه الرحلة: التركيز على الفكرة وإشراك صاحبها."
+          "text": "أتفاعل بوجه ضاحك؛ فالتعليق مزحة خفيفة ولا يقصد الإساءة.",
+          "feedback": "ربما لم يقصد صاحبه الإساءة فعلًا، لكن الزميلة الجديدة ترى المجموعة كلها تضحك على طريقة كلامها بدل أن تهتم بمشكلتها، فتتردد قبل أن تشارك مرة أخرى."
         },
         {
           "text": "أكتب في المجموعة أن هذا التعليق عنصري وغير مقبول.",
-          "feedback": "قد يكون اعتراضك في محله، لكن الحكم العلني القاسي قد يحول المجموعة إلى جدال ويضع الزميلة الجديدة وسط خلاف لم تطلبه. الحديث على انفراد مع صاحب التعليق غالبًا أهدأ وأنفع."
+          "feedback": "انزعاجك مفهوم، لكن وصف التعليق بالعنصرية أمام الجميع يدفع صاحبه غالبًا إلى الدفاع عن نفسه، فينشغل الفريق بالجدال، وتجد الزميلة نفسها في وسطه بينما تبقى مشكلتها بلا رد. كلمة على انفراد مع صاحب التعليق توصل الرسالة بهدوء أكبر."
         }
       ],
       "todayStep": "اختر زميلًا أو جارًا قلّما يشارك لأنه جديد أو لأن لغته أو لهجته مختلفة، واسأله اليوم عن رأيه في أمر يخص العمل أو الحي، واستمع إليه حتى ينهي كلامه.",
@@ -53,16 +53,16 @@
       "situation": "In the weekly team meeting, your new colleague presented an idea for improving the delivery schedule, speaking with the accent of his home country. Another colleague imitated his pronunciation and some people laughed. Your new colleague stopped talking and stayed silent for the rest of the meeting.",
       "firstChoices": [
         {
-          "text": "I laugh along so I don't seem uptight.",
-          "feedback": "A laugh seems small, but it tells him the team cares more about his accent than his idea. When it keeps happening, many people stop speaking up, and the team loses ideas it needed."
+          "text": "I bring it back to his idea: \"Let's hear the rest of his suggestion.\"",
+          "feedback": "The colleague who imitated him may feel a little awkward, but you brought the meeting back to the content, and your new colleague learned that his idea was being heard. One calm sentence is often enough to change the mood of a meeting."
         },
         {
-          "text": "I stay quiet and tell myself it is none of my business.",
-          "feedback": "Silence does not hurt anyone directly, but it lets the moment pass as if it were acceptable. And the colleague who was imitated has no way of knowing that anyone noticed or minded."
+          "text": "I laugh along with the others so I don't seem uptight. The mood is light.",
+          "feedback": "A laugh seems small and keeps the mood light, but it tells him the team cares more about his accent than his idea. When it keeps happening, many people stop speaking up, and the team loses ideas it needed."
         },
         {
-          "text": "I bring the discussion back to his idea: \"Let's hear the rest of his suggestion, it sounds useful.\"",
-          "feedback": "You brought the meeting back to the content without embarrassing anyone, and your colleague learned that his idea was being heard. One calm sentence is often enough to change the mood of a meeting."
+          "text": "I stay quiet now, then comfort him privately after the meeting.",
+          "feedback": "Comforting him later is a real kindness and may ease things for him. But the meeting ended without his idea being heard, and everyone present learned that imitation passes without comment."
         }
       ],
       "solutionSteps": [
@@ -73,16 +73,16 @@
       "newSituation": "In the team's chat group, a new colleague sends a voice message explaining a problem with the system. A few minutes later someone writes \"Can someone translate for us?\" with a laughing emoji, and others react with laughter.",
       "newChoices": [
         {
-          "text": "I add a laughing emoji too. It's just a joke.",
-          "feedback": "It may be meant as a joke, but the new colleague sees the whole group laughing at the way she speaks instead of dealing with her problem, and she will hesitate before sharing again."
+          "text": "I answer her point: \"The login page? I'll check it with you.\"",
+          "feedback": "The joke may simply go unanswered after your reply, which is the point: the group gets back to work, and she sees that her message was understood and respected. This fits the solution steps: focus on the idea and include the person."
         },
         {
-          "text": "I reply to what she said: \"I understand the issue is on the login page, I'll look at it with you.\"",
-          "feedback": "This brings the group back to the work and shows that her message was understood and respected. It is what this journey practised: focus on the idea and include the person."
+          "text": "I react with a laughing emoji. It's a light joke and not meant to offend.",
+          "feedback": "The writer may really not have meant any harm, but the new colleague sees the whole group laughing at the way she speaks instead of dealing with her problem, and she will hesitate before sharing again."
         },
         {
           "text": "I post in the group that the comment is racist and unacceptable.",
-          "feedback": "Your objection may be fair, but a harsh public judgement can turn the group into an argument and put the new colleague in the middle of a dispute she did not ask for. A private word with the person who wrote it is usually calmer and more effective."
+          "feedback": "Your reaction is understandable, but calling the comment racist in front of everyone usually makes the writer defend himself, the team gets caught up in the argument, and she ends up in the middle of it while her problem goes unanswered. A private word with the writer gets the point across with less heat."
         }
       ],
       "todayStep": "Choose a colleague or neighbour who rarely joins in because they are new or speak a different language or accent, ask their view today on something about work or the neighbourhood, and listen until they have finished.",
@@ -90,10 +90,10 @@
     },
     "source": {
       "type": "quran",
-      "arabicText": "يَا أَيُّهَا الَّذِينَ آمَنُوا لَا يَسْخَرْ قَوْمٌ مِنْ قَوْمٍ عَسَىٰ أَنْ يَكُونُوا خَيْرًا مِنْهُمْ وَلَا نِسَاءٌ مِنْ نِسَاءٍ عَسَىٰ أَنْ يَكُنَّ خَيْرًا مِنْهُنَّ ۖ وَلَا تَلْمِزُوا أَنْفُسَكُمْ وَلَا تَنَابَزُوا بِالْأَلْقَابِ ۖ بِئْسَ الِاسْمُ الْفُسُوقُ بَعْدَ الْإِيمَانِ ۚ وَمَنْ لَمْ يَتُبْ فَأُولَٰئِكَ هُمُ الظَّالِمُونَ",
+      "arabicText": "يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُواْ لَا يَسۡخَرۡ قَوۡمٞ مِّن قَوۡمٍ عَسَىٰٓ أَن يَكُونُواْ خَيۡرٗا مِّنۡهُمۡ وَلَا نِسَآءٞ مِّن نِّسَآءٍ عَسَىٰٓ أَن يَكُنَّ خَيۡرٗا مِّنۡهُنَّۖ وَلَا تَلۡمِزُوٓاْ أَنفُسَكُمۡ وَلَا تَنَابَزُواْ بِٱلۡأَلۡقَٰبِۖ بِئۡسَ ٱلِٱسۡمُ ٱلۡفُسُوقُ بَعۡدَ ٱلۡإِيمَٰنِۚ وَمَن لَّمۡ يَتُبۡ فَأُوْلَـٰٓئِكَ هُمُ ٱلظَّـٰلِمُونَ",
       "reference": "سورة الحجرات، الآية 11 · Qur'an, Surah Al-Hujurat (49), verse 11",
-      "grade": "آية قرآنية، بنص مصحف حفص كما تعرضه Quranpedia · Qur'anic verse, Hafs text as displayed on Quranpedia",
-      "url": "https://quranpedia.net/tafsir/al-hujurat/11",
+      "grade": "آية قرآنية، بالرسم العثماني (رواية حفص) كما تعرضه Quranpedia · Qur'anic verse, Uthmani script (Hafs) as displayed on Quranpedia",
+      "url": "https://quranpedia.net/tafsir/al-hujurat/11/en",
       "translation": {
         "name": "Saheeh International, English translation of the meanings (as published on quranpedia.net)",
         "text": "O you who have believed, let not a people ridicule [another] people; perhaps they may be better than them; nor let women ridicule [other] women; perhaps they may be better than them. And do not insult one another and do not call each other by [offensive] nicknames. Wretched is the name [i.e., mention] of disobedience after [one's] faith. And whoever does not repent - then it is those who are the wrongdoers."
@@ -105,9 +105,9 @@
     }
   },
   "sourceCheck": {
-    "checkedAt": "2026-10-04T09:37:38.689Z",
-    "url": "https://quranpedia.net/tafsir/al-hujurat/11",
-    "arabicTextHash": "f66f8e38d42f4580099a932c9e31bcc3dae9e115182f334fe52c852f3d3bb5f5",
+    "checkedAt": "2026-10-04T09:56:04.674Z",
+    "url": "https://quranpedia.net/tafsir/al-hujurat/11/en",
+    "arabicTextHash": "6051852ea00964f74615bee15b70a3f286b5a4ca4d7f31e630b6fa5e1806857f",
     "pass": true
   }
 }

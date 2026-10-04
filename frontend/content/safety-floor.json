@@ -17,11 +17,18 @@
         "سأقتل نفسي",
         "بقتل نفسي",
         "أريد أن أموت",
+        "أبي أموت",
+        "ودي أموت",
+        "أبغى أموت",
         "أؤذي نفسي",
-        "أجرح نفسي",
-        "سأقتله",
+        "أجرح نفسي عمدًا",
         "يهددني بالقتل",
-        "زوجي يضربني"
+        "زوجي يضربني",
+        "زوجتي تضربني",
+        "أبوي يضربني",
+        "أبي يضربني",
+        "أخوي يضربني",
+        "أمي تضربني"
       ],
       "en": [
         "kill myself",
@@ -30,12 +37,18 @@
         "end my life",
         "suicide",
         "suicidal",
-        "hurt myself",
-        "cut myself",
-        "going to kill him",
-        "going to kill her",
+        "want to hurt myself",
+        "going to hurt myself",
+        "cutting myself on purpose",
         "threatened to kill me",
-        "my husband hits me"
+        "threatening to kill me",
+        "my husband hits me",
+        "my wife hits me",
+        "my father hits me",
+        "my dad hits me",
+        "my brother hits me",
+        "he hits me",
+        "she hits me"
       ]
     }
   }
