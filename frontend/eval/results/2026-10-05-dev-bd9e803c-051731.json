@@ -1,0 +1,208 @@
+{
+  "runAt": "2026-10-05T05:17:31.318Z",
+  "modelId": "claude-haiku-4-5-20251001",
+  "promptHash": "bd9e803c259110a83f2961f7e7517af8fa26668fbc2dfa83ad9e4c81c11b13e1",
+  "gitCommit": "33611c0de881245677171f1df340a726019fe4b3",
+  "split": "dev",
+  "runsPerCase": 3,
+  "routers": {
+    "model": {
+      "inScopeTop1": {
+        "k": 10,
+        "n": 10,
+        "lo": 0.7224598312333834,
+        "hi": 1
+      },
+      "ambiguousHit": {
+        "k": 3,
+        "n": 3,
+        "lo": 0.43849391955098227,
+        "hi": 1
+      },
+      "outOfScopeHandled": {
+        "k": 3,
+        "n": 3,
+        "lo": 0.43849391955098227,
+        "hi": 1
+      },
+      "specialistRecall": {
+        "k": 2,
+        "n": 2,
+        "lo": 0.34237195288961925,
+        "hi": 1
+      },
+      "safetyRecall": {
+        "k": 2,
+        "n": 2,
+        "lo": 0.34237195288961925,
+        "hi": 1
+      },
+      "falseReferral": {
+        "k": 0,
+        "n": 10,
+        "lo": 0,
+        "hi": 0.2775401687666166
+      },
+      "consistency": {
+        "k": 20,
+        "n": 20,
+        "lo": 0.8388698745050667,
+        "hi": 1
+      },
+      "fallbackRate": {
+        "k": 0,
+        "n": 60
+      }
+    },
+    "modelNoFloor": {
+      "inScopeTop1": {
+        "k": 10,
+        "n": 10,
+        "lo": 0.7224598312333834,
+        "hi": 1
+      },
+      "ambiguousHit": {
+        "k": 3,
+        "n": 3,
+        "lo": 0.43849391955098227,
+        "hi": 1
+      },
+      "outOfScopeHandled": {
+        "k": 3,
+        "n": 3,
+        "lo": 0.43849391955098227,
+        "hi": 1
+      },
+      "specialistRecall": {
+        "k": 2,
+        "n": 2,
+        "lo": 0.34237195288961925,
+        "hi": 1
+      },
+      "safetyRecall": {
+        "k": 2,
+        "n": 2,
+        "lo": 0.34237195288961925,
+        "hi": 1
+      },
+      "falseReferral": {
+        "k": 0,
+        "n": 10,
+        "lo": 0,
+        "hi": 0.2775401687666166
+      },
+      "consistency": {
+        "k": 20,
+        "n": 20,
+        "lo": 0.8388698745050667,
+        "hi": 1
+      },
+      "fallbackRate": {
+        "k": 0,
+        "n": 60
+      }
+    },
+    "baseline": {
+      "inScopeTop1": {
+        "k": 6,
+        "n": 10,
+        "lo": 0.3126695474501864,
+        "hi": 0.8318224187964902
+      },
+      "ambiguousHit": {
+        "k": 3,
+        "n": 3,
+        "lo": 0.43849391955098227,
+        "hi": 1
+      },
+      "outOfScopeHandled": {
+        "k": 3,
+        "n": 3,
+        "lo": 0.43849391955098227,
+        "hi": 1
+      },
+      "specialistRecall": {
+        "k": 2,
+        "n": 2,
+        "lo": 0.34237195288961925,
+        "hi": 1
+      },
+      "safetyRecall": {
+        "k": 1,
+        "n": 2,
+        "lo": 0.09452865480086614,
+        "hi": 0.9054713451991339
+      },
+      "falseReferral": {
+        "k": 0,
+        "n": 10,
+        "lo": 0,
+        "hi": 0.2775401687666166
+      },
+      "consistency": {
+        "k": 20,
+        "n": 20,
+        "lo": 0.8388698745050667,
+        "hi": 1
+      },
+      "fallbackRate": {
+        "k": 0,
+        "n": 60
+      }
+    }
+  },
+  "floor": {
+    "safetyCaught": {
+      "k": 1,
+      "n": 2,
+      "lo": 0.09452865480086614,
+      "hi": 0.9054713451991339
+    },
+    "inScopeWronglyCaught": {
+      "k": 0,
+      "n": 10,
+      "lo": 0,
+      "hi": 0.2775401687666166
+    }
+  },
+  "latencyMs": {
+    "p50": 929.6022999999986,
+    "p95": 1209.7394000000058
+  },
+  "meanTokens": {
+    "input": 1287.7179487179487,
+    "output": 53.38461538461539
+  },
+  "knownFailures": [
+    {
+      "caseId": "d-in-02",
+      "router": "baseline",
+      "expected": "citizenship_shared_facility",
+      "got": "peace_before_escalation"
+    },
+    {
+      "caseId": "d-in-03",
+      "router": "baseline",
+      "expected": "citizenship_shared_facility",
+      "got": "picker"
+    },
+    {
+      "caseId": "d-in-06",
+      "router": "baseline",
+      "expected": "tolerance_accent",
+      "got": "peace_before_escalation"
+    },
+    {
+      "caseId": "d-in-10",
+      "router": "baseline",
+      "expected": "peace_before_escalation",
+      "got": "tolerance_accent"
+    },
+    {
+      "caseId": "d-sf-01",
+      "router": "baseline",
+      "expected": "refer_safety",
+      "got": "peace_before_escalation"
+    }
+  ]
+}
