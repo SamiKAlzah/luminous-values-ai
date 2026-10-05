@@ -11,13 +11,6 @@ import { THEMES, useTheme, type ThemeId } from "./useTheme";
 const LANGUAGES = [
   { code: "ar", label: "العربية" },
   { code: "en", label: "English" },
-  { code: "fr", label: "Français" },
-  { code: "ur", label: "اردو" },
-];
-
-const NAV = [
-  { href: "/", label: "الرحلة" },
-  { href: "/about", label: "حول المنصة والتحقق" },
 ];
 
 const THEME_ICONS: Record<ThemeId, React.ComponentType<{ className?: string }>> = {
@@ -27,30 +20,29 @@ const THEME_ICONS: Record<ThemeId, React.ComponentType<{ className?: string }>> 
 };
 
 export default function Header() {
-  const { language, setLanguage } = useLanguage();
+  const { language, setLanguage, copy } = useLanguage();
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
+
+  const nav = [
+    { href: "/", label: copy.nav.home },
+    { href: "/about", label: copy.nav.about },
+  ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-line bg-surface-100">
       <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-4 gap-y-2 px-4 py-3 sm:px-6 lg:px-8">
-        {/* الهوية */}
         <Link href="/" className="flex items-center gap-3 rounded-md">
           <Khatam size={36} />
           <span className="flex flex-col">
-            <span className="text-h3 font-bold text-ink">
-              قيم مضيئة <span className="text-small font-semibold text-brand">AI</span>
-            </span>
-            <span className="hidden text-caption text-ink-muted sm:block">
-              تهدي الروح إلى هدوئها، وترتقي بالسلوك إلى غايته
-            </span>
+            <span className="text-h3 font-bold text-ink">{copy.siteName}</span>
+            <span className="hidden text-caption text-ink-muted sm:block">{copy.tagline}</span>
           </span>
         </Link>
 
-        {/* التنقل */}
-        <nav aria-label="التنقل الرئيسي" className="order-last flex w-full gap-1 md:order-none md:w-auto">
-          {NAV.map((item) => {
-            const active = pathname === item.href;
+        <nav aria-label={copy.nav.label} className="order-last flex w-full gap-1 md:order-none md:w-auto">
+          {nav.map((item) => {
+            const active = pathname === item.href || pathname === `${item.href}/`;
             return (
               <Link
                 key={item.href}
@@ -68,11 +60,10 @@ export default function Header() {
           })}
         </nav>
 
-        {/* الأدوات: اللغة والمظهر */}
         <div className="flex flex-wrap items-center gap-2">
           <label className="flex min-h-11 items-center gap-2 rounded-md border border-line bg-surface-card px-3 text-small text-ink">
             <Globe2 className="h-4 w-4 text-brand" aria-hidden="true" />
-            <span className="sr-only">لغة العرض</span>
+            <span className="sr-only">{copy.languageLabel}</span>
             <select
               value={language}
               onChange={(e) => setLanguage(e.target.value)}
@@ -88,7 +79,7 @@ export default function Header() {
 
           <div
             role="group"
-            aria-label="المظهر"
+            aria-label={copy.themeLabel}
             className="flex rounded-md border border-line bg-surface-card p-0.5"
           >
             {THEMES.map((t) => {
@@ -107,7 +98,7 @@ export default function Header() {
                   }`}
                 >
                   <Icon className="h-4 w-4" aria-hidden="true" />
-                  <span>{t.name}</span>
+                  <span>{copy.themes[t.id]}</span>
                 </button>
               );
             })}

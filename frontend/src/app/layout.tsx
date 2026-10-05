@@ -4,6 +4,8 @@ import "./globals.css";
 import { LanguageProvider } from "../components/LanguageProvider";
 import Header from "../components/Header";
 import SiteFooter from "../components/SiteFooter";
+import SkipLink from "../components/SkipLink";
+import { UI_COPY } from "../lib/copy";
 
 const cairo = Cairo({
   subsets: ["arabic", "latin"],
@@ -20,8 +22,8 @@ const amiri = Amiri({
 });
 
 export const metadata: Metadata = {
-  title: "قيم مضيئة AI | تهدي الروح إلى هدوئها",
-  description: "تحدي الذكاء الاصطناعي في خدمة المحتوى الإسلامي 2026 - تجربة تفاعلية لتحويل القيم الإسلامية إلى سلوك ملاحظ ومقاس مع التأصيل الشرعي الصارم ومقاومة الهلوسة.",
+  title: UI_COPY.ar.metaTitle,
+  description: UI_COPY.ar.metaDescription,
   icons: {
     icon: "/favicon.ico",
   },
@@ -49,12 +51,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased min-h-screen flex flex-col font-sans">
         <LanguageProvider>
-          <a
-            href="#main"
-            className="sr-only rounded-md bg-brand px-4 py-2 text-small font-bold text-on-brand focus:not-sr-only focus:absolute focus:start-4 focus:top-4 focus:z-[60]"
-          >
-            تخطي إلى المحتوى
-          </a>
+          <SkipLink />
           <Header />
           <main id="main" className="w-full flex-1">
             {children}

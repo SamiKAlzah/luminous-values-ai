@@ -1,29 +1,34 @@
 import type { Metadata } from "next";
-import AboutCredentials from "../../components/AboutCredentials";
-import JudgesConsole from "../../components/JudgesConsole";
-import { OrnamentBand, OrnamentDivider } from "../../components/Ornament";
+import safetyFloor from "../../../content/safety-floor.json";
+import AboutContent, { type ApprovalRow } from "../../components/AboutContent";
+import { JOURNEY_LIST, MESSAGES } from "../../lib/content/load";
+import type { Approval } from "../../lib/content/schema";
+import { UI_COPY } from "../../lib/copy";
+import { loadLatestResult } from "../../lib/eval/loadLatest";
 
 export const metadata: Metadata = {
-  title: "حول المنصة والتحقق | قيم مضيئة AI",
-  description: "المرجعية الشرعية والحزمة العلمية، ومنصة فحص جدار الأمان للجنة التحكيم.",
+  title: UI_COPY.ar.about.metaTitle,
+  description: UI_COPY.ar.about.metaDescription,
 };
 
 export default function AboutPage() {
-  return (
-    <>
-      <OrnamentBand height={48} />
-      <div className="mx-auto w-full max-w-7xl space-y-12 px-4 py-12 sm:px-6 lg:px-8">
-        <header className="max-w-3xl">
-          <h1 className="text-h1 text-ink">حول المنصة والتحقق</h1>
-          <p className="mt-2 text-body text-ink-muted">
-            من أين تأتي النصوص، وكيف يضبط النظام ردوده، وأداة للمحكّمين لتجربة جدار الأمان مباشرة.
-          </p>
-        </header>
+  const approvals: ApprovalRow[] = [
+    ...JOURNEY_LIST.map((j) => ({
+      id: j.id,
+      label: { ar: j.body.ar.title, en: j.body.en.title },
+      approval: j.approval,
+    })),
+    {
+      id: MESSAGES.id,
+      label: { ar: "رسائل المنصة", en: "Platform messages" },
+      approval: MESSAGES.approval,
+    },
+    {
+      id: "safety-floor",
+      label: { ar: "قائمة عبارات الأمان", en: "Safety phrase list" },
+      approval: safetyFloor.approval as Approval,
+    },
+  ];
 
-        <AboutCredentials />
-        <OrnamentDivider />
-        <JudgesConsole />
-      </div>
-    </>
-  );
+  return <AboutContent approvals={approvals} result={loadLatestResult()} />;
 }
