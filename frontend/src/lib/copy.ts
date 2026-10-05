@@ -10,7 +10,7 @@ export interface UiCopy {
   languageLabel: string;
   themeLabel: string;
   themes: { light: string; dark: string; emerald: string };
-  footer: { line: string; partners: string; license: string };
+  footer: { line: string; partners: string; license: string; followProgram: string };
   values: Record<JourneyId, string>;
   home: {
     title: string;
@@ -68,6 +68,8 @@ export interface UiCopy {
     lead: string;
     howTitle: string;
     howSteps: string[];
+    programTitle: string;
+    programBody: string;
     aiTitle: string;
     aiPoints: string[];
     privacyTitle: string;
@@ -112,10 +114,10 @@ export interface UiCopy {
 
 export const UI_COPY: Record<Lang, UiCopy> = {
   ar: {
-    siteName: "قيم تجمعنا",
-    tagline: "من القيمة إلى السلوك في مواقف الحياة اليومية",
+    siteName: "قيم مضيئة AI",
+    tagline: "تهدي الروح إلى هدوئها، وترتقي بالسلوك إلى غايته",
     skipLink: "تخطي إلى المحتوى",
-    metaTitle: "قيم تجمعنا | من القيمة إلى السلوك",
+    metaTitle: "قيم مضيئة AI | من القيمة إلى السلوك",
     metaDescription:
       "منصة تعليمية تحوّل القيم الإسلامية إلى سلوك في مواقف الحياة اليومية: اكتب موقفك فيوجّهك الذكاء الاصطناعي إلى رحلة مراجَعة تنتهي بنص موثَّق وخطوة عملية.",
     nav: { label: "التنقل الرئيسي", home: "الرحلة", about: "حول المنصة والتحقق" },
@@ -123,10 +125,11 @@ export const UI_COPY: Record<Lang, UiCopy> = {
     themeLabel: "المظهر",
     themes: { light: "نجد", dark: "ليل", emerald: "زمرد" },
     footer: {
-      line: "قيم تجمعنا · تحدي الذكاء الاصطناعي في خدمة المحتوى الإسلامي 2026م",
+      line: "قيم مضيئة AI · تحدي الذكاء الاصطناعي في خدمة المحتوى الإسلامي 2026م",
       partners:
         "مؤسسة باذل الأهلية · الهيئة السعودية للبيانات والذكاء الاصطناعي (سدايا) · وزارة الاتصالات وتقنية المعلومات",
       license: "مرخص برخصة MIT مفتوحة المصدر",
+      followProgram: "تابع برنامج «قيم تجمعنا»",
     },
     values: {
       citizenship_shared_facility: "المواطنة",
@@ -188,7 +191,7 @@ export const UI_COPY: Record<Lang, UiCopy> = {
       notReviewed: "لم تتم مراجعته بعد",
     },
     about: {
-      metaTitle: "حول المنصة والتحقق | قيم تجمعنا",
+      metaTitle: "حول المنصة والتحقق | قيم مضيئة AI",
       metaDescription: "كيف تعمل المنصة، وحدود دور الذكاء الاصطناعي فيها، وسجل الاعتماد، ونتائج التقييم.",
       title: "حول المنصة والتحقق",
       lead: "كيف تعمل المنصة، وما الذي يفعله الذكاء الاصطناعي فيها وما لا يفعله، ومن راجع المحتوى، وماذا قاسه التقييم.",
@@ -199,6 +202,9 @@ export const UI_COPY: Record<Lang, UiCopy> = {
         "ثم يختار النموذج رمز رحلة واحدًا من قائمة مغلقة، أو يحيلك إلى مختص، أو يُظهر قائمة الرحلات الثلاث.",
         "تُعرض الرحلة من محتوى مراجَع ثابت: موقف، اختيار، أثر، حل، نص موثَّق، موقف جديد، خطوة اليوم.",
       ],
+      programTitle: "المنصة وبرنامج «قيم تجمعنا»",
+      programBody:
+        "«قيم تجمعنا» برنامج إعلامي يُنشر على منصات التواصل الاجتماعي في مقاطع قصيرة ومنشورات، ويقود كل مقطع إلى رحلته هنا. أما هذه المنصة فهي مكان التعلم والتطبيق: لا تعرض مقاطع مرئية أو صوتية، بل الرحلة نفسها بنصها الموثَّق.",
       aiTitle: "دور الذكاء الاصطناعي وحدوده",
       aiPoints: [
         "النموذج لا يكتب نصًا شرعيًا ولا يرى آيات أو أحاديث: يرجع فقط رمز رحلة من قائمة مغلقة ومستوى ثقة.",
@@ -254,18 +260,16 @@ export const UI_COPY: Record<Lang, UiCopy> = {
       statusUnknown: "غير معروف",
       deferredTitle: "ما لم يدخل في هذا الإصدار",
       deferred: [
-        "إنتاج المحتوى الإعلامي (فيديوهات ومنشورات وصوتيات): هي المرحلة التالية.",
-        "مساعد تحرير المحتوى الإعلامي.",
         "لغات أخرى غير العربية والإنجليزية.",
         "الحسابات والتحليلات والتذكيرات.",
       ],
     },
   },
   en: {
-    siteName: "Values That Bring Us Together",
-    tagline: "From a value to behaviour, in everyday situations",
+    siteName: "Luminous Values AI",
+    tagline: "Calm for the soul, purpose for behaviour",
     skipLink: "Skip to content",
-    metaTitle: "Values That Bring Us Together | From value to behaviour",
+    metaTitle: "Luminous Values AI | From value to behaviour",
     metaDescription:
       "A learning platform that turns Islamic values into behaviour in everyday situations: describe your situation and an AI router sends you to a reviewed journey that ends with a verified source and a practical step.",
     nav: { label: "Main navigation", home: "Journey", about: "About and verification" },
@@ -273,10 +277,11 @@ export const UI_COPY: Record<Lang, UiCopy> = {
     themeLabel: "Appearance",
     themes: { light: "Najd", dark: "Night", emerald: "Emerald" },
     footer: {
-      line: "Values That Bring Us Together · AI in the Service of Islamic Content Challenge 2026",
+      line: "Luminous Values AI · AI in the Service of Islamic Content Challenge 2026",
       partners:
         "Bathel Foundation · Saudi Data and AI Authority (SDAIA) · Ministry of Communications and Information Technology",
       license: "MIT open-source licence",
+      followProgram: "Follow the «قيم تجمعنا» program",
     },
     values: {
       citizenship_shared_facility: "Citizenship",
@@ -338,7 +343,7 @@ export const UI_COPY: Record<Lang, UiCopy> = {
       notReviewed: "Not reviewed yet",
     },
     about: {
-      metaTitle: "About and verification | Values That Bring Us Together",
+      metaTitle: "About and verification | Luminous Values AI",
       metaDescription: "How the platform works, the limits of the AI's role, approval records and evaluation results.",
       title: "About and verification",
       lead: "How the platform works, what the AI does and does not do, who reviewed the content, and what the evaluation measured.",
@@ -349,6 +354,9 @@ export const UI_COPY: Record<Lang, UiCopy> = {
         "Then the model picks one journey ID from a closed list, refers you to a specialist, or shows the three-journey picker.",
         "The journey is shown from fixed reviewed content: situation, choice, effect, solution, verified source, new situation, today's step.",
       ],
+      programTitle: "The platform and the «قيم تجمعنا» program",
+      programBody:
+        "«قيم تجمعنا» (Values That Bring Us Together) is a media program published on social platforms as short clips and posts, and each clip leads to its journey here. This platform is where the learning and practice happen: it shows no video or audio, only the journey itself with its verified source.",
       aiTitle: "The AI's role and its limits",
       aiPoints: [
         "The model writes no religious text and never sees verses or hadiths: it returns only a journey ID from a closed list and a confidence level.",
@@ -404,8 +412,6 @@ export const UI_COPY: Record<Lang, UiCopy> = {
       statusUnknown: "Unknown",
       deferredTitle: "Not in this version",
       deferred: [
-        "Media production (videos, posts, audio): this is the next phase.",
-        "An editorial assistant for media drafts.",
         "Languages other than Arabic and English.",
         "Accounts, analytics and reminders.",
       ],

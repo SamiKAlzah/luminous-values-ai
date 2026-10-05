@@ -1,4 +1,4 @@
-# «قيم تجمعنا» · Values That Bring Us Together
+# «قيم مضيئة AI» · Luminous Values AI
 
 A bilingual (Arabic / English) learning platform that turns Islamic values into behaviour in everyday situations. A visitor describes a real situation in their own words; an AI router maps it to one of **three reviewed journeys**, or to a safe referral. Each journey walks through situation, choice, effect, solution, a verified Islamic source and a new situation that tests what was learned.
 
@@ -74,9 +74,21 @@ The reviewer's checklist is [docs/REVIEWER_CHECKLIST.md](docs/REVIEWER_CHECKLIST
 
 `backend/` and `data/` hold the first prototype (FastAPI service and the original 20 scenario cards). They are **not part of this submission** and are not used by the site.
 
+## The «قيم تجمعنا» media program
+
+«قيم تجمعنا» (Values That Bring Us Together) is a separate media program: short clips for YouTube Shorts and X, posts and an audio sample, published on social platforms, not on this website. Each clip or post links to its journey:
+
+| Value | Journey link |
+|---|---|
+| Citizenship | `https://luminous-values-ai.netlify.app/journey/citizenship_shared_facility` |
+| Tolerance | `https://luminous-values-ai.netlify.app/journey/tolerance_accent` |
+| Peace | `https://luminous-values-ai.netlify.app/journey/peace_before_escalation` |
+
+The website hosts no video or audio players. How many viewers move from a clip to the platform is measured with the social platforms' own click counts and the user study, so the website stays free of analytics. The program's social accounts go in `frontend/src/lib/social.ts`; the footer shows them once the list is filled.
+
 ## Not in this version
 
-Media production (videos, posts, audio), an editorial assistant for media drafts, languages other than Arabic and English, accounts, analytics and reminders.
+Languages other than Arabic and English; accounts, analytics and reminders.
 
 ---
 
@@ -90,4 +102,8 @@ Media production (videos, posts, audio), an editorial assistant for media drafts
 - **الامتناع عند الشك:** عند ضعف الثقة أو السؤال المفتوح أو الحالة الشخصية أو تعطل الخدمة تظهر قائمة الرحلات الثلاث أو الإحالة. لا تصدر المنصة فتاوى ولا تحكم على الأحاديث.
 - **الخصوصية:** يُرسَل النص إلى خدمة الذكاء الاصطناعي لاختيار الرحلة فقط، ولا يحفظه المشروع. لا حسابات ولا حقل للدين ولا تحليلات.
 
-قد يخطئ التوجيه، ولذلك تُقاس دقته على 60 حالة مقابل خط أساس بالكلمات المفتاحية، وتنشر صفحة «حول المنصة» آخر نتيجة كما سُجّلت. ما لم يدخل هذا الإصدار: إنتاج المحتوى الإعلامي ومساعد تحريره، ولغات أخرى، والحسابات والتحليلات.
+قد يخطئ التوجيه، ولذلك تُقاس دقته على 60 حالة مقابل خط أساس بالكلمات المفتاحية، وتنشر صفحة «حول المنصة» آخر نتيجة كما سُجّلت.
+
+**برنامج «قيم تجمعنا»** برنامج إعلامي مستقل يُنشر على منصات التواصل الاجتماعي (مقاطع قصيرة ومنشورات وعينة صوتية)، ويقود كل مقطع إلى رحلته في المنصة عبر الروابط المذكورة أعلاه. لا تعرض المنصة مقاطع مرئية أو صوتية، ويُقاس الانتقال من المقطع إلى المنصة بإحصاءات منصات التواصل نفسها وبتجربة المستخدمين، دون أي تحليلات داخل الموقع.
+
+ما لم يدخل هذا الإصدار: لغات أخرى غير العربية والإنجليزية، والحسابات والتحليلات والتذكيرات.

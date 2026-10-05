@@ -58,7 +58,12 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     document.documentElement.lang = language;
     document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
-    document.title = UI_COPY[language].metaTitle;
+    // Translate whichever known page title is showing; leave any other title alone.
+    const titles = (c: UiCopy) => [c.metaTitle, c.about.metaTitle];
+    const i = [UI_COPY.ar, UI_COPY.en]
+      .map((c) => titles(c).indexOf(document.title))
+      .find((n) => n !== -1);
+    if (i !== undefined) document.title = titles(UI_COPY[language])[i];
   }, [language]);
 
   const setLanguage = (next: string) => {

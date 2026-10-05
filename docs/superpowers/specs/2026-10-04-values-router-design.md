@@ -21,7 +21,9 @@ Assumptions (correct me): audience is adults (citizens and residents), Muslim or
 
 **In:** 3 values × 1 journey each, in Arabic and English: citizenship «المرفق لنا جميعًا», tolerance «لهجته مختلفة… ومكانه بيننا», peace «قبل أن يتصاعد الخلاف». Free-text router with a manual picker as backup. "Trust card" per journey. Evaluation page with real results. Mobile-first, RTL/LTR.
 
-**Out (deferred, stated as such in README and deck):** media sample; the editorial assistant for media drafts; the 20 old cards (removed from the submission; sources unverified); French/Urdu; the FastAPI backend (removed from the submission branch, kept in git history); accounts, analytics, reminders, return-visit self-report.
+**Separate channel, not website scope (owner, 2026-10-05):** the «قيم تجمعنا» media program (clips, posts, audio sample) and its later editorial assistant live on social platforms and link into the journeys; the website is «قيم مضيئة AI» and hosts no video or audio players. Media-to-platform conversion is measured by the platforms' click counts and the user study, not in the site.
+
+**Out (deferred, stated as such in README and deck):** the 20 old cards (removed from the submission; sources unverified); French/Urdu; the FastAPI backend (removed from the submission branch, kept in git history); accounts, analytics, reminders, return-visit self-report.
 
 ## 3. User flow
 

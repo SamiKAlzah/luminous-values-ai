@@ -73,6 +73,10 @@ export default function AboutContent({
           </ol>
         </Section>
 
+        <Section title={a.programTitle}>
+          <p className="text-body text-ink">{a.programBody}</p>
+        </Section>
+
         <Section title={a.aiTitle}>
           <ul className="list-disc space-y-2 ps-6 text-body text-ink">
             {a.aiPoints.map((s) => (
