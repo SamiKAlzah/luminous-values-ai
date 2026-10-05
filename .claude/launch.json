@@ -6,6 +6,12 @@
       "runtimeExecutable": "npm",
       "runtimeArgs": ["--prefix", "frontend", "run", "dev"],
       "port": 3000
+    },
+    {
+      "name": "netlify",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--no-install", "netlify", "dev", "--offline", "--port", "8888"],
+      "port": 8888
     }
   ]
 }

@@ -75,6 +75,7 @@ export interface UiCopy {
     approvalsTitle: string;
     approvalsLead: string;
     approved: string;
+    status: string;
     draft: string;
     version: string;
     by: string;
@@ -213,6 +214,7 @@ export const UI_COPY: Record<Lang, UiCopy> = {
       approvalsLead:
         "كل نص ظاهر في المنصة يجب أن يعتمده المراجع العلمي. يرتبط الاعتماد ببصمة نص الملف، فإن تغيّر حرف واحد بعد الاعتماد عاد الملف غير معتمد.",
       approved: "معتمد",
+      status: "الحالة",
       draft: "مسودة",
       version: "الإصدار",
       by: "المراجع",
@@ -362,6 +364,7 @@ export const UI_COPY: Record<Lang, UiCopy> = {
       approvalsLead:
         "Every text shown on the platform must be approved by the content reviewer. Approval is bound to a hash of the file's text: if a single character changes after approval, the file goes back to unapproved.",
       approved: "Approved",
+      status: "Status",
       draft: "Draft",
       version: "Version",
       by: "Reviewer",

@@ -94,7 +94,7 @@ export default function AboutContent({
               <thead className="bg-surface-200 text-ink">
                 <tr>
                   <th className="p-3 text-start">&nbsp;</th>
-                  <th className="p-3 text-start">{a.approved}</th>
+                  <th className="p-3 text-start">{a.status}</th>
                   <th className="p-3 text-start">{a.by}</th>
                   <th className="p-3 text-start">{a.on}</th>
                   <th className="p-3 text-start">{a.version}</th>

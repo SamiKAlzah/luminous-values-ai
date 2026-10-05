@@ -30,7 +30,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-line bg-surface-100">
+    <header className="z-50 md:sticky md:top-0 w-full border-b border-line bg-surface-100">
       <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-4 gap-y-2 px-4 py-3 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3 rounded-md">
           <Khatam size={36} />
