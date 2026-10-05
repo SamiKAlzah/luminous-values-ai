@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Info } from "lucide-react";
+import BrandBanner from "../components/BrandBanner";
 import JourneyCard from "../components/JourneyCard";
 import { useLanguage } from "../components/LanguageProvider";
 import { OrnamentBand } from "../components/Ornament";
@@ -31,8 +32,9 @@ export default function Home() {
 
   return (
     <>
-      <OrnamentBand height={48} />
+      <OrnamentBand />
       <div className="mx-auto w-full max-w-5xl space-y-10 px-4 py-10 sm:px-6 lg:px-8">
+        <BrandBanner />
         <header className="max-w-3xl">
           <h1 className="text-h1 text-ink">{copy.home.title}</h1>
           <p className="mt-2 text-body text-ink-muted">{copy.home.lead}</p>
