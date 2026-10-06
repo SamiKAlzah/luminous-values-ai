@@ -26,6 +26,7 @@ export default function Header() {
 
   const nav = [
     { href: "/", label: copy.nav.home },
+    { href: "/about-us", label: copy.nav.aboutUs },
     { href: "/about", label: copy.nav.about },
   ];
 

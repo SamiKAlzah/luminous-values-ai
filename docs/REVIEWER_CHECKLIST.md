@@ -55,3 +55,9 @@ If `verify-sources` changes a journey's `sourceCheck`, the approval is not affec
   - `npm run eval -- --split dev --routers baseline` (from `frontend/`) validates the file first and then runs only the keyword baseline, so no API key is needed.
 - **`frontend/eval/keywords.json`**: the baseline router's keyword lists, per journey and for specialist referral, in `ar` and `en`. Prefer single distinctive words. Specialist terms match as substrings after normalisation. The current lists are seeds for you to replace.
 - **`frontend/content/safety-floor.json`**: explicit self-harm, threat and abuse phrases in `ar` and `en`. They are matched as substrings after Arabic normalisation, so a short phrase also matches inside longer text. Prefer phrases that cannot occur in ordinary text, and keep it high-recall. The current list is a seed for you to replace. This file needs your approval like the others.
+
+## D. Round 2 changes to check (2026-10-06)
+
+- The Arabic title of the citizenship journey changed from `المرفق لنا جميعًا` to `المرافق لنا جميعًا` (`body.ar.title`). The file is still a draft; approve it as usual.
+- The journey order is now situation, choice, solution, effect, verified source, new situation, today's step.
+- English drafts to check: the «من نحن» (About us) page, the «قيم تجمعنا» program text on the About page, the card label `Good citizenship` and the tagline `Bringing the soul to its calm`.

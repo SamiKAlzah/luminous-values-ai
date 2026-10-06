@@ -9,6 +9,7 @@ Checked 2026-10-05. Licences are those stated by each project; confirm before re
 | Next.js 16 | Static-export web framework | MIT |
 | React 19 | UI library | MIT |
 | lucide-react | Icons | ISC |
+| simple-icons (X, YouTube and Instagram glyph paths, inline SVG) | Social links; <https://github.com/simple-icons/simple-icons> | CC0 1.0 |
 | Tailwind CSS 4 | Styling | MIT |
 | TypeScript | Language | Apache-2.0 |
 | vitest | Tests | MIT |

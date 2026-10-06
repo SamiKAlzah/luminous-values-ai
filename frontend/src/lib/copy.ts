@@ -6,11 +6,12 @@ export interface UiCopy {
   skipLink: string;
   metaTitle: string;
   metaDescription: string;
-  nav: { label: string; home: string; about: string };
+  nav: { label: string; home: string; aboutUs: string; about: string };
   languageLabel: string;
   themeLabel: string;
   themes: { light: string; dark: string; emerald: string };
   footer: { line: string; partners: string; license: string; followProgram: string };
+  social: { x: string; youtube: string; instagram: string };
   values: Record<JourneyId, string>;
   home: {
     title: string;
@@ -110,35 +111,52 @@ export interface UiCopy {
     deferredTitle: string;
     deferred: string[];
   };
+  aboutUs: {
+    metaTitle: string;
+    metaDescription: string;
+    title: string;
+    intro: string;
+    visionTitle: string;
+    vision: string;
+    missionTitle: string;
+    mission: string;
+    goalsTitle: string;
+    goals: string[];
+  };
 }
 
 export const UI_COPY: Record<Lang, UiCopy> = {
   ar: {
-    siteName: "قيم مضيئة AI",
-    tagline: "تهدي الروح إلى هدوئها، وترتقي بالسلوك إلى غايته",
+    siteName: "قيم مضيئة",
+    tagline: "تهدي الروح إلى هدوئها",
     skipLink: "تخطي إلى المحتوى",
-    metaTitle: "قيم مضيئة AI | من القيمة إلى السلوك",
+    metaTitle: "قيم مضيئة | من القيمة إلى السلوك",
     metaDescription:
       "منصة تعليمية تحوّل القيم الإسلامية إلى سلوك في مواقف الحياة اليومية: اكتب موقفك فيوجّهك الذكاء الاصطناعي إلى رحلة مراجَعة تنتهي بنص موثَّق وخطوة عملية.",
-    nav: { label: "التنقل الرئيسي", home: "الرحلة", about: "حول المنصة والتحقق" },
+    nav: { label: "التنقل الرئيسي", home: "الرحلة", aboutUs: "من نحن", about: "حول المنصة والتحقق" },
     languageLabel: "لغة العرض",
     themeLabel: "المظهر",
     themes: { light: "نجد", dark: "ليل", emerald: "زمرد" },
     footer: {
-      line: "قيم مضيئة AI · تحدي الذكاء الاصطناعي في خدمة المحتوى الإسلامي 2026م",
+      line: "قيم مضيئة · تحدي الذكاء الاصطناعي في خدمة المحتوى الإسلامي 2026م",
       partners:
         "مؤسسة باذل الأهلية · الهيئة السعودية للبيانات والذكاء الاصطناعي (سدايا) · وزارة الاتصالات وتقنية المعلومات",
       license: "مرخص برخصة MIT مفتوحة المصدر",
       followProgram: "تابع برنامج «قيم تجمعنا»",
     },
+    social: {
+      x: "قيم تجمعنا على X",
+      youtube: "قيم تجمعنا على يوتيوب",
+      instagram: "قيم تجمعنا على إنستغرام",
+    },
     values: {
-      citizenship_shared_facility: "المواطنة",
+      citizenship_shared_facility: "المواطنة الصالحة",
       tolerance_accent: "التسامح",
       peace_before_escalation: "السلام",
     },
     home: {
       title: "صف موقفًا تعيشه",
-      lead: "اكتب ما حدث بكلماتك، وسنقترح عليك الرحلة الأقرب إليه: موقف، فاختيار، فأثر، فحل، فنص موثَّق، ثم موقف جديد تختبر به ما تعلمته.",
+      lead: "اكتب ما حدث بكلماتك، وسنقترح عليك الرحلة الأقرب إليه: موقف ← اختيار ← حل ← أثر ← نص موثَّق ← موقف جديد تختبر به ما تعلمته.",
       cardsTitle: "أو اختر رحلة مباشرة",
       cardsLead: "ثلاث رحلات مراجَعة، ويمكنك البدء بأي منها.",
       openJourney: "ابدأ الرحلة",
@@ -191,20 +209,20 @@ export const UI_COPY: Record<Lang, UiCopy> = {
       notReviewed: "لم تتم مراجعته بعد",
     },
     about: {
-      metaTitle: "حول المنصة والتحقق | قيم مضيئة AI",
+      metaTitle: "حول المنصة والتحقق | قيم مضيئة",
       metaDescription: "كيف تعمل المنصة، وحدود دور الذكاء الاصطناعي فيها، وسجل الاعتماد، ونتائج التقييم.",
       title: "حول المنصة والتحقق",
       lead: "كيف تعمل المنصة، وما الذي يفعله الذكاء الاصطناعي فيها وما لا يفعله، ومن راجع المحتوى، وماذا قاسه التقييم.",
-      howTitle: "كيف تعمل",
+      howTitle: "كيف تعمل؟",
       howSteps: [
         "تكتب موقفًا بكلماتك (حتى 500 حرف) أو تختار رحلة مباشرة.",
         "يمر النص أولًا بفحص آلي لعبارات الخطر الصريحة؛ فإن وُجدت تظهر رسالة دعم دون استدعاء الذكاء الاصطناعي.",
         "ثم يختار النموذج رمز رحلة واحدًا من قائمة مغلقة، أو يحيلك إلى مختص، أو يُظهر قائمة الرحلات الثلاث.",
-        "تُعرض الرحلة من محتوى مراجَع ثابت: موقف، اختيار، أثر، حل، نص موثَّق، موقف جديد، خطوة اليوم.",
+        "تُعرض الرحلة من محتوى مراجَع ثابت: موقف، اختيار، حل، أثر، نص موثَّق، موقف جديد، خطوة اليوم.",
       ],
       programTitle: "المنصة وبرنامج «قيم تجمعنا»",
       programBody:
-        "«قيم تجمعنا» برنامج إعلامي يُنشر على منصات التواصل الاجتماعي في مقاطع قصيرة ومنشورات، ويقود كل مقطع إلى رحلته هنا. أما هذه المنصة فهي مكان التعلم والتطبيق: لا تعرض مقاطع مرئية أو صوتية، بل الرحلة نفسها بنصها الموثَّق.",
+        "«قيم تجمعنا» برنامج إعلامي يُنشر على منصات التواصل الاجتماعي ويتضمن: رسائل قصيرة (تويتر)، ومقاطع مرئية (يوتيوب) ونشرات توعويّة (إنستغرام) تصل إلى جمهور متنوّع وتحفزه لزيارة المنصّة، فيحظى بمعرفة وتجربة تفاعليّة فيها تعلّم وتطبيق ورحلة مصحوبة بنصّ موثّق.",
       aiTitle: "دور الذكاء الاصطناعي وحدوده",
       aiPoints: [
         "النموذج لا يكتب نصًا شرعيًا ولا يرى آيات أو أحاديث: يرجع فقط رمز رحلة من قائمة مغلقة ومستوى ثقة.",
@@ -264,33 +282,56 @@ export const UI_COPY: Record<Lang, UiCopy> = {
         "الحسابات والتحليلات والتذكيرات.",
       ],
     },
+    aboutUs: {
+      metaTitle: "من نحن | قيم مضيئة",
+      metaDescription: "رؤية برنامج «قيم تجمعنا» ورسالته وأبرز أهدافه.",
+      title: "من نحن",
+      intro:
+        "«قيم تجمعنا» برنامج إعلامي يُنشر على منصات التواصل الاجتماعي ويتضمن: رسائل قصيرة (تويتر)، ومقاطع مرئية (يوتيوب) ونشرات توعويّة (إنستغرام) تصل إلى جمهور متنوّع وتحفزه لزيارة المنصّة، فيحظى بمعرفة وتجربة تفاعليّة فيها تعلّم وتطبيق ورحلة مصحوبة بنصّ موثّق.",
+      visionTitle: "رؤيتنا",
+      vision: "قيمنا الإسلاميّة تلهم الإنسانيّة.",
+      missionTitle: "رسالتنا",
+      mission:
+        "برنامج إعلامي يُنشر على منصات التواصل الاجتماعي ويتضمن: رسائل قصيرة (تويتر)، ومقاطع مرئية (يوتيوب) ونشرات توعويّة (إنستغرام) تصل إلى جمهور متنوّع وتحفزه لزيارة المنصّة، فيحظى بمعرفة وتجربة تفاعليّة فيها تعلّم وتطبيق ورحلة موثّقة.",
+      goalsTitle: "أبرز أهدافنا",
+      goals: [
+        "ترجمة أهداف رؤية المملكة 2030 إلى برامج عمليّة تعرّف بالإسلام.",
+        "تعزيز القيم الإسلامية لتكون محورًا ملهمًا للإنتاج الإعلامي المعاصر.",
+        "إنتاج مرئيات وتطبيقات تسمو بالمحتوى الإسلامي.",
+      ],
+    },
   },
   en: {
-    siteName: "Luminous Values AI",
-    tagline: "Calm for the soul, purpose for behaviour",
+    siteName: "Luminous Values",
+    tagline: "Bringing the soul to its calm",
     skipLink: "Skip to content",
-    metaTitle: "Luminous Values AI | From value to behaviour",
+    metaTitle: "Luminous Values | From value to behaviour",
     metaDescription:
       "A learning platform that turns Islamic values into behaviour in everyday situations: describe your situation and an AI router sends you to a reviewed journey that ends with a verified source and a practical step.",
-    nav: { label: "Main navigation", home: "Journey", about: "About and verification" },
+    nav: { label: "Main navigation", home: "Journey", aboutUs: "About us", about: "About and verification" },
     languageLabel: "Display language",
     themeLabel: "Appearance",
     themes: { light: "Najd", dark: "Night", emerald: "Emerald" },
     footer: {
-      line: "Luminous Values AI · AI in the Service of Islamic Content Challenge 2026",
+      line: "Luminous Values · AI in the Service of Islamic Content Challenge 2026",
       partners:
         "Bathel Foundation · Saudi Data and AI Authority (SDAIA) · Ministry of Communications and Information Technology",
       license: "MIT open-source licence",
       followProgram: "Follow the «قيم تجمعنا» program",
     },
+    social: {
+      x: "قيم تجمعنا on X",
+      youtube: "قيم تجمعنا on YouTube",
+      instagram: "قيم تجمعنا on Instagram",
+    },
     values: {
-      citizenship_shared_facility: "Citizenship",
+      citizenship_shared_facility: "Good citizenship",
       tolerance_accent: "Tolerance",
       peace_before_escalation: "Peace",
     },
     home: {
       title: "Describe a situation you are facing",
-      lead: "Write what happened in your own words and we will suggest the closest journey: a situation, a choice, its effect, a solution, a verified source, then a new situation to test what you learned.",
+      lead: "Write what happened in your own words and we will suggest the closest journey: situation → choice → solution → effect → verified source → a new situation to test what you learned.",
       cardsTitle: "Or choose a journey directly",
       cardsLead: "Three reviewed journeys. You can start with any of them.",
       openJourney: "Start the journey",
@@ -343,20 +384,20 @@ export const UI_COPY: Record<Lang, UiCopy> = {
       notReviewed: "Not reviewed yet",
     },
     about: {
-      metaTitle: "About and verification | Luminous Values AI",
+      metaTitle: "About and verification | Luminous Values",
       metaDescription: "How the platform works, the limits of the AI's role, approval records and evaluation results.",
       title: "About and verification",
       lead: "How the platform works, what the AI does and does not do, who reviewed the content, and what the evaluation measured.",
-      howTitle: "How it works",
+      howTitle: "How does it work?",
       howSteps: [
         "You write a situation in your own words (up to 500 characters) or pick a journey directly.",
         "The text first passes an automatic check for explicit danger phrases; on a match a supportive message appears and the AI is not called.",
         "Then the model picks one journey ID from a closed list, refers you to a specialist, or shows the three-journey picker.",
-        "The journey is shown from fixed reviewed content: situation, choice, effect, solution, verified source, new situation, today's step.",
+        "The journey is shown from fixed reviewed content: situation, choice, solution, effect, verified source, new situation, today's step.",
       ],
       programTitle: "The platform and the «قيم تجمعنا» program",
       programBody:
-        "«قيم تجمعنا» (Values That Bring Us Together) is a media program published on social platforms as short clips and posts, and each clip leads to its journey here. This platform is where the learning and practice happen: it shows no video or audio, only the journey itself with its verified source.",
+        "«قيم تجمعنا» (Values That Bring Us Together) is a media program published on social platforms. It includes short messages (X / Twitter), video clips (YouTube) and awareness posts (Instagram) that reach a diverse audience and encourage them to visit the platform, where they gain knowledge and an interactive experience of learning, practice and a journey accompanied by a verified text.",
       aiTitle: "The AI's role and its limits",
       aiPoints: [
         "The model writes no religious text and never sees verses or hadiths: it returns only a journey ID from a closed list and a confidence level.",
@@ -414,6 +455,24 @@ export const UI_COPY: Record<Lang, UiCopy> = {
       deferred: [
         "Languages other than Arabic and English.",
         "Accounts, analytics and reminders.",
+      ],
+    },
+    aboutUs: {
+      metaTitle: "About us | Luminous Values",
+      metaDescription: "The vision, mission and main goals of the «قيم تجمعنا» program.",
+      title: "About us",
+      intro:
+        "«قيم تجمعنا» (Values That Bring Us Together) is a media program published on social platforms. It includes short messages (X / Twitter), video clips (YouTube) and awareness posts (Instagram) that reach a diverse audience and encourage them to visit the platform, where they gain knowledge and an interactive experience of learning, practice and a journey accompanied by a verified text.",
+      visionTitle: "Our vision",
+      vision: "Our Islamic values inspire humanity.",
+      missionTitle: "Our mission",
+      mission:
+        "A media program published on social platforms, with short messages (X / Twitter), video clips (YouTube) and awareness posts (Instagram) that reach a diverse audience and encourage them to visit the platform, where they gain knowledge and an interactive experience of learning, practice and a documented journey.",
+      goalsTitle: "Our main goals",
+      goals: [
+        "Turning the goals of Saudi Vision 2030 into practical programs that introduce Islam.",
+        "Strengthening Islamic values as an inspiring focus for contemporary media production.",
+        "Producing visuals and applications that elevate Islamic content.",
       ],
     },
   },

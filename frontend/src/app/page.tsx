@@ -6,6 +6,7 @@ import { Info } from "lucide-react";
 import JourneyCard from "../components/JourneyCard";
 import { useLanguage } from "../components/LanguageProvider";
 import { OrnamentBand } from "../components/Ornament";
+import SocialIcons from "../components/SocialIcons";
 import ReferralNotice from "../components/ReferralNotice";
 import RouterBox from "../components/RouterBox";
 import { MESSAGES } from "../lib/content/load";
@@ -65,6 +66,8 @@ export default function Home() {
                 ))}
               </div>
             </section>
+
+            <SocialIcons />
           </>
         )}
       </div>

@@ -2,6 +2,7 @@
 
 import { PROGRAM_SOCIAL_LINKS } from "../lib/social";
 import { useLanguage } from "./LanguageProvider";
+import { SocialGlyph } from "./SocialIcons";
 
 export default function SiteFooter() {
   const { copy } = useLanguage();
@@ -12,8 +13,16 @@ export default function SiteFooter() {
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-4 gap-y-2 border-b border-white/10 px-4 py-4 text-small sm:px-6 lg:px-8">
           <span className="font-bold">{copy.footer.followProgram}</span>
           {PROGRAM_SOCIAL_LINKS.map((l) => (
-            <a key={l.url} href={l.url} target="_blank" rel="noopener noreferrer" className="underline">
-              {l.label}
+            <a
+              key={l.url}
+              href={l.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={copy.social[l.id]}
+              className="inline-flex min-h-11 items-center gap-2 underline"
+            >
+              <SocialGlyph id={l.id} className="h-4 w-4" />
+              <span>{l.label}</span>
             </a>
           ))}
         </div>

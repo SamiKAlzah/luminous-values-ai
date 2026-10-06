@@ -1,6 +1,6 @@
-# «قيم مضيئة AI» · Luminous Values AI
+# «قيم مضيئة» · Luminous Values
 
-A bilingual (Arabic / English) learning platform that turns Islamic values into behaviour in everyday situations. A visitor describes a real situation in their own words; an AI router maps it to one of **three reviewed journeys**, or to a safe referral. Each journey walks through situation, choice, effect, solution, a verified Islamic source and a new situation that tests what was learned.
+A bilingual (Arabic / English) learning platform that turns Islamic values into behaviour in everyday situations. A visitor describes a real situation in their own words; an AI router maps it to one of **three reviewed journeys**, or to a safe referral. Each journey walks through situation, choice, solution, effect, a verified Islamic source and a new situation that tests what was learned.
 
 Challenge: *AI in the Service of Islamic Content* (Bathel Foundation, SDAIA, MCIT), Track 03, interactive experiences and learning journeys. Licence: MIT ([LICENSE](LICENSE)). Starting version: [STARTING_VERSION.md](STARTING_VERSION.md). Sources and tools: [docs/REGISTER.md](docs/REGISTER.md).
 
@@ -64,7 +64,7 @@ The reviewer's checklist is [docs/REVIEWER_CHECKLIST.md](docs/REVIEWER_CHECKLIST
 
 | Path | Contents |
 |---|---|
-| `frontend/src/app` | Pages: home, `journey/[id]`, `about` |
+| `frontend/src/app` | Pages: home, `journey/[id]`, `about-us` («من نحن»), `about` |
 | `frontend/src/lib/router` | Pipeline, model adapter, safety floor, guard, keyword baseline |
 | `frontend/src/lib/content`, `lib/eval`, `lib/journey` | Content schema and gate, evaluation metrics, journey flow |
 | `frontend/content` | Reviewed journeys, messages, safety phrases (JSON) |
@@ -84,7 +84,7 @@ The reviewer's checklist is [docs/REVIEWER_CHECKLIST.md](docs/REVIEWER_CHECKLIST
 | Tolerance | `https://luminous-values-ai.netlify.app/journey/tolerance_accent` |
 | Peace | `https://luminous-values-ai.netlify.app/journey/peace_before_escalation` |
 
-The website hosts no video or audio players. How many viewers move from a clip to the platform is measured with the social platforms' own click counts and the user study, so the website stays free of analytics. The program's social accounts go in `frontend/src/lib/social.ts`; the footer shows them once the list is filled.
+The website hosts no video or audio players. How many viewers move from a clip to the platform is measured with the social platforms' own click counts and the user study, so the website stays free of analytics. The program's accounts are listed in `frontend/src/lib/social.ts` and shown as a row of icon links under the journey cards, on the «من نحن» (About us) page and in the footer: X <https://x.com/LuminousValues>, YouTube <https://www.youtube.com/channel/UCca69WQD5QFMBbTbLaygCqQ>, Instagram <https://www.instagram.com/luminous.values/>. They are plain links: no embeds, no tracking. The «من نحن» page (`/about-us`) gives the program's vision, mission and goals.
 
 ## Not in this version
 
@@ -94,7 +94,7 @@ Languages other than Arabic and English; accounts, analytics and reminders.
 
 ## بالعربية
 
-منصة تعليمية ثنائية اللغة تحوّل القيم الإسلامية إلى سلوك في مواقف الحياة اليومية. يكتب الزائر موقفًا بكلماته، فيوجّهه موجِّه ذكي إلى إحدى **ثلاث رحلات مراجَعة** أو إلى إحالة آمنة، ثم تمر الرحلة بالموقف والاختيار والأثر والحل ونص موثَّق وموقف جديد يختبر ما تعلّمه.
+منصة تعليمية ثنائية اللغة تحوّل القيم الإسلامية إلى سلوك في مواقف الحياة اليومية. يكتب الزائر موقفًا بكلماته، فيوجّهه موجِّه ذكي إلى إحدى **ثلاث رحلات مراجَعة** أو إلى إحالة آمنة، ثم تمر الرحلة بالموقف والاختيار والحل والأثر ونص موثَّق وموقف جديد يختبر ما تعلّمه.
 
 - **النموذج يختار رمزًا فقط** من قائمة مغلقة مع مستوى ثقة، ولا يرى ولا يكتب أي نص شرعي أو نصيحة. الآيات والأحاديث والخطوات والرسائل كلها من مكتبة محتوى يعتمدها المراجع العلمي.
 - **الاعتماد مرتبط ببصمة النص:** أي تعديل بعد الاعتماد يُلغيه، ويفشل البناء الإنتاجي حتى يُعتمد الملف من جديد.

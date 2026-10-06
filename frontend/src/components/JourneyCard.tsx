@@ -22,10 +22,10 @@ export default function JourneyCard({ id }: { id: JourneyId }) {
   return (
     <article className="flex flex-col rounded-lg border border-line bg-surface-card p-5 shadow-sm">
       <div className="flex items-center gap-3">
-        <span className="flex h-11 w-11 items-center justify-center rounded-md bg-brand-tint text-brand">
+        <span className="flex h-11 w-11 items-center justify-center rounded-md bg-brand-tint text-value-green">
           <Icon className="h-6 w-6" strokeWidth={1.5} aria-hidden="true" />
         </span>
-        <p className="text-small font-semibold text-accent-ink">{copy.values[id]}</p>
+        <p className="text-small font-semibold text-value-green">{copy.values[id]}</p>
       </div>
       <h3 className="mt-3 text-h3 text-ink">{journey.title}</h3>
       <Link href={`/journey/${id}`} className={buttonClasses("quiet", "mt-5 self-start")}>

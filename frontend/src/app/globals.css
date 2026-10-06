@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /*
- * Luminous Values design tokens (قيم مضيئة AI)
+ * Luminous Values design tokens (قيم مضيئة)
  * Source: the "Luminous Values" design system, tokens.json.
  *
  * Three themes share one set of semantic tokens:
@@ -63,6 +63,7 @@
   --ornament-light: #7cc79c;
   --ornament-gold: #c9a24a;
   --accent-ink: #7a5410;
+  --value-green: #006c35;
 
   --scripture-surface: #f1f6f2;
   --line: #d9d2c1;
@@ -97,6 +98,7 @@
   --ornament-light: #1f6a47;
   --ornament-gold: #d8b45c;
   --accent-ink: #e8c780;
+  --value-green: #7cc79c;
 
   --scripture-surface: #102925;
   --line: #2a4a3a;
@@ -131,6 +133,7 @@
   --ornament-light: #43ab76;
   --ornament-gold: #e2bd62;
   --accent-ink: #efd083;
+  --value-green: #aedcc0;
 
   --scripture-surface: #003a20;
   --line: #1f7048;
@@ -230,6 +233,7 @@
   --color-ornament-light: var(--ornament-light);
   --color-ornament-gold: var(--ornament-gold);
   --color-accent-ink: var(--accent-ink);
+  --color-value-green: var(--value-green);
 
   --color-scripture-surface: var(--scripture-surface);
   --color-line: var(--line);
