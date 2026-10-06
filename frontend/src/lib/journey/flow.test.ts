@@ -16,9 +16,9 @@ describe("journey flow", () => {
     expect(run([{ type: "next" }], s).step).toBe("first_choice");
   });
 
-  it("records the first choice and moves to its effect", () => {
+  it("records the first choice and moves to the solution", () => {
     const s = run([{ type: "next" }, { type: "pickFirst", index: 1 }]);
-    expect(s).toEqual({ step: "effect", firstChoice: 1, newChoice: null });
+    expect(s).toEqual({ step: "solution", firstChoice: 1, newChoice: null });
   });
 
   it("ignores an out-of-range or mistimed first choice", () => {
@@ -29,7 +29,7 @@ describe("journey flow", () => {
     expect(reduceFlow(start, { type: "pickFirst", index: 0 })).toBe(start);
   });
 
-  it("walks effect, solution, trust, new situation", () => {
+  it("walks solution, effect, trust, new situation", () => {
     const s = run([
       { type: "next" },
       { type: "pickFirst", index: 0 },
@@ -61,8 +61,8 @@ describe("journey flow", () => {
   });
 
   it("clears a choice when going back past it", () => {
-    const atEffect: FlowState = { step: "effect", firstChoice: 1, newChoice: null };
-    expect(reduceFlow(atEffect, { type: "back" })).toEqual({
+    const atSolution: FlowState = { step: "solution", firstChoice: 1, newChoice: null };
+    expect(reduceFlow(atSolution, { type: "back" })).toEqual({
       step: "first_choice",
       firstChoice: null,
       newChoice: null,
@@ -75,10 +75,10 @@ describe("journey flow", () => {
     });
   });
 
-  it("keeps the first choice when going back from the solution", () => {
-    const atSolution: FlowState = { step: "solution", firstChoice: 1, newChoice: null };
-    expect(reduceFlow(atSolution, { type: "back" })).toEqual({
-      step: "effect",
+  it("keeps the first choice when going back from the effect", () => {
+    const atEffect: FlowState = { step: "effect", firstChoice: 1, newChoice: null };
+    expect(reduceFlow(atEffect, { type: "back" })).toEqual({
+      step: "solution",
       firstChoice: 1,
       newChoice: null,
     });

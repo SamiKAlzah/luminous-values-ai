@@ -1,8 +1,8 @@
 export const STEPS = [
   "situation",
   "first_choice",
-  "effect",
   "solution",
+  "effect",
   "trust",
   "new_situation",
   "new_feedback",
@@ -35,8 +35,8 @@ function validChoice(index: number): boolean {
 // Steps that wait for a choice cannot be skipped with "next"; the last step has no successor.
 const NEXT: Partial<Record<StepId, StepId>> = {
   situation: "first_choice",
-  effect: "solution",
-  solution: "trust",
+  solution: "effect",
+  effect: "trust",
   trust: "new_situation",
   new_feedback: "today",
 };
@@ -59,7 +59,7 @@ export function reduceFlow(state: FlowState, action: FlowAction): FlowState {
     }
     case "pickFirst":
       if (state.step !== "first_choice" || !validChoice(action.index)) return state;
-      return { ...state, step: "effect", firstChoice: action.index };
+      return { ...state, step: "solution", firstChoice: action.index };
     case "pickNew":
       if (state.step !== "new_situation" || !validChoice(action.index)) return state;
       return { ...state, step: "new_feedback", newChoice: action.index };
