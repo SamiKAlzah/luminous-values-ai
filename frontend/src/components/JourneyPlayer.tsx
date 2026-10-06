@@ -114,12 +114,6 @@ export default function JourneyPlayer({ id }: { id: JourneyId }) {
       <p className="text-small font-semibold text-accent-ink">{copy.values[id]}</p>
       <h1 className="mt-1 text-h1 text-ink">{text.title}</h1>
 
-      {file.approval.status !== "approved" && (
-        <p className="mt-3 rounded-md border border-line bg-surface-200 p-3 text-small text-ink-muted">
-          {j.draftNotice}
-        </p>
-      )}
-
       <div className="mt-6 flex items-center justify-between gap-4">
         <button
           type="button"

@@ -47,7 +47,6 @@ export interface UiCopy {
     trustIntro: string;
     tryAnother: string;
     home: string;
-    draftNotice: string;
   };
   trust: {
     quran: string;
@@ -195,7 +194,6 @@ export const UI_COPY: Record<Lang, UiCopy> = {
       trustIntro: "النص الذي تستند إليه هذه الرحلة",
       tryAnother: "جرّب رحلة أخرى",
       home: "العودة إلى الرئيسية",
-      draftNotice: "محتوى مسودة قيد مراجعة المراجع العلمي ولم يُعتمد بعد.",
     },
     trust: {
       quran: "آية قرآنية",
@@ -373,7 +371,6 @@ export const UI_COPY: Record<Lang, UiCopy> = {
       trustIntro: "The text this journey rests on",
       tryAnother: "Try another journey",
       home: "Back to home",
-      draftNotice: "Draft content awaiting the reviewer's approval. It has not been approved yet.",
     },
     trust: {
       quran: "Qur'anic verse",
