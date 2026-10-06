@@ -212,9 +212,9 @@ export const UI_COPY: Record<Lang, UiCopy> = {
     },
     about: {
       metaTitle: "حول المنصة والتحقق | قيم مضيئة",
-      metaDescription: "كيف تعمل المنصة، وحدود دور الذكاء الاصطناعي فيها، وسجل الاعتماد، ونتائج التقييم.",
+      metaDescription: "كيف تعمل المنصة، وعلاقتها ببرنامج «قيم تجمعنا»، وحدود دور الذكاء الاصطناعي فيها، والخصوصية.",
       title: "حول المنصة والتحقق",
-      lead: "كيف تعمل المنصة، وما الذي يفعله الذكاء الاصطناعي فيها وما لا يفعله، ومن راجع المحتوى، وماذا قاسه التقييم.",
+      lead: "كيف تعمل المنصة، وما الذي يفعله الذكاء الاصطناعي فيها وما لا يفعله، وكيف نحمي خصوصيتك.",
       howTitle: "كيف تعمل؟",
       howSteps: [
         "تكتب موقفًا بكلماتك (حتى 500 حرف) أو تختار رحلة مباشرة.",
@@ -232,7 +232,7 @@ export const UI_COPY: Record<Lang, UiCopy> = {
         "الآيات والأحاديث والخطوات والرسائل كلها تأتي من مكتبة محتوى مراجَعة، ولا يولّدها النموذج.",
         "عند ضعف الثقة يمتنع النظام عن التخمين ويعرض قائمة الرحلات.",
         "المنصة لا تصدر فتاوى ولا تحكم على الأحاديث؛ وتحيل الحالات الشخصية والمسائل الخلافية إلى مختص.",
-        "قد يخطئ التوجيه أحيانًا؛ ونقيس ذلك في قسم التقييم أدناه بدل ادعاء الدقة المطلقة.",
+        "قد يخطئ التوجيه أحيانًا؛ ولذلك نقيس دقته بتقييم منهجي بدل ادعاء الدقة المطلقة، وتبقى الرحلات الثلاث متاحة للاختيار المباشر دائمًا.",
       ],
       privacyTitle: "الخصوصية",
       privacyBody:
@@ -390,9 +390,9 @@ export const UI_COPY: Record<Lang, UiCopy> = {
     },
     about: {
       metaTitle: "About and verification | Luminous Values",
-      metaDescription: "How the platform works, the limits of the AI's role, approval records and evaluation results.",
+      metaDescription: "How the platform works, how it relates to the «قيم تجمعنا» program, the limits of the AI's role, and privacy.",
       title: "About and verification",
-      lead: "How the platform works, what the AI does and does not do, who reviewed the content, and what the evaluation measured.",
+      lead: "How the platform works, what the AI does and does not do, and how we protect your privacy.",
       howTitle: "How does it work?",
       howSteps: [
         "You write a situation in your own words (up to 500 characters) or pick a journey directly.",
@@ -410,7 +410,7 @@ export const UI_COPY: Record<Lang, UiCopy> = {
         "Verses, hadiths, steps and messages all come from a reviewed content library, and the model does not generate them.",
         "When confidence is low the system holds back instead of guessing, and shows the picker.",
         "The platform gives no fatwas and does not grade hadiths; personal cases and disputed questions are referred to a specialist.",
-        "Routing can be wrong sometimes. We measure that in the evaluation below instead of claiming perfect accuracy.",
+        "Routing can be wrong sometimes, so we measure its accuracy with a systematic evaluation instead of claiming perfection, and the three journeys can always be chosen directly.",
       ],
       privacyTitle: "Privacy",
       privacyBody:
