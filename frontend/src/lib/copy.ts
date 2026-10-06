@@ -122,6 +122,8 @@ export interface UiCopy {
     mission: string;
     goalsTitle: string;
     goals: string[];
+    programsTitle: string;
+    programs: string;
   };
 }
 
@@ -225,6 +227,7 @@ export const UI_COPY: Record<Lang, UiCopy> = {
         "«قيم تجمعنا» برنامج إعلامي يُنشر على منصات التواصل الاجتماعي ويتضمن: رسائل قصيرة (تويتر)، ومقاطع مرئية (يوتيوب) ونشرات توعويّة (إنستغرام) تصل إلى جمهور متنوّع وتحفزه لزيارة المنصّة، فيحظى بمعرفة وتجربة تفاعليّة فيها تعلّم وتطبيق ورحلة مصحوبة بنصّ موثّق.",
       aiTitle: "دور الذكاء الاصطناعي وحدوده",
       aiPoints: [
+        "نستخدم الاسترجاع المعزّز (RAG) في صورة مقيّدة: يحدّد النموذج الرحلة المناسبة لموقفك، ثم يسترجع النظام نصوصها المعتمدة (الموقف والحل والآية أو الحديث) من المكتبة المراجَعة ويعرضها كما هي، دون أن يولّد النموذج إجابة من عنده.",
         "النموذج لا يكتب نصًا شرعيًا ولا يرى آيات أو أحاديث: يرجع فقط رمز رحلة من قائمة مغلقة ومستوى ثقة.",
         "الآيات والأحاديث والخطوات والرسائل كلها تأتي من مكتبة محتوى مراجَعة، ولا يولّدها النموذج.",
         "عند ضعف الثقة يمتنع النظام عن التخمين ويعرض قائمة الرحلات.",
@@ -285,20 +288,22 @@ export const UI_COPY: Record<Lang, UiCopy> = {
     aboutUs: {
       metaTitle: "من نحن | قيم مضيئة",
       metaDescription: "رؤية برنامج «قيم تجمعنا» ورسالته وأبرز أهدافه.",
-      title: "من نحن",
-      intro:
-        "«قيم تجمعنا» برنامج إعلامي يُنشر على منصات التواصل الاجتماعي ويتضمن: رسائل قصيرة (تويتر)، ومقاطع مرئية (يوتيوب) ونشرات توعويّة (إنستغرام) تصل إلى جمهور متنوّع وتحفزه لزيارة المنصّة، فيحظى بمعرفة وتجربة تفاعليّة فيها تعلّم وتطبيق ورحلة مصحوبة بنصّ موثّق.",
+      title: "من نحن؟",
+      intro: "سفراء قيمٍ تضيء العقول والقلوب بمكارم الأخلاق.",
       visionTitle: "رؤيتنا",
       vision: "قيمنا الإسلاميّة تلهم الإنسانيّة.",
       missionTitle: "رسالتنا",
       mission:
-        "برنامج إعلامي يُنشر على منصات التواصل الاجتماعي ويتضمن: رسائل قصيرة (تويتر)، ومقاطع مرئية (يوتيوب) ونشرات توعويّة (إنستغرام) تصل إلى جمهور متنوّع وتحفزه لزيارة المنصّة، فيحظى بمعرفة وتجربة تفاعليّة فيها تعلّم وتطبيق ورحلة موثّقة.",
+        "تقديم سلسلة من البرامج الإعلامية على منصات التواصل الاجتماعي تتضمن: رسائل قصيرة (تويتر)، ومقاطع مرئية (يوتيوب) ونشرات توعويّة (إنستغرام) تصل إلى جمهور متنوّع وتحفزه لزيارة المنصّة؛ ليَحظى بمعرفة وتجربة تفاعليّة فيها تعلّمٌ وتطبيق ورحلة موثّقة.",
       goalsTitle: "أبرز أهدافنا",
       goals: [
         "ترجمة أهداف رؤية المملكة 2030 إلى برامج عمليّة تعرّف بالإسلام.",
         "تعزيز القيم الإسلامية لتكون محورًا ملهمًا للإنتاج الإعلامي المعاصر.",
         "إنتاج مرئيات وتطبيقات تسمو بالمحتوى الإسلامي.",
       ],
+      programsTitle: "من برامجنا",
+      programs:
+        "«قيم تجمعنا» برنامج إعلامي يُنشر على منصات التواصل الاجتماعي ويتضمن: رسائل قصيرة (تويتر)، ومقاطع مرئية (يوتيوب) ونشرات توعويّة (إنستغرام) تصل إلى جمهور متنوّع وتحفزه لزيارة المنصّة، فيحظى بمعرفة وتجربة تفاعليّة فيها تعلّم وتطبيق ورحلة مصحوبة بنصّ موثّق.",
     },
   },
   en: {
@@ -400,6 +405,7 @@ export const UI_COPY: Record<Lang, UiCopy> = {
         "«قيم تجمعنا» (Values That Bring Us Together) is a media program published on social platforms. It includes short messages (X / Twitter), video clips (YouTube) and awareness posts (Instagram) that reach a diverse audience and encourage them to visit the platform, where they gain knowledge and an interactive experience of learning, practice and a journey accompanied by a verified text.",
       aiTitle: "The AI's role and its limits",
       aiPoints: [
+        "We use retrieval-augmented generation (RAG) in a restricted form: the model picks the journey that fits your situation, then the system retrieves that journey's approved texts (situation, solution, verse or hadith) from the reviewed library and shows them unchanged, without the model writing an answer of its own.",
         "The model writes no religious text and never sees verses or hadiths: it returns only a journey ID from a closed list and a confidence level.",
         "Verses, hadiths, steps and messages all come from a reviewed content library, and the model does not generate them.",
         "When confidence is low the system holds back instead of guessing, and shows the picker.",
@@ -460,20 +466,22 @@ export const UI_COPY: Record<Lang, UiCopy> = {
     aboutUs: {
       metaTitle: "About us | Luminous Values",
       metaDescription: "The vision, mission and main goals of the «قيم تجمعنا» program.",
-      title: "About us",
-      intro:
-        "«قيم تجمعنا» (Values That Bring Us Together) is a media program published on social platforms. It includes short messages (X / Twitter), video clips (YouTube) and awareness posts (Instagram) that reach a diverse audience and encourage them to visit the platform, where they gain knowledge and an interactive experience of learning, practice and a journey accompanied by a verified text.",
+      title: "Who are we?",
+      intro: "Ambassadors of values that light up minds and hearts with noble character.",
       visionTitle: "Our vision",
       vision: "Our Islamic values inspire humanity.",
       missionTitle: "Our mission",
       mission:
-        "A media program published on social platforms, with short messages (X / Twitter), video clips (YouTube) and awareness posts (Instagram) that reach a diverse audience and encourage them to visit the platform, where they gain knowledge and an interactive experience of learning, practice and a documented journey.",
+        "To offer a series of media programs on social platforms, with short messages (X / Twitter), video clips (YouTube) and awareness posts (Instagram) that reach a diverse audience and encourage them to visit the platform, so that they gain knowledge and an interactive experience of learning, practice and a documented journey.",
       goalsTitle: "Our main goals",
       goals: [
         "Turning the goals of Saudi Vision 2030 into practical programs that introduce Islam.",
         "Strengthening Islamic values as an inspiring focus for contemporary media production.",
         "Producing visuals and applications that elevate Islamic content.",
       ],
+      programsTitle: "Our programs",
+      programs:
+        "«قيم تجمعنا» (Values That Bring Us Together) is a media program published on social platforms. It includes short messages (X / Twitter), video clips (YouTube) and awareness posts (Instagram) that reach a diverse audience and encourage them to visit the platform, where they gain knowledge and an interactive experience of learning, practice and a journey accompanied by a verified text.",
     },
   },
 };

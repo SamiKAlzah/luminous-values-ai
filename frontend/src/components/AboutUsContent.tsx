@@ -36,6 +36,11 @@ export default function AboutUsContent() {
           </ul>
         </section>
 
+        <section className="space-y-3">
+          <h2 className="text-h2 text-ink">{a.programsTitle}</h2>
+          <p className="text-body text-ink">{a.programs}</p>
+        </section>
+
         <SocialIcons />
       </div>
     </>
