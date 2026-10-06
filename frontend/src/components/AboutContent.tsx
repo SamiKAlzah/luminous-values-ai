@@ -2,7 +2,6 @@
 
 import type { Approval } from "../lib/content/schema";
 import type { EvalResultFile, MetricCount } from "../lib/eval/metrics";
-import BrandBanner from "./BrandBanner";
 import { useLanguage } from "./LanguageProvider";
 import { OrnamentBand, OrnamentDivider } from "./Ornament";
 import SmartRoutingStatus from "./SmartRoutingStatus";
@@ -59,9 +58,8 @@ export default function AboutContent({
 
   return (
     <>
-      <OrnamentBand />
+      <OrnamentBand height={48} />
       <div className="mx-auto w-full max-w-4xl space-y-10 px-4 py-10 sm:px-6 lg:px-8">
-        <BrandBanner />
         <header>
           <h1 className="text-h1 text-ink">{a.title}</h1>
           <p className="mt-2 text-body text-ink-muted">{a.lead}</p>

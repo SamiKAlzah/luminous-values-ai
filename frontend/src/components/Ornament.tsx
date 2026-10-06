@@ -45,21 +45,9 @@ export function Khatam({ size = 24, className = "" }: { size?: number; className
   );
 }
 
-/**
- * Watercolour band: the star lattice is dissolved into soft washes of the same
- * three tokens the logo and value icons use (deep green, light green, gold).
- * The stars stay faint, edges bleed like wet paper, and the lower edge fades
- * into the page ground so there is no hard frame. Transparent, so it sits on
- * any theme.
- */
-export function OrnamentBand({ height = 72, className = "" }: { height?: number; className?: string }) {
-  const id = useId().replace(/[^a-zA-Z0-9_-]/g, "");
-  const lattice = `${id}-lattice`;
-  const bleed = `${id}-bleed`;
-  const wash = `${id}-wash`;
-  const grain = `${id}-grain`;
-  const fade = `${id}-fade`;
-  const fadeMask = `${id}-fade-mask`;
+/** Repeating star lattice on a 48px grid. Transparent, so it sits on any ground. */
+export function OrnamentBand({ height = 48, className = "" }: { height?: number; className?: string }) {
+  const id = useId();
   const corner = (x: number, y: number) => (
     <path key={`${x}-${y}`} className="fill-ornament-deep" d={star(x, y, 11, 6.5)} />
   );
@@ -72,64 +60,15 @@ export function OrnamentBand({ height = 72, className = "" }: { height?: number;
       className={`block ${className}`}
     >
       <defs>
-        <pattern id={lattice} width="48" height="48" patternUnits="userSpaceOnUse">
+        <pattern id={id} width="48" height="48" patternUnits="userSpaceOnUse">
           <KhatamShapes />
           {corner(0, 0)}
           {corner(48, 0)}
           {corner(0, 48)}
           {corner(48, 48)}
         </pattern>
-
-        {/* Wet edges: warp the shapes slightly, then soften them. */}
-        <filter id={bleed} x="-5%" y="-20%" width="110%" height="140%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" result="noise" />
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="7" result="warped" />
-          <feGaussianBlur in="warped" stdDeviation="1.1" />
-        </filter>
-
-        {/* Pigment pooling: heavier blur for the colour washes behind the stars. */}
-        <filter id={wash} x="-20%" y="-80%" width="140%" height="260%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.012 0.03" numOctaves="2" seed="3" result="noise" />
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="22" result="warped" />
-          <feGaussianBlur in="warped" stdDeviation="9" />
-        </filter>
-
-        {/* Paper tooth: fine grain that only darkens, kept very light. */}
-        <filter id={grain} x="0" y="0" width="100%" height="100%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="11" />
-          <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 -0.12" />
-        </filter>
-
-        {/* Dissolve the lower edge into the page, and the two ends a little. */}
-        <linearGradient id={fade} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#fff" />
-          <stop offset="0.55" stopColor="#fff" stopOpacity="0.85" />
-          <stop offset="1" stopColor="#fff" stopOpacity="0" />
-        </linearGradient>
-        <mask id={fadeMask}>
-          <rect width="100%" height={height} fill={`url(#${fade})`} />
-        </mask>
       </defs>
-
-      <g mask={`url(#${fadeMask})`}>
-        <g filter={`url(#${wash})`}>
-          <ellipse className="fill-ornament-light" cx="12%" cy="42%" rx="20%" ry="30%" opacity="0.5" />
-          <ellipse className="fill-ornament-gold" cx="34%" cy="58%" rx="14%" ry="24%" opacity="0.38" />
-          <ellipse className="fill-ornament-deep" cx="55%" cy="40%" rx="22%" ry="28%" opacity="0.3" />
-          <ellipse className="fill-ornament-gold" cx="74%" cy="56%" rx="13%" ry="22%" opacity="0.32" />
-          <ellipse className="fill-ornament-light" cx="92%" cy="44%" rx="19%" ry="30%" opacity="0.5" />
-        </g>
-
-        <rect
-          width="100%"
-          height={height}
-          fill={`url(#${lattice})`}
-          filter={`url(#${bleed})`}
-          opacity="0.3"
-        />
-
-        <rect width="100%" height={height} filter={`url(#${grain})`} opacity="0.35" />
-      </g>
+      <rect width="100%" height={height} fill={`url(#${id})`} />
     </svg>
   );
 }
