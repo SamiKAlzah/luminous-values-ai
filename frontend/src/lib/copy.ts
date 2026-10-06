@@ -59,7 +59,6 @@ export interface UiCopy {
     explanationNote: string;
     verify: string;
     reviewed: string;
-    notReviewed: string;
   };
   about: {
     metaTitle: string;
@@ -206,7 +205,6 @@ export const UI_COPY: Record<Lang, UiCopy> = {
       explanationNote: "الشرح للتوضيح، والنص هو المذكور أعلاه.",
       verify: "تحقق من المصدر",
       reviewed: "راجعه {by} · {date} · الإصدار {version}",
-      notReviewed: "لم تتم مراجعته بعد",
     },
     about: {
       metaTitle: "حول المنصة والتحقق | قيمٌ مضيئة",
@@ -383,7 +381,6 @@ export const UI_COPY: Record<Lang, UiCopy> = {
       explanationNote: "The explanation is there to clarify. The text is what appears above.",
       verify: "Verify the source",
       reviewed: "Reviewed by {by} · {date} · version {version}",
-      notReviewed: "Not reviewed yet",
     },
     about: {
       metaTitle: "About and verification | Luminous Values",

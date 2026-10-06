@@ -67,13 +67,12 @@ export default function TrustCard({ source, approval }: { source: Source; approv
 
       <div className="mt-6 flex flex-col items-start justify-between gap-3 border-t border-line pt-4 sm:flex-row sm:items-center">
         <span className="text-caption text-ink-muted">
-          {approved
-            ? fmt(t.reviewed, {
-                by: approval.reviewedBy,
-                date: approval.reviewedAt,
-                version: approval.version,
-              })
-            : t.notReviewed}
+          {approved &&
+            fmt(t.reviewed, {
+              by: approval.reviewedBy,
+              date: approval.reviewedAt,
+              version: approval.version,
+            })}
         </span>
         <a
           href={source.url}

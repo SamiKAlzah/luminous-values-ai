@@ -90,9 +90,9 @@
     },
     "source": {
       "type": "quran",
-      "arabicText": "وَلَا تَسۡتَوِي ٱلۡحَسَنَةُ وَلَا ٱلسَّيِّئَةُۚ ٱدۡفَعۡ بِٱلَّتِي هِيَ أَحۡسَنُ فَإِذَا ٱلَّذِي بَيۡنَكَ وَبَيۡنَهُۥ عَدَٰوَةٞ كَأَنَّهُۥ وَلِيٌّ حَمِيمٞ",
+      "arabicText": "وَلَا تَسْتَوِي الْحَسَنَةُ وَلَا السَّيِّئَةُ ۚ ادْفَعْ بِالَّتِي هِيَ أَحْسَنُ فَإِذَا الَّذِي بَيْنَكَ وَبَيْنَهُ عَدَاوَةٌ كَأَنَّهُ وَلِيٌّ حَمِيمٌ",
       "reference": "سورة فصلت، الآية 34 · Qur'an, Surah Fussilat (41), verse 34",
-      "grade": "آية قرآنية، بالرسم العثماني (رواية حفص) كما تعرضه Quranpedia · Qur'anic verse, Uthmani script (Hafs) as displayed on Quranpedia",
+      "grade": "آية قرآنية، بالرسم الإملائي كما تعرضه Quranpedia · Qur'anic verse, standard (imla'i) script as displayed on Quranpedia",
       "url": "https://quranpedia.net/tafsir/fussilat/34/en",
       "translation": {
         "name": "Saheeh International, English translation of the meanings (as published on quranpedia.net)",
@@ -105,9 +105,9 @@
     }
   },
   "sourceCheck": {
-    "checkedAt": "2026-10-04T09:56:04.814Z",
+    "checkedAt": "2026-10-06T09:20:37.472Z",
     "url": "https://quranpedia.net/tafsir/fussilat/34/en",
-    "arabicTextHash": "96359922e5707946b7d7a4acd7a6e8782e0476a7fa7fdad66eaaf516e97faf66",
+    "arabicTextHash": "ad402b8ae4d0aad5d3c709bda6687a55d50d860c590dd28abc708e5c1caa3232",
     "pass": true
   }
 }

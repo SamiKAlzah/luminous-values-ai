@@ -90,9 +90,9 @@
     },
     "source": {
       "type": "quran",
-      "arabicText": "يَـٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُواْ لَا يَسۡخَرۡ قَوۡمٞ مِّن قَوۡمٍ عَسَىٰٓ أَن يَكُونُواْ خَيۡرٗا مِّنۡهُمۡ وَلَا نِسَآءٞ مِّن نِّسَآءٍ عَسَىٰٓ أَن يَكُنَّ خَيۡرٗا مِّنۡهُنَّۖ وَلَا تَلۡمِزُوٓاْ أَنفُسَكُمۡ وَلَا تَنَابَزُواْ بِٱلۡأَلۡقَٰبِۖ بِئۡسَ ٱلِٱسۡمُ ٱلۡفُسُوقُ بَعۡدَ ٱلۡإِيمَٰنِۚ وَمَن لَّمۡ يَتُبۡ فَأُوْلَـٰٓئِكَ هُمُ ٱلظَّـٰلِمُونَ",
+      "arabicText": "يَا أَيُّهَا الَّذِينَ آمَنُوا لَا يَسْخَرْ قَوْمٌ مِنْ قَوْمٍ عَسَىٰ أَنْ يَكُونُوا خَيْرًا مِنْهُمْ وَلَا نِسَاءٌ مِنْ نِسَاءٍ عَسَىٰ أَنْ يَكُنَّ خَيْرًا مِنْهُنَّ ۖ وَلَا تَلْمِزُوا أَنْفُسَكُمْ وَلَا تَنَابَزُوا بِالْأَلْقَابِ ۖ بِئْسَ الِاسْمُ الْفُسُوقُ بَعْدَ الْإِيمَانِ ۚ وَمَنْ لَمْ يَتُبْ فَأُولَٰئِكَ هُمُ الظَّالِمُونَ",
       "reference": "سورة الحجرات، الآية 11 · Qur'an, Surah Al-Hujurat (49), verse 11",
-      "grade": "آية قرآنية، بالرسم العثماني (رواية حفص) كما تعرضه Quranpedia · Qur'anic verse, Uthmani script (Hafs) as displayed on Quranpedia",
+      "grade": "آية قرآنية، بالرسم الإملائي كما تعرضه Quranpedia · Qur'anic verse, standard (imla'i) script as displayed on Quranpedia",
       "url": "https://quranpedia.net/tafsir/al-hujurat/11/en",
       "translation": {
         "name": "Saheeh International, English translation of the meanings (as published on quranpedia.net)",
@@ -105,9 +105,9 @@
     }
   },
   "sourceCheck": {
-    "checkedAt": "2026-10-04T09:56:04.674Z",
+    "checkedAt": "2026-10-06T09:20:37.338Z",
     "url": "https://quranpedia.net/tafsir/al-hujurat/11/en",
-    "arabicTextHash": "6051852ea00964f74615bee15b70a3f286b5a4ca4d7f31e630b6fa5e1806857f",
+    "arabicTextHash": "f66f8e38d42f4580099a932c9e31bcc3dae9e115182f334fe52c852f3d3bb5f5",
     "pass": true
   }
 }
