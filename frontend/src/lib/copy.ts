@@ -134,7 +134,7 @@ export const UI_COPY: Record<Lang, UiCopy> = {
     metaTitle: "قيم مضيئة | من القيمة إلى السلوك",
     metaDescription:
       "منصة تعليمية تحوّل القيم الإسلامية إلى سلوك في مواقف الحياة اليومية: اكتب موقفك فيوجّهك الذكاء الاصطناعي إلى رحلة مراجَعة تنتهي بنص موثَّق وخطوة عملية.",
-    nav: { label: "التنقل الرئيسي", home: "الرحلة", aboutUs: "من نحن", about: "حول المنصة والتحقق" },
+    nav: { label: "التنقل الرئيسي", home: "الرحلة", aboutUs: "من نحن؟", about: "حول المنصة والتحقق" },
     languageLabel: "لغة العرض",
     themeLabel: "المظهر",
     themes: { light: "نجد", dark: "ليل", emerald: "زمرد" },
@@ -284,7 +284,7 @@ export const UI_COPY: Record<Lang, UiCopy> = {
       ],
     },
     aboutUs: {
-      metaTitle: "من نحن | قيم مضيئة",
+      metaTitle: "من نحن؟ | قيم مضيئة",
       metaDescription: "رؤية برنامج «قيم تجمعنا» ورسالته وأبرز أهدافه.",
       title: "من نحن؟",
       intro: "سفراء قيمٍ تضيء العقول والقلوب بمكارم الأخلاق.",
@@ -311,7 +311,7 @@ export const UI_COPY: Record<Lang, UiCopy> = {
     metaTitle: "Luminous Values | From value to behaviour",
     metaDescription:
       "A learning platform that turns Islamic values into behaviour in everyday situations: describe your situation and an AI router sends you to a reviewed journey that ends with a verified source and a practical step.",
-    nav: { label: "Main navigation", home: "Journey", aboutUs: "About us", about: "About and verification" },
+    nav: { label: "Main navigation", home: "Journey", aboutUs: "Who are we?", about: "About and verification" },
     languageLabel: "Display language",
     themeLabel: "Appearance",
     themes: { light: "Najd", dark: "Night", emerald: "Emerald" },
@@ -461,7 +461,7 @@ export const UI_COPY: Record<Lang, UiCopy> = {
       ],
     },
     aboutUs: {
-      metaTitle: "About us | Luminous Values",
+      metaTitle: "Who are we? | Luminous Values",
       metaDescription: "The vision, mission and main goals of the «قيم تجمعنا» program.",
       title: "Who are we?",
       intro: "Ambassadors of values that light up minds and hearts with noble character.",
